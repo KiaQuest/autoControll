@@ -1,0 +1,30 @@
+Firma işlemleri
+
+1 - Telefon numarası yerine harf yazılıyor
+2 - Telefon numarasına tıklayınca tek seferde aranmalı
+3 - Firmaların detay ve düzenleme işlemleri yok
+4 - Aktif düğmesine tek üzerine tıklama ile pasif olmalı
+
+
+Çalışan işlemleri
+
+1 - çalışan listesine tıklayınca sağdece kod geliyor
+2 - çalışan kontrol yazan yerdeki bütün işlemler çalışan işlemlerinin altında olacak
+
+
+Tarla işlemleri
+
+1 - Tarla listesinde düzenle Detay gibi düğmeler yok (eklenecek)
+2 - Tarla Satış yok?
+
+Müşteri işlemlerinde 
+
+1- Müşteri ekle ve Müşteri Listesi diye iki alt menü oluştur ve form oluştur
+
+Yönetici işlemleri
+
+1 - Silinen veriler tablosu yok (Yada loglar kim hangi alanda neler yapmış)
+
+Müdür kontrol
+
+1 - menüler yok
