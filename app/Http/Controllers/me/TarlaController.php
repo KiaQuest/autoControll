@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\me;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
+use App\Models\Odeme;
 use App\Models\tarla;
 use Illuminate\Http\Request;
 
@@ -63,9 +65,11 @@ class TarlaController extends Controller
 
     public function eksatis(Request $request)
     {
-        dd($request->all());
-        tarla::create($request->all() + ['kim' => auth()->user()->id]);
-        return redirect()->route('tarla.index');
+
+        Odeme::create($request->all() + ['kim' => auth()->user()->id]);
+//        Customer::create($request->all() + ['kim' => auth()->user()->id]);
+//        dd($request->all());
+        return redirect()->route('home');
 
     }
 

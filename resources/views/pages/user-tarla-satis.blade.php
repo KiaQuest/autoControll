@@ -25,21 +25,21 @@
                         <ul class="nav nav-pills nav-fill p-1" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link mb-0 px-0 py-1 active d-flex align-items-center justify-content-center "
-                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+                                   data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
                                     <i class="ni ni-app"></i>
                                     <span class="ms-2">App</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
+                                   data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-email-83"></i>
                                     <span class="ms-2">Messages</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
-                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
+                                   data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-settings-gear-65"></i>
                                     <span class="ms-2">Settings</span>
                                 </a>
@@ -57,7 +57,8 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-                    <form role="form" method="POST" action={{ route('tarla.satis.post') }} enctype="multipart/form-data">
+                    <form role="form" method="POST"
+                          action={{ route('tarla.satis.post') }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
@@ -77,116 +78,151 @@
                                         <div class="col-md-12">
                                             <label for="cars">Tarlalarim : <span class="req">*</span></label>
 
-                                            <select name="tarlaID" id="tarlas"  class="form-control" required>
+                                            <select name="tarlaID" id="tarlas" class="form-control" required>
                                                 <option value="" disabled selected>Seçin...</option>
 
                                             </select>
                                         </div>
 
+                                        <input type="hidden" name="OdemeTipi" value="alacak">
 
+                                        {{--                                        <div class="col-md-4">--}}
+                                        {{--                                            <label for="konum_il">İl</label>--}}
+                                        {{--                                            <select name="konum_il" id="konum_il" class="form-control">--}}
+                                        {{--                                                <option value="">Seçin...</option>--}}
+                                        {{--                                                <option value="2">Seçin 2</option>--}}
+                                        {{--                                            </select>--}}
+                                        {{--                                        </div>--}}
 
+                                        {{--                                        <div class="col-md-4">--}}
+                                        {{--                                            <label for="konum_ilce">İlçe</label>--}}
+                                        {{--                                            <select name="konum_ilce" id="konum_ilce" class="form-control" disabled="disabled">--}}
+                                        {{--                                                <option value="">Seçin...</option>--}}
+                                        {{--                                            </select>--}}
+                                        {{--                                        </div>--}}
 
-{{--                                        <div class="col-md-4">--}}
-{{--                                            <label for="konum_il">İl</label>--}}
-{{--                                            <select name="konum_il" id="konum_il" class="form-control">--}}
-{{--                                                <option value="">Seçin...</option>--}}
-{{--                                                <option value="2">Seçin 2</option>--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="col-md-4">--}}
-{{--                                            <label for="konum_ilce">İlçe</label>--}}
-{{--                                            <select name="konum_ilce" id="konum_ilce" class="form-control" disabled="disabled">--}}
-{{--                                                <option value="">Seçin...</option>--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
-
-{{--                                        <div class="col-md-4">--}}
-{{--                                            <label for="konum_mahalle">Mahalle</label>--}}
-{{--                                            <select name="konum_mahalle" id="konum_mahalle" class="form-control" disabled="disabled">--}}
-{{--                                                <option value="">Seçin...</option>--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
+                                        {{--                                        <div class="col-md-4">--}}
+                                        {{--                                            <label for="konum_mahalle">Mahalle</label>--}}
+                                        {{--                                            <select name="konum_mahalle" id="konum_mahalle" class="form-control" disabled="disabled">--}}
+                                        {{--                                                <option value="">Seçin...</option>--}}
+                                        {{--                                            </select>--}}
+                                        {{--                                        </div>--}}
                                     </div>
 
                                     <style>
-                                        .req{
+                                        .req {
                                             margin: .5rem;
                                             color: coral;
                                         }
                                     </style>
                                     <br>
-                                    <div class="col-md-4">
-                                        <label for="parsels">Satilan Parsel Sayi <span class="req">*</span></label>
-                                        <input type="text" name="parselsayisi" id="parsels" class="form-control" required>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="parsels">Satilan Parsel Sayi <span class="req">*</span></label>
+                                            <input type="text" name="parselsayisi" id="parsels" class="form-control"
+                                                   required>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <label for="parsels">Parsel Fiyati</label>
+                                            <input type="text" name="parselfiyati" id="parsels" class="form-control">
+                                        </div>
                                     </div>
 
                                     <br><br>
-                                    <p class="text-uppercase text-sm">Kime satdi <span class=" text-xxs opacity-5 px-2" >Yeni müştery</span></p>
-{{--                                    <p class=" text-xs opacity-5">Yeni müştery</p>--}}
+                                    <p class="text-uppercase text-sm">Kime satdi <span class=" text-xxs opacity-5 px-2">Yeni müştery</span>
+                                    </p>
+                                    {{--                                    <p class=" text-xs opacity-5">Yeni müştery</p>--}}
 
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label class="form-label" for="müşteryad">müştery Adi <span class="req"> * </span></label>
-                                            <input name="ad" type="text" class="form-control"  id="müşteryad">
+                                            <label class="form-label" for="müşteryad">müştery Adi <span
+                                                    class="req"> * </span></label>
+                                            <input name="OdeyenAd" type="text" class="form-control" id="müşteryad">
                                         </div>
 
                                         <div class="col-md-4">
                                             <label class="form-label" for="müşterysoyad">müştery Soyadi</label>
-                                            <input name="soyad" type="text" class="form-control"  id="müşterysoyad">
+                                            <input name="OdeyenSoyad" type="text" class="form-control"
+                                                   id="müşterysoyad">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label" for="OdeyenTc">müştery TC</label>
+                                            <input name="OdeyenTc" type="text" class="form-control" id="OdeyenTc">
                                         </div>
 
                                         <div class="col-md-4">
                                             <label class="form-label" for="müşterytel">müştery Telefon</label>
-                                            <input name="tel" type="text" class="form-control"  id="müşterytel">
+                                            <input name="OdeyenTel" type="text" class="form-control" id="müşterytel">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label" for="VadeTarihi">Vade Tarihi</label>
+                                            <input name="VadeTarihi" type="date" class="form-control col-md-4"
+                                                   id="VadeTarihi">
+                                            {{--                                        <input name="__Invariant" type="hidden" value="VadeTarihi">--}}
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="form-label" for="OdemeSekli">OdemeSekli</label>
+                                            <select class="form-control " name="OdemeSekli" data-val="true"
+                                                    id="OdemeSekli">
+                                                <option value="" disabled selected>Seçin...</option>
+                                                <option value="kart">kart</option>
+                                                <option value="nakit">nakit</option>
+                                                <option value="havale">havale</option>
+                                                <option value="araba">Araba</option>
+                                                <option value="cek">Çek</option>
+                                                <option value="tapu">Senet (tapu)</option>
+                                            </select>
                                         </div>
                                     </div>
+                                    <br>
 
-
+                                    <label class="form-label" for="OdemeAciklama"> Odeme Açıklaması</label>
+                                    <input name="OdemeAciklama" type="text" class="form-control" id="OdemeAciklama">
 
                                     <br><br>
                                     <p class="text-uppercase text-sm">satiş detayi</p>
 
 
+                                    {{--                                    <div class="row">--}}
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="parsels">Parsel Fiyati</label>
-                                            <input type="text" name="parselfiyati" id="parsels" class="form-control">
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <label for="parsels">Kapora</label>
-                                            <input type="text" name="kapora" id="parsels" class="form-control">
-                                        </div>
+                                    {{--                                        <div class="col-md-4">--}}
+                                    {{--                                            <label for="parsels">Kapora</label>--}}
+                                    {{--                                            <input type="text" name="kapora" id="parsels" class="form-control">--}}
+                                    {{--                                        </div>--}}
 
 
-                                        <div class="col-md-4">
-                                            <label for="cars">Takas :</label>
+                                    {{--                                        <div class="col-md-4">--}}
+                                    {{--                                            <label for="cars">Takas :</label>--}}
 
-                                            <select name="takas" id="tarlas"  class="form-control">
-                                                <option value="" disabled selected>Seçin...</option>
-                                                <option value="araba" >Araba</option>
-                                                <option value="cek" >Çek</option>
-                                                <option value="tapu" >Senet (tapu)</option>
+                                    {{--                                            <select name="takas" id="tarlas" class="form-control">--}}
+                                    {{--                                                <option value="" disabled selected>Seçin...</option>--}}
+                                    {{--                                                <option value="araba">Araba</option>--}}
+                                    {{--                                                <option value="cek">Çek</option>--}}
+                                    {{--                                                <option value="tapu">Senet (tapu)</option>--}}
 
-                                            </select>
-                                        </div>
-                                    </div>
-
-
-                                    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+                                    {{--                                            </select>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
 
+                                    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+                                            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+                                            crossorigin="anonymous"></script>
 
 
+                                    {{--                                    <>--}}
                                     <script>
 
 
                                         let p = document.getElementById('tarlas');
 
-console.log(p);
-console.log('p');
+                                        console.log(p);
+                                        console.log('p');
                                         fetch("{{ route('tarlas', ['id' => auth()->user()->id]) }}")
                                             .then((response) => {
                                                 if (response.ok) {
@@ -217,7 +253,7 @@ console.log('p');
                                                     man.setAttribute("tarla-id", data[i].id);
                                                     // man.setAttribute("class", data[i].konum_mahalle);
                                                     // opt2.setAttribute("w3yz-id", i);
-                                                    man.innerHTML = data[i].ParselSayisi + ' Parsel / ' + data[i].konum_ilce + ' / ' + data[i].konum_mahalle + ' ( no ' + [ i + 1 ]+ ' )' ;
+                                                    man.innerHTML = data[i].ParselSayisi + ' Parsel / ' + data[i].konum_ilce + ' / ' + data[i].konum_mahalle + ' ( no ' + [i + 1] + ' )';
 
                                                     // if (ko === ko2) { continue; }
                                                     // var ko2 = ko;
@@ -276,8 +312,12 @@ console.log('p');
                                                         // sec.setAttribute("id", data[i].konum_id);
                                                         sec.innerHTML = data[i].konum_ilce;
 
-                                                        if (sec2 === sec3) { continue; }
-                                                        if (data[i].konum_il != data[fin].konum_il) { break; }
+                                                        if (sec2 === sec3) {
+                                                            continue;
+                                                        }
+                                                        if (data[i].konum_il != data[fin].konum_il) {
+                                                            break;
+                                                        }
                                                         var sec3 = sec2;
                                                         // let p = document.getElementById('konum_ilce');
                                                         document.getElementById('konum_ilce').appendChild(sec);
@@ -297,62 +337,63 @@ console.log('p');
                                         document.getElementById('konum_ilce').addEventListener('change', function () {
 
 
+                                            // console.log('dzzzz')
+                                            // let lo = 'loop';
+                                            // let num = 1;
+                                            // let loop = lo.concat(num);
 
-                                                // console.log('dzzzz')
-                                                // let lo = 'loop';
-                                                // let num = 1;
-                                                // let loop = lo.concat(num);
-
-                                                // var w3yzid = document.getElementById(this.value).getAttribute('w3yz-id');
-                                                // console.log(document.getElementById('brow').id);
+                                            // var w3yzid = document.getElementById(this.value).getAttribute('w3yz-id');
+                                            // console.log(document.getElementById('brow').id);
 
 
                                             // console.log(lopo)
                                             var w3 = document.getElementsByClassName(this.value)[0].getAttribute('kid');
-                                                // let value = this.id;
-                                                let red = parseInt(w3)
-                                                let fin = red - 1
+                                            // let value = this.id;
+                                            let red = parseInt(w3)
+                                            let fin = red - 1
 
-                                                // console.log('3')
-                                                // console.log(value)
-                                                // console.log(fin);
-                                                document.getElementById('konum_mahalle').removeAttribute("disabled");
+                                            // console.log('3')
+                                            // console.log(value)
+                                            // console.log(fin);
+                                            document.getElementById('konum_mahalle').removeAttribute("disabled");
 
                                             console.log('geldi')
-                                                fetch("{{ route('konum') }}")
-                                                    .then((response) => {
-                                                        if (response.ok) {
-                                                            return response.json();
+                                            fetch("{{ route('konum') }}")
+                                                .then((response) => {
+                                                    if (response.ok) {
+                                                        return response.json();
+                                                    }
+                                                })
+                                                .then(data => {
+
+                                                    console.log(data[fin])
+                                                    // console.log('4')
+
+                                                    for (var i = fin; i < data.length; i++) {
+                                                        var sec3 = data[i].konum_ilce;
+
+
+                                                        let sec4 = document.createElement("option");
+                                                        sec4.setAttribute("value", data[i].konum_mahalle);
+                                                        sec4.innerHTML = data[i].konum_mahalle;
+
+                                                        // if (sec3 === sec5) { continue; }
+                                                        if (data[i].konum_ilce != data[fin].konum_ilce) {
+                                                            break;
                                                         }
-                                                    })
-                                                    .then(data => {
+                                                        // var sec5 = sec3;
+                                                        // let p = document.getElementById('konum_ilce');
+                                                        document.getElementById('konum_mahalle').appendChild(sec4);
 
-                                                        console.log(data[fin])
-                                                        // console.log('4')
+                                                    }
 
-                                                        for (var i = fin; i < data.length; i++) {
-                                                            var sec3 = data[i].konum_ilce;
-
-
-                                                            let sec4 = document.createElement("option");
-                                                            sec4.setAttribute("value", data[i].konum_mahalle);
-                                                            sec4.innerHTML = data[i].konum_mahalle;
-
-                                                            // if (sec3 === sec5) { continue; }
-                                                            if (data[i].konum_ilce != data[fin].konum_ilce) { break; }
-                                                            // var sec5 = sec3;
-                                                            // let p = document.getElementById('konum_ilce');
-                                                            document.getElementById('konum_mahalle').appendChild(sec4);
-
-                                                        }
-
-                                                    });
+                                                });
 
 
-                                                // fetch('https://example.com?' + new URLSearchParams({
-                                                //     foo: 'value',
-                                                //     bar: 2,
-                                                // }))
+                                            // fetch('https://example.com?' + new URLSearchParams({
+                                            //     foo: 'value',
+                                            //     bar: 2,
+                                            // }))
 
 
                                         });
@@ -369,25 +410,22 @@ console.log('p');
                                         // TEKRAR--FINISH 2
 
 
-
                                         // TEKRAR--START 3
-
 
 
                                         // TEKRAR--FINISH 3
 
 
-
                                         // TEKRAR--START 4
 
-                                        function addInput5(loop, num, w3yzid, w3yzid2, w3yzid3, w3yzid4, w3yzid5){
+                                        function addInput5(loop, num, w3yzid, w3yzid2, w3yzid3, w3yzid4, w3yzid5) {
 
                                             let z = document.getElementsByName(loop)[0];
                                             z.addEventListener('change', function () {
 
                                                 let lo = 'loop';
                                                 let n = 1;
-                                                let loopNUM = n+num;
+                                                let loopNUM = n + num;
                                                 let loop = lo.concat(loopNUM);
 
                                                 var w3yzid6 = document.getElementById(this.value).getAttribute('w3yz-id');
@@ -400,7 +438,7 @@ console.log('p');
                                                     })
                                                     .then(data => {
 
-                                                        if (typeof data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories[0] != 'undefined'){
+                                                        if (typeof data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories[0] != 'undefined') {
 
                                                             let para = document.createElement("input");
                                                             para.setAttribute("list", loop);
@@ -432,7 +470,7 @@ console.log('p');
                                                             // return;
                                                             // addInput3()
 
-                                                        }else {
+                                                        } else {
 
 
                                                             let urunID = data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].id;
@@ -461,66 +499,61 @@ console.log('p');
                                     </script>
 
 
+                                    {{--                                    <label class="form-label" for="Ada">Ada</label>--}}
+                                    {{--                                <input name="Ada" type="number" class="form-control" data-val="true" data-val-number="The field Ada must be a number." data-val-required="'Ada' must not be empty." id="Ada"><input name="__Invariant" type="hidden" value="Ada">--}}
+                                    {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Ada" data-valmsg-replace="true"></span><br>--}}
+
+                                    {{--                                <label class="form-label" for="Parsel">Parsel</label>--}}
+                                    {{--                                <input name="Parsel" type="number" class="form-control" required="" data-val="true" data-val-number="The field Parsel must be a number." data-val-required="'Parsel' must not be empty." id="Parsel" value="0"><input name="__Invariant" type="hidden" value="Parsel">--}}
+                                    {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Parsel" data-valmsg-replace="true"></span><br>--}}
+
+                                    {{--                                <label class="form-label" for="MetreKare">MetreKare</label>--}}
+                                    {{--                                <input name="MetreKare" type="number" class="form-control" required="" data-val="true" data-val-number="The field MetreKare must be a number." data-val-required="'Metre Kare' must not be empty." id="MetreKare" value="0"><input name="__Invariant" type="hidden" value="MetreKare">--}}
+                                    {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="MetreKare" data-valmsg-replace="true"></span><br>--}}
+
+                                    {{--                                <label class="form-label" for="ParselSayisi">Kaç Parsele Bölündü</label>--}}
+                                    {{--                                <input name="ParselSayisi" type="number" class="form-control" required="" data-val="true" data-val-number="The field ParselSayisi must be a number." data-val-required="'Parsel Sayisi' must not be empty." id="ParselSayisi" value="0"><input name="__Invariant" type="hidden" value="ParselSayisi">--}}
+                                    {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="ParselSayisi" data-valmsg-replace="true"></span><br>--}}
+
+                                    {{--                                <label class="form-label" for="Durum">Durum</label>--}}
+                                    {{--                                <select class="form-control" name="Durum" required="" data-val="true" data-val-required="'Durum' must not be empty." id="Durum">--}}
+                                    {{--                                    <option value="Aktif" selected="selected">Aktif</option>--}}
+                                    {{--                                    <option value="Pasif">Pasif</option>--}}
+
+                                    {{--                                </select>--}}
+                                    {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Durum" data-valmsg-replace="true"></span><br>--}}
+
+                                    {{--                                <label class="form-label" for="SatisDurumu">SatisDurumu</label>--}}
+                                    {{--                                <select class="form-control" name="SatisDurumu" required="" data-val="true" data-val-required="'Satis Durumu' must not be empty." id="SatisDurumu">--}}
+
+                                    {{--                                    <option value="satilmadi">Satışta Değil</option>--}}
+                                    {{--                                    <option value="satiliyor" selected="selected">Satışta</option>--}}
+
+                                    {{--                                </select>--}}
+                                    {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="SatisDurumu" data-valmsg-replace="true"></span><br>--}}
+
+                                    {{--                                <label class="form-label">Tarla Fotoğraf</label>--}}
+                                    {{--                                <input name="files" type="file" class="form-control" multiple="" ><br>--}}
 
 
 
+                                    {{--                                <div class="card">--}}
+                                    {{--                                    <div class="card-header">--}}
+                                    {{--                                        <h4>Tarla Sahip Bilgileri</h4>--}}
+                                    {{--                                    </div>--}}
+                                    {{--                                    <div class="card-body">--}}
+                                    {{--                                        <label class="form-label" for="SahipAd">SahipAd</label>--}}
+                                    {{--                                        <input name="SahipAd" type="text" class="form-control" id="SahipAd">--}}
+                                    {{--                                        <label class="form-label" for="SahipSoyad">SahipSoyad</label>--}}
+                                    {{--                                        <input name="SahipSoyad" type="text" class="form-control" id="SahipSoyad">--}}
+                                    {{--                                        <label class="form-label" for="SahipTc">SahipTc</label>--}}
+                                    {{--                                        <input name="SahipTc" type="text" class="form-control" id="SahipTc">--}}
+                                    {{--                                        <label class="form-label" for="SahipTel">SahipTel</label>--}}
+                                    {{--                                        <input name="SahipTel" type="tel" class="form-control" id="SahipTel">--}}
+                                    {{--                                        <span class="text-danger field-validation-valid" data-valmsg-for="SahipTel" data-valmsg-replace="true"></span><br>--}}
 
-{{--                                    <label class="form-label" for="Ada">Ada</label>--}}
-{{--                                <input name="Ada" type="number" class="form-control" data-val="true" data-val-number="The field Ada must be a number." data-val-required="'Ada' must not be empty." id="Ada"><input name="__Invariant" type="hidden" value="Ada">--}}
-{{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Ada" data-valmsg-replace="true"></span><br>--}}
-
-{{--                                <label class="form-label" for="Parsel">Parsel</label>--}}
-{{--                                <input name="Parsel" type="number" class="form-control" required="" data-val="true" data-val-number="The field Parsel must be a number." data-val-required="'Parsel' must not be empty." id="Parsel" value="0"><input name="__Invariant" type="hidden" value="Parsel">--}}
-{{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Parsel" data-valmsg-replace="true"></span><br>--}}
-
-{{--                                <label class="form-label" for="MetreKare">MetreKare</label>--}}
-{{--                                <input name="MetreKare" type="number" class="form-control" required="" data-val="true" data-val-number="The field MetreKare must be a number." data-val-required="'Metre Kare' must not be empty." id="MetreKare" value="0"><input name="__Invariant" type="hidden" value="MetreKare">--}}
-{{--                                <span class="text-danger field-validation-valid" data-valmsg-for="MetreKare" data-valmsg-replace="true"></span><br>--}}
-
-{{--                                <label class="form-label" for="ParselSayisi">Kaç Parsele Bölündü</label>--}}
-{{--                                <input name="ParselSayisi" type="number" class="form-control" required="" data-val="true" data-val-number="The field ParselSayisi must be a number." data-val-required="'Parsel Sayisi' must not be empty." id="ParselSayisi" value="0"><input name="__Invariant" type="hidden" value="ParselSayisi">--}}
-{{--                                <span class="text-danger field-validation-valid" data-valmsg-for="ParselSayisi" data-valmsg-replace="true"></span><br>--}}
-
-{{--                                <label class="form-label" for="Durum">Durum</label>--}}
-{{--                                <select class="form-control" name="Durum" required="" data-val="true" data-val-required="'Durum' must not be empty." id="Durum">--}}
-{{--                                    <option value="Aktif" selected="selected">Aktif</option>--}}
-{{--                                    <option value="Pasif">Pasif</option>--}}
-
-{{--                                </select>--}}
-{{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Durum" data-valmsg-replace="true"></span><br>--}}
-
-{{--                                <label class="form-label" for="SatisDurumu">SatisDurumu</label>--}}
-{{--                                <select class="form-control" name="SatisDurumu" required="" data-val="true" data-val-required="'Satis Durumu' must not be empty." id="SatisDurumu">--}}
-
-{{--                                    <option value="satilmadi">Satışta Değil</option>--}}
-{{--                                    <option value="satiliyor" selected="selected">Satışta</option>--}}
-
-{{--                                </select>--}}
-{{--                                <span class="text-danger field-validation-valid" data-valmsg-for="SatisDurumu" data-valmsg-replace="true"></span><br>--}}
-
-{{--                                <label class="form-label">Tarla Fotoğraf</label>--}}
-{{--                                <input name="files" type="file" class="form-control" multiple="" ><br>--}}
-
-
-
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-header">--}}
-{{--                                        <h4>Tarla Sahip Bilgileri</h4>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <label class="form-label" for="SahipAd">SahipAd</label>--}}
-{{--                                        <input name="SahipAd" type="text" class="form-control" id="SahipAd">--}}
-{{--                                        <label class="form-label" for="SahipSoyad">SahipSoyad</label>--}}
-{{--                                        <input name="SahipSoyad" type="text" class="form-control" id="SahipSoyad">--}}
-{{--                                        <label class="form-label" for="SahipTc">SahipTc</label>--}}
-{{--                                        <input name="SahipTc" type="text" class="form-control" id="SahipTc">--}}
-{{--                                        <label class="form-label" for="SahipTel">SahipTel</label>--}}
-{{--                                        <input name="SahipTel" type="tel" class="form-control" id="SahipTel">--}}
-{{--                                        <span class="text-danger field-validation-valid" data-valmsg-for="SahipTel" data-valmsg-replace="true"></span><br>--}}
-
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
+                                    {{--                                    </div>--}}
+                                    {{--                                </div>--}}
 
 
                                     <div class="" style="margin: 3rem 0"></div>
@@ -538,7 +571,7 @@ console.log('p');
                             <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
                                 <a href="javascript:;">
                                     <img src="/img/team-2.jpg"
-                                        class="rounded-circle img-fluid border border-2 border-white">
+                                         class="rounded-circle img-fluid border border-2 border-white">
                                 </a>
                             </div>
                         </div>
@@ -549,7 +582,7 @@ console.log('p');
                             <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-block d-lg-none"><i
                                     class="ni ni-collection"></i></a>
                             <a href="javascript:;"
-                                class="btn btn-sm btn-dark float-right mb-0 d-none d-lg-block">Message</a>
+                               class="btn btn-sm btn-dark float-right mb-0 d-none d-lg-block">Message</a>
                             <a href="javascript:;" class="btn btn-sm btn-dark float-right mb-0 d-block d-lg-none"><i
                                     class="ni ni-email-83"></i></a>
                         </div>

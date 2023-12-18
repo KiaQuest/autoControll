@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('OdeyenAd')->nullable();
             $table->string('OdeyenSoyad')->nullable();
             $table->string('OdeyenTc')->nullable();
+            $table->string('OdeyenTel')->nullable();
             $table->string('VadeTarihi')->nullable();
             $table->string('OdemeSekli')->nullable();
             $table->string('Tutar')->nullable();

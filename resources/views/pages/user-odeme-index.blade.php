@@ -28,17 +28,23 @@
                                             Sekli</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            tutar</th>
+                                            user</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tarla</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Yetkili</th>
+                                            Aciklama</th>
+{{--                                        <th--}}
+{{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            tutar</th>--}}
+{{--                                        <th--}}
+{{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            Tarla</th>--}}
+{{--                                        <th--}}
+{{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            Yetkili</th>--}}
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
-                                        <th class="text-secondary opacity-7"></th>
+{{--                                        <th class="text-secondary opacity-7"></th>--}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,11 +123,11 @@
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeSekli }}</span>
                                         </td>
+{{--                                        <td class="align-middle text-center">--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
+{{--                                        </td>--}}
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tarla }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kim }}</span>
                                         </td>
                                         <td class="align-middle">
 {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
@@ -130,7 +136,7 @@
 {{--                                            </a>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Yetkili }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeAciklama }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
