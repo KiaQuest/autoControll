@@ -119,16 +119,32 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="parsels">Satilan Parsel Sayi <span class="req">*</span></label>
-                                            <input type="text" name="parselsayisi" id="parsels" class="form-control"
+                                            <input type="number" name="parselsayisi" id="parsels" class="form-control"
                                                    required>
                                         </div>
 
+                                        <input type="hidden" name="parselcheck" id="parselcheck" class="form-control">
 
                                         <div class="col-md-6">
                                             <label for="parsels">Parsel Fiyati</label>
                                             <input type="text" name="parselfiyati" id="parsels" class="form-control">
                                         </div>
                                     </div>
+                                    <br>
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+                                            <label for="kapora">Kapora</label>
+                                            <input type="number" name="kapora" id="kapora" class="form-control" value="0">
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label for="kalan">Kalan</label>
+                                            <input type="number" name="kalan" id="kalan" class="form-control">
+                                        </div>
+
+                                    </div>
+
 
                                     <br><br>
                                     <p class="text-uppercase text-sm">Kime satdi <span class=" text-xxs opacity-5 px-2">Yeni müştery</span>
@@ -215,7 +231,9 @@
                                             crossorigin="anonymous"></script>
 
 
-                                    {{--                                    <>--}}
+                                    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
                                     <script>
 
 
@@ -250,9 +268,9 @@
                                                     let man = document.createElement("option");
                                                     man.setAttribute("value", data[i].id);
                                                     // opt2.setAttribute("id", "wid".concat(loop,i));
-                                                    man.setAttribute("tarla-id", data[i].id);
-                                                    // man.setAttribute("class", data[i].konum_mahalle);
-                                                    // opt2.setAttribute("w3yz-id", i);
+                                                    man.setAttribute("id", data[i].id);
+                                                    man.setAttribute("class", data[i].ParselSayisi);
+                                                    man.setAttribute("w3", data[i].ParselSayisi);
                                                     man.innerHTML = data[i].ParselSayisi + ' Parsel / ' + data[i].konum_ilce + ' / ' + data[i].konum_mahalle + ' ( no ' + [i + 1] + ' )';
 
                                                     // if (ko === ko2) { continue; }
@@ -271,16 +289,22 @@
 
                                             // var w3yzid = document.getElementById(this.value).getAttribute('w3yz-id');
                                             // console.log(document.getElementById('brow').id);
-                                            let value = this.value
-                                            // console.log('gh');
+                                            let value = this.value;
+                                            let parselSayisi = document.getElementById(value).getAttribute('w3');
+                                            // console.log(parsel);
+                                            // let oo = $( "#tarlas option:selected" ).text();
+                                            // console.log(oo);
+
+                                            document.getElementById('parselcheck').setAttribute('value', parselSayisi);
                                             // getElementsByClassName(names)
 
                                             // console.log(document.getElementById('konum_il').getAttribute('kid'));
                                             // console.log(document.getElementsByClassName(this.value)[0].getAttribute('kid'));
-                                            let id = document.getElementsByClassName(this.value)[0].getAttribute('kid');
-                                            // console.log('gh2');
-                                            let red = parseInt(id)
-                                            let fin = red - 1
+                                            // let id = document.getElementsByClassName(this.value)[0].getAttribute('kid');
+                                            // let id = document.getElementById('tarlas');
+                                            // console.log(id);
+                                            // let red = parseInt(id)
+                                            // let fin = red - 1
 
                                             // console.log('3')
                                             // console.log(fin);

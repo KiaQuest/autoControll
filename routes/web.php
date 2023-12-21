@@ -72,6 +72,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/odeme-ekle', [OdemeController::class, 'create'])->name('odeme.create');
 //	Route::post('/tarla-verecek', [OdemeController::class, 'create2'])->name('odeme.create2');
 	Route::get('/odeme-index', [OdemeController::class, 'index'])->name('odeme.index');
+	Route::get('/odeme-index-alinmis', [OdemeController::class, 'index2'])->name('odeme.index.alinmis');
+	Route::get('/odeme-index-bekleyen', [OdemeController::class, 'index3'])->name('odeme.index.bekleyen');
+
+	Route::get('/odeme-onayla', [OdemeController::class, 'onayla'])->name('odeme.onayla');
 
 	Route::get('/is-ekle', [IsController::class, 'show'])->name('is.show');
 	Route::post('/is-ekle', [IsController::class, 'create'])->name('is.create');

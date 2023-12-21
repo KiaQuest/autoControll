@@ -22,9 +22,6 @@
                                             Odeyen</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Vade tarihi</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Sekli</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -45,6 +42,9 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
 {{--                                        <th class="text-secondary opacity-7"></th>--}}
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -103,17 +103,17 @@
 {{--                                                </div>--}}
 {{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>
-                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>
+                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->parselfiyati }}</p>
+                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->kalan }}</p>
 
                                         </td>
-                                        <td>
+{{--                                        <td>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
 
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->VadeTarihi }}</p>
+{{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->VadeTarihi }}</p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
 {{--                                        <td class="align-middle text-center text-sm">--}}
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>--}}
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->SatisDurumu == 'satilmadi' ? "warning" : "info" }}">{{ $z->SatisDurumu}}</span>--}}
@@ -139,6 +139,9 @@
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>
                                         </td>
                                     </tr>
 

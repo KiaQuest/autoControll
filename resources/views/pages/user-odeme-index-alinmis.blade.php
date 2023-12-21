@@ -17,21 +17,21 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             #</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tip</th>
+                                            Mikdar</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Odeyen</th>
+                                            User</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Vade tarihi</th>
+                                            Tarla ID</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Sekli</th>
+                                            Onaylian</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            user</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Aciklama</th>
+                                            odeme ID</th>
+{{--                                        <th--}}
+{{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            Aciklama</th>--}}
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            tutar</th>--}}
@@ -88,7 +88,7 @@
                                         </td>
                                         <td>
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->mikdar  }}</p>
 
                                         </td>
                                         <td>
@@ -103,15 +103,16 @@
 {{--                                                </div>--}}
 {{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>
-                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>
+{{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>--}}
+{{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
+                                            <p class="text-xs text-secondary mb-0">{{ $z->user }}</p>
 
                                         </td>
                                         <td>
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
 
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->VadeTarihi }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->tarla }}</p>
 
                                         </td>
 {{--                                        <td class="align-middle text-center text-sm">--}}
@@ -120,23 +121,23 @@
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Ada }}</span>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeSekli }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onaylian }}</span>
                                         </td>
 {{--                                        <td class="align-middle text-center">--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kim }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->odemeID }}</span>
                                         </td>
-                                        <td class="align-middle">
+{{--                                        <td class="align-middle">--}}
 {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
 {{--                                                data-toggle="tooltip" data-original-title="Edit user">--}}
 {{--                                                Edit--}}
 {{--                                            </a>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeAciklama }}</span>
-                                        </td>
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeAciklama }}</span>--}}
+{{--                                        </td>--}}
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
                                         </td>

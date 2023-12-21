@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\me;
 
 use App\Http\Controllers\Controller;
+use App\Models\Alinmis;
 use App\Models\Customer;
 use App\Models\Odeme;
 use App\Models\tarla;
@@ -66,9 +67,35 @@ class TarlaController extends Controller
     public function eksatis(Request $request)
     {
 
-        Odeme::create($request->all() + ['kim' => auth()->user()->id]);
+//        dd($request->tarlaID);
+
+//        dd($request->all());
+        $say = $request->parselsayisi;
+        $check = $request->parselcheck;
+        if ($say > $check){
+            return 'parsel sayisi yanlisdir ';
+        }
+//        dd($say , $check);
+//        $tarlaID = $request
+        $action = Odeme::create($request->all() + ['kim' => auth()->user()->id]);
+        $odemeID = $action->id;
 //        Customer::create($request->all() + ['kim' => auth()->user()->id]);
 //        dd($request->all());
+//        dd($odemeID);
+        $kapora = $request->kapora;
+        if ($kapora != 0){
+            echo '0 degil';
+
+            Alinmis::create([
+                'user' => auth()->user()->username,
+                'onaylian' => 'direkt',
+                'tarla' => $request->tarlaID,
+                'odemeID' => $odemeID,
+                'mikdar' => $kapora
+            ]);
+
+        }
+
         return redirect()->route('home');
 
     }
