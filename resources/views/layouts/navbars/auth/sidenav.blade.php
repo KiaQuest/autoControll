@@ -1,48 +1,50 @@
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 "
     id="sidenav-main">
-    <div class="sidenav-header">
-        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
-            aria-hidden="true" id="iconSidenav"></i>
-        <a class="navbar-brand m-0" href="{{ route('home') }}"
-            target="_blank">
-            <img src="./img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">
-            <span class="ms-1 font-weight-bold">Argon Dashboard 2 Laravel</span>
-        </a>
-    </div>
-    <hr class="horizontal dark mt-0">
+{{--    <div class="sidenav-header">--}}
+{{--        <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"--}}
+{{--            aria-hidden="true" id="iconSidenav"></i>--}}
+{{--        <a class="navbar-brand m-0" href="{{ route('home') }}"--}}
+{{--            target="_blank">--}}
+{{--            <img src="./img/logo-ct-dark.png" class="navbar-brand-img h-100" alt="main_logo">--}}
+{{--            <span class="ms-1 font-weight-bold">Argon Dashboard 2 Laravel</span>--}}
+{{--        </a>--}}
+{{--    </div>--}}
+
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main" style="height: initial">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item mt-3 d-flex align-items-center">
-                <div class="ps-4">
-                    <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                </div>
-                <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Laravel Examples</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'profile' ? 'active' : '' }}" href="{{ route('profile') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Dashboard</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+
+{{--            <hr class="horizontal dark mt-0">--}}
+
+{{--            <li class="nav-item mt-3 d-flex align-items-center">--}}
+{{--                <div class="ps-4">--}}
+{{--                    <i class="fab fa-laravel" style="color: #f4645f;"></i>--}}
+{{--                </div>--}}
+{{--                <h6 class="ms-2 text-uppercase text-xs font-weight-bolder opacity-6 mb-0">Laravel Examples</h6>--}}
+{{--            </li>--}}
+
+{{--            //////////////////////////////////////////////////////////donecek --}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{ Route::currentRouteName() == 'profile' ? 'active' : '' }}" href="{{ route('profile') }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Profile</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+
+
 {{--            @if(Auth::user()->level < 3 )--}}
-
-
 {{--                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--}}
-
-
-
 
 
 
@@ -64,7 +66,7 @@
                     }
 
                     .content {
-                        padding: 0 18px;
+                        /*padding: 0 18px;*/
                         max-height: 0;
                         overflow: hidden;
                         transition: max-height 0.2s ease-out;
@@ -86,6 +88,10 @@
                          justify-content: space-between;
                          align-items: center;
                      }
+
+                    li{
+                        margin: 2px 0;
+                    }
                 </style>
 
 
@@ -94,8 +100,8 @@
                     background-color: #d5d5d5 !important;
                 }
             </style>
-                <button class="collapsible po">Firma İşlemleri <i class="arrow down"></i></button>
-                <div class="content">
+                <button class="collapsible po {{ Route::currentRouteName() == 'firma.show' ||  Route::currentRouteName() ==  'firma.index' ? 'active' : '' }}">Firma İşlemleri <i class="arrow down"></i></button>
+                <div class="content" {{ Route::currentRouteName() == 'firma.show' ||  Route::currentRouteName() == 'firma.index' ? 'style=max-height:114px' : '' }}>
 
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'firma.show' ? 'active' : '' }}" href="{{ route('firma.show') }}">
@@ -123,8 +129,8 @@
 
 
 
-                <button class="collapsible po">Çalışan İşlemleri <i class="arrow down"></i></button>
-                <div class="content">
+                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
+                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'style=max-height:447px' : '' }}>
 
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'profile.ek' ? 'active' : '' }}" href="{{ route('profile.ek') }}">
@@ -240,8 +246,8 @@
 
 
 
-                <button class="collapsible po">Tarla İşlemleri <i class="arrow down"></i></button>
-                <div class="content">
+                <button class="collapsible po  {{ Route::currentRouteName() == 'tarla.show' ||  Route::currentRouteName() == 'tarla.index' ||  Route::currentRouteName() == 'tarla.satis' ? 'active' : '' }}">Tarla İşlemleri <i class="arrow down"></i></button>
+                <div class="content"  {{ Route::currentRouteName() == 'tarla.show' ||  Route::currentRouteName() == 'tarla.index' ||  Route::currentRouteName() == 'tarla.satis'  ? 'style=max-height:447px' : '' }}>
                     {{--                    <p>Loremrrnsequat.</p>--}}
 
                     <li class="nav-item">
@@ -278,8 +284,8 @@
                 </div>
 
 
-                <button class="collapsible po">Ödeme İşlemleri <i class="arrow down"></i></button>
-                <div class="content">
+                <button class="collapsible po   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ? 'active' : '' }}">Ödeme İşlemleri <i class="arrow down"></i></button>
+                <div class="content"   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ? 'style=max-height:447px' : '' }}>
 
 
 
@@ -289,7 +295,7 @@
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                             </div>
-                            <span class="nav-link-text ms-1">Ödeme</span>
+                            <span class="nav-link-text ms-1">Ödeme Ekle <br> <span class="text-xxs font-weight-lighter mb-0 px-2" style="font-weight: 100 !important;">( alacak & verecek )</span></span>
                         </a>
                     </li>
 
@@ -301,21 +307,22 @@
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                             </div>
-                            <span class="nav-link-text ms-1">Satiş listesı</span>
+                            <span class="nav-link-text ms-1">Ödeme listesı</span>
+{{--                            <span class="nav-link-text ms-1">Satiş listesı</span>--}}
                         </a>
                     </li>
 
 
 
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'odeme.index.alinmis' ? 'active' : '' }}" href="{{ route('odeme.index.alinmis') }}">
-                            <div
-                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Alinmiş listesı</span>
-                        </a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link {{ Route::currentRouteName() == 'odeme.index.alinmis' ? 'active' : '' }}" href="{{ route('odeme.index.alinmis') }}">--}}
+{{--                            <div--}}
+{{--                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>--}}
+{{--                            </div>--}}
+{{--                            <span class="nav-link-text ms-1">Alinmiş listesı</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
 
 
@@ -325,7 +332,18 @@
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                             </div>
-                            <span class="nav-link-text ms-1">Bekleyen listesı</span>
+                            <span class="nav-link-text ms-1"> Vade bekleyen</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'odeme.index.bekleyen' ? 'active' : '' }}" href="{{ route('odeme.index.bekleyen') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Onay bekleyen</span>
                         </a>
                     </li>
 
@@ -386,83 +404,83 @@
 
 
 {{--            @endif--}}
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">
-                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">User Management</span>
-                </a>
-            </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pages</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ str_contains(request()->url(), 'tables') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'tables']) }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Tables</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{  str_contains(request()->url(), 'billing') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'billing']) }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Billing</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'virtual-reality' ? 'active' : '' }}" href="{{ route('virtual-reality') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-app text-info text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Virtual Reality</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'rtl' ? 'active' : '' }}" href="{{ route('rtl') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">RTL</span>
-                </a>
-            </li>
-            <li class="nav-item mt-3">
-                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Route::currentRouteName() == 'profile-static' ? 'active' : '' }}" href="{{ route('profile-static') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Profile</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('sign-in-static') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign In</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="{{ route('sign-up-static') }}">
-                    <div
-                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="ni ni-collection text-info text-sm opacity-10"></i>
-                    </div>
-                    <span class="nav-link-text ms-1">Sign Up</span>
-                </a>
-            </li>
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{ str_contains(request()->url(), 'user-management') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'user-management']) }}">--}}
+{{--                    <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-bullet-list-67 text-dark text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">User Management</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item mt-3">--}}
+{{--                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Pages</h6>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{ str_contains(request()->url(), 'tables') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'tables']) }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Tables</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{  str_contains(request()->url(), 'billing') == true ? 'active' : '' }}" href="{{ route('page', ['page' => 'billing']) }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-credit-card text-success text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Billing</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{ Route::currentRouteName() == 'virtual-reality' ? 'active' : '' }}" href="{{ route('virtual-reality') }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-app text-info text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Virtual Reality</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{ Route::currentRouteName() == 'rtl' ? 'active' : '' }}" href="{{ route('rtl') }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">RTL</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item mt-3">--}}
+{{--                <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link {{ Route::currentRouteName() == 'profile-static' ? 'active' : '' }}" href="{{ route('profile-static') }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Profile</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link " href="{{ route('sign-in-static') }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Sign In</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
+{{--            <li class="nav-item">--}}
+{{--                <a class="nav-link " href="{{ route('sign-up-static') }}">--}}
+{{--                    <div--}}
+{{--                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                        <i class="ni ni-collection text-info text-sm opacity-10"></i>--}}
+{{--                    </div>--}}
+{{--                    <span class="nav-link-text ms-1">Sign Up</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
         </ul>
     </div>
 {{--    <div class="sidenav-footer mx-3 ">--}}
