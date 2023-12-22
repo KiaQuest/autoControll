@@ -68,20 +68,20 @@
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
 {{--                                <p class="mb-0">Edit Profile</p> kament--}}
-                                <p class="mb-0">Firma ekle</p>
+                                <p class="mb-0 fs-3">Ödeme Ekle</p>
                                 <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">Firma Information</p>
+{{--                            <p class="text-uppercase text-sm">Firma Information</p>--}}
                             <div class="row">
                                     <div class="form-group">
 
                                         <label class="form-label" for="TarlaID">Odeme Tipi <span class="req">*</span></label>
-                                            <select class="form-control" name="OdemeTipi"  data-val="true" data-val-required="'Tarla ID' must not be empty." id="TarlaID" required>
+                                            <select class="form-control" name="OdemeTipi"  id="TarlaID" required>
                                                 <option disabled selected value> -- select an option -- </option>
-                                                <option value="verecek" selected="selected">Ödeme verecek</option>
-                                                <option value="alacak" selected="selected">Ödeme alacak</option>
+                                                <option value="verecek" >Ödeme verecek</option>
+                                                <option value="alacak" >Ödeme alacak</option>
                                             </select>
                                         <br>
 {{--                                        <input name="OdemeTipi" type="hidden" class="form-control" value="verecek" data-val="true" data-val-required="'Odeme Tipi' must not be empty." id="OdemeTipi">--}}

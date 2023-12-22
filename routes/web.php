@@ -66,6 +66,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/tarla-satis', [TarlaController::class, 'satis'])->name('tarla.satis');
     Route::post('/tarla-satis', [TarlaController::class, 'eksatis'])->name('tarla.satis.post');
 
+    Route::get('/tarla-satis-change', [TarlaController::class, 'satisDurumu'])->name('satisDurumu.change');
+
 
 	Route::get('/odeme-ekle', [OdemeController::class, 'show'])->name('odeme.show');
 //	Route::get('/odeme-verecek', [OdemeController::class, 'show2'])->name('odeme.show2');

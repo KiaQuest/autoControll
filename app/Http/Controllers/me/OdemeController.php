@@ -14,35 +14,19 @@ class OdemeController extends Controller
     {
         return view('pages.user-odeme-ek');
     }
-//
-//    public function show2()
-//    {
-//        return view('pages.user-odeme-ek2');
-//    }
 
     public function create(Request $request)
     {
 //        dd($request->all());
         Odeme::create($request->all() + ['kim' => auth()->user()->id]);
         return redirect()->route('home');
-
     }
-
-//    public function create2(Request $request)
-//    {
-//        dd($request->all());
-//        tarla::create($request->all() + ['kim' => auth()->user()->id]);
-//        return redirect()->route('home');
-//
-//    }
 
     public function index()
     {
-//
 //        dd($tarla);
         $data = Odeme::where('kim' , auth()->user()->id)->get();
         return view('pages.user-odeme-index' , compact('data'));
-        // fake comment
     }
     public function index2()
     {

@@ -58,7 +58,7 @@ class TarlaController extends Controller
     {
 //        dd($id);
 //         dd(auth()->user()->id);
-        $data = tarla::where('kim' , $id)->get();
+        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
         return response()->json($data);
 //        dd($data);
     }
@@ -98,6 +98,20 @@ class TarlaController extends Controller
 
         return redirect()->route('home');
 
+    }
+
+    public function satisDurumu(Request $request)
+    {
+//        $sheygazal = tarla::where()
+        if ($request->durum == '1'){
+            $change = 0;
+        }else{
+            $change = 1;
+        }
+//        dd($request->id);
+//        dd($change);
+        tarla::where('id' , $request->id)->update(['SatisDurumu' => $change]);
+        return redirect()->back();
     }
 
 }
