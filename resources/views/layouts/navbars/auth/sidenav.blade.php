@@ -129,8 +129,8 @@
 
 
 
-                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
-                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'style=max-height:447px' : '' }}>
+                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
+                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'style=max-height:447px' : '' }}>
 
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'profile.ek' ? 'active' : '' }}" href="{{ route('profile.ek') }}">
@@ -284,8 +284,8 @@
                 </div>
 
 
-                <button class="collapsible po   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ? 'active' : '' }}">Ödeme İşlemleri <i class="arrow down"></i></button>
-                <div class="content"   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ? 'style=max-height:447px' : '' }}>
+                <button class="collapsible po   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen'  ? 'active' : '' }}">Ödeme İşlemleri <i class="arrow down"></i></button>
+                <div class="content"   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen'  ? 'style=max-height:447px' : '' }}>
 
 
 
@@ -326,15 +326,15 @@
 
 
 
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'odeme.index.bekleyen' ? 'active' : '' }}" href="{{ route('odeme.index.bekleyen') }}">
-                            <div
-                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1"> Vade bekleyen</span>
-                        </a>
-                    </li>
+{{--                    <li class="nav-item">--}}
+{{--                        <a class="nav-link {{ Route::currentRouteName() == 'odeme.index.bekleyen' ? 'active' : '' }}" href="{{ route('odeme.index.bekleyen') }}">--}}
+{{--                            <div--}}
+{{--                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>--}}
+{{--                            </div>--}}
+{{--                            <span class="nav-link-text ms-1"> Vade bekleyen</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
 
                     <li class="nav-item">
@@ -377,6 +377,19 @@
                 <button class="collapsible po">Müdür Kontrol <i class="arrow down"></i></button>
                 <div class="content">
                     {{--                    <p>Loremrrnsequat.</p>--}}
+
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">
+{{--                        <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">--}}
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Çalışanlarim</span>
+                        </a>
+                    </li>
+
 
                 </div>
 
