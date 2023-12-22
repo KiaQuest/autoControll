@@ -19,7 +19,7 @@ class OdemeController extends Controller
     {
 //        dd($request->all());
         Odeme::create($request->all() + ['kim' => auth()->user()->id]);
-        return redirect()->route('home');
+        return redirect()->route('odeme.index');
     }
 
     public function index()
@@ -38,7 +38,8 @@ class OdemeController extends Controller
     public function index3()
     {
         //bekleyen
-        $data = Odeme::where('kim' , auth()->user()->id)->where('onay' , '=' , NULL)->get();
+//        $data = Odeme::where('kim' , auth()->user()->id)->where('onay' , '=' , NULL)->get();
+        $data = Odeme::where('onay' , '!=' , 1)->get();
         return view('pages.user-odeme-index-bekleyen' , compact('data'));
         // fake comment
     }
@@ -64,8 +65,17 @@ class OdemeController extends Controller
            'odemeID' => $id
         ]);
 
-        return redirect()->route('home');
+        return redirect()->back();
     }
 
-
+    public function onayDurumu(Request $request)
+    {
+        Odeme::where('id' , $request->id)->update(['onay' => 0]);
+        return redirect()->back();
+    }
+    public function onayDurumu2(Request $request)
+    {
+        Odeme::where('id' , $request->id)->update(['onay' => 1]);
+        return redirect()->back();
+    }
 }

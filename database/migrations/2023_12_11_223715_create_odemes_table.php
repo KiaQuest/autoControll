@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('parselfiyati')->nullable();
             $table->string('kapora')->nullable();
             $table->string('kalan')->nullable();
-            $table->string('onay')->nullable();
+            $table->string('onay')->default(0);
             $table->string('onaylian')->nullable();
             $table->timestamps();
         });

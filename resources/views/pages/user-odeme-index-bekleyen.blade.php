@@ -141,7 +141,8 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
                                         </td>
                                         <td>
-                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>
+                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id ]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>
+{{--                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>--}}
                                         </td>
                                     </tr>
 
