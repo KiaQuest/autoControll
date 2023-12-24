@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('kalan')->nullable();
             $table->string('onay')->default(0);
             $table->string('onaylian')->nullable();
+            $table->string('delete')->default(0);
             $table->timestamps();
         });
     }

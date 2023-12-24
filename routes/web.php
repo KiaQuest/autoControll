@@ -80,6 +80,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/odeme-onayla', [OdemeController::class, 'onayDurumu2'])->name('odeme.onayla');
 	Route::get('/onay-durumu-change', [OdemeController::class, 'onayDurumu'])->name('onay.durumu.change');
 
+    Route::get('/odeme-sil', [OdemeController::class, 'sil'])->name('odeme.sil');
+
+
 	Route::get('/is-ekle', [IsController::class, 'show'])->name('is.show');
 	Route::post('/is-ekle', [IsController::class, 'create'])->name('is.create');
 	Route::get('/is-index', [IsController::class, 'index'])->name('is.index');

@@ -25,8 +25,11 @@ class OdemeController extends Controller
     public function index()
     {
 //        dd($tarla);
-        $data = Odeme::where('kim' , auth()->user()->id)->get();
-        return view('pages.user-odeme-index' , compact('data'));
+        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->get();
+//        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->get();
+        $sililanlar = Odeme::where('onay' , 0)->where('delete' , '=' , 1)->get();
+//        $sililanlar = Odeme::where('onay' , 0)->where('delete' , '!=' , 2)->get();
+        return view('pages.user-odeme-index' , compact('data' , 'sililanlar'));
     }
     public function index2()
     {
@@ -39,7 +42,7 @@ class OdemeController extends Controller
     {
         //bekleyen
 //        $data = Odeme::where('kim' , auth()->user()->id)->where('onay' , '=' , NULL)->get();
-        $data = Odeme::where('onay' , '!=' , 1)->get();
+        $data = Odeme::where('onay' , '!=' , 1)->where('delete' , '0', 0)->get();
         return view('pages.user-odeme-index-bekleyen' , compact('data'));
         // fake comment
     }
@@ -78,4 +81,13 @@ class OdemeController extends Controller
         Odeme::where('id' , $request->id)->update(['onay' => 1]);
         return redirect()->back();
     }
+
+    public function sil(Request $request)
+    {
+//        dd($request->kapora);
+        $request->kapora == 0 ? $action = 2 : $action = 1;
+        Odeme::where('id' , $request->id)->update(['delete' => $action]);
+        return redirect()->back();
+    }
+
 }

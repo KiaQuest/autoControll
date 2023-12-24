@@ -149,17 +149,68 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
                                         </td>
                                         <td class="align-middle">
-                                            @if($z->onay == 1)
+{{--                                            @if($z->delete == 0)--}}
                                                 <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>
                                                 <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
-                                            @else
-                                                <span class="text-secondary text-xs font-weight-bold ">Bekliyor</span>
-                                            @endif
+{{--                                            @else--}}
+{{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
+{{--                                            @endif--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
                                         </td>
                                     </tr>
 
                                 @endforeach
+<tr>
+    <td>sililanlar</td>
+</tr>
+                                @foreach($sililanlar as $x)
+                                    <tr>
+                                        <td>
+
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+
+                                        </td>
+                                        <td>
+
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $x->OdemeTipi  }}</p>
+
+                                        </td>
+                                        <td>
+
+                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>
+                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>
+
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->VadeTarihi }}</p>
+
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->OdemeSekli }}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->kim }}</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeAciklama }}</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
+                                        </td>
+                                        <td class="align-middle">
+                                                <span class="text-secondary text-xs font-weight-bold ">Silinmiş</span>
+{{--                                                <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>--}}
+{{--                                            @else--}}
+{{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
+{{--                                            @endif--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
+                                        </td>
+                                    </tr>
+
+                                @endforeach
+
+
+
                                 </tbody>
                             </table>
                             <style>
