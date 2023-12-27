@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\me;
 
 use App\Http\Controllers\Controller;
+use App\Models\Odeme;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -46,5 +47,11 @@ class adminController extends Controller
         $data = User::all();
         return view('pages.users-index' , compact('data'));
 
+    }
+
+    public function bildirmeler()
+    {
+        $data = Odeme::where('delete' , 2)->get();
+        return view('pages.user-bildirmeler' , compact('data'));
     }
 }

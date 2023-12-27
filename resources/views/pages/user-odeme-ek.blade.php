@@ -111,6 +111,8 @@
                                         <span class="text-danger field-validation-valid" data-valmsg-for="OdemeSekli" data-valmsg-replace="true"></span><br>
 
 
+                                        <label class="form-label" for="kapora">Kapora</label>
+                                        <input name="kapora" type="text" class="form-control" id="kapora">
 {{--                                        <input name="OdemeTipi" type="hidden" class="form-control" value="alacak" data-val="true" data-val-required="'Odeme Tipi' must not be empty." id="OdemeTipi">--}}
 
                                         <span class="text-danger field-validation-valid" data-valmsg-for="OdemeTipi" data-valmsg-replace="true"></span><br>

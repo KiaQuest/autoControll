@@ -192,10 +192,10 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->kim }}</span>
                                         </td>
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeAciklama }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->OdemeAciklama }}</span>
                                         </td>
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->created_at->todatestring() }}</span>
                                         </td>
                                         <td class="align-middle">
                                                 <span class="text-secondary text-xs font-weight-bold ">Silinmiş</span>

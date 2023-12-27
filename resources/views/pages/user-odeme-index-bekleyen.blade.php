@@ -23,6 +23,9 @@
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                         Odeyen
                                     </th>
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        $
+                                    </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Sekli
@@ -103,6 +106,22 @@
                                         <td>
 
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
+
+                                        </td>
+                                        <td>
+                                            {{--                                            <div class="d-flex px-2 py-1">--}}
+                                            {{--                                                <div>--}}
+                                            {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
+                                            {{--                                                        alt="user1">--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                                <div class="d-flex flex-column justify-content-center">--}}
+                                            {{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
+                                            {{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                            </div>--}}
+
+                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->OdeyenAd }}</p>
+                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->OdeyenSoyad }}</p>
 
                                         </td>
                                         <td>

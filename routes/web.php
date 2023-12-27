@@ -97,6 +97,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/sikayet-index', [SikayetController::class, 'index'])->name('sikayet.index');
 
 	Route::get('/users', [adminController::class, 'users'])->name('users');
+	Route::get('/bildirmeler', [adminController::class, 'bildirmeler'])->name('bildirmeler');
 
 	Route::get('/profile-static', [PageController::class, 'profile'])->name('profile-static');
 	Route::get('/sign-in-static', [PageController::class, 'signin'])->name('sign-in-static');
