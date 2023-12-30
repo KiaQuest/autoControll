@@ -374,8 +374,9 @@
                 </div>
 
 
-                <button class="collapsible po">Müdür Kontrol <i class="arrow down"></i></button>
-                <div class="content">
+                <button class="collapsible po"   {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'bildirmeler'   ? 'active' : '' }}>Müdür Kontrol <i class="arrow down"></i></button>
+                <div class="content"   {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'bildirmeler'   ? 'style=max-height:113px' : '' }}>
+
                     {{--                    <p>Loremrrnsequat.</p>--}}
 
 
