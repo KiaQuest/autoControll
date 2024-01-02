@@ -56,4 +56,10 @@ class adminController extends Controller
         $data = Odeme::where('delete' , 2)->get();
         return view('pages.user-bildirmeler' , compact('data'));
     }
+
+    public function test1()
+    {
+//        return 'ff';
+        return view('pages.user-profile-separate');
+    }
 }

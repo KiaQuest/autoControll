@@ -13,9 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/rr', function () {
+    return 'kl';
     return view('welcome');
 });
+
+
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
@@ -32,6 +35,8 @@ use App\Http\Controllers\me\IsController;
 use App\Http\Controllers\me\IhtiacController;
 use App\Http\Controllers\me\SikayetController;
 
+Route::get('/ilhan', [adminController::class, 'test1']);
+
 
     Route::get('/', function () {return redirect('/dashboard');})->middleware('auth');
 	Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register');
@@ -43,6 +48,8 @@ use App\Http\Controllers\me\SikayetController;
 	Route::get('/change-password', [ChangePassword::class, 'show'])->middleware('guest')->name('change-password');
 	Route::post('/change-password', [ChangePassword::class, 'update'])->middleware('guest')->name('change.perform');
 	Route::get('/dashboard', [HomeController::class, 'index'])->name('home')->middleware('auth');
+
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/virtual-reality', [PageController::class, 'vr'])->name('virtual-reality');
 	Route::get('/rtl', [PageController::class, 'rtl'])->name('rtl');
@@ -105,3 +112,5 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/{page}', [PageController::class, 'index'])->name('page');
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
+
+
