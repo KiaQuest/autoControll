@@ -32,9 +32,11 @@ class adminController extends Controller
             'username' => 'required|max:255|min:2|unique:users',
             'firstname' => 'required|max:255',
             'lastname' => 'required',
-            'password' => 'required|min:4|max:255'
+            'password' => 'required|min:4|max:255',
+            'telefon' => 'unique:users'
         ],[
             'username.unique' => 'Kullanıcı adı zaten seçili',
+            'telefon.unique' => 'Telefon zaten seçili',
             'password.min' => 'en azi 4 harf ya adet gerekiyor'
         ]);
 //        dd($request->all());

@@ -40,6 +40,12 @@ class LoginController extends Controller
 
 
             return redirect()->intended('dashboard');
+        }elseif (Auth::attempt(['telefon' => $request->username, 'password' => $request->password])) {
+//        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $request->session()->regenerate();
+
+
+            return redirect()->intended('dashboard');
         }
 
         return back()->withErrors([

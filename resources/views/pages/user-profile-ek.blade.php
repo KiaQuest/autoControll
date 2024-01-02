@@ -52,6 +52,9 @@
     </div>
     <div id="alert">
         @include('components.alert')
+        @if($errors->any())
+            {{ implode('', $errors->all('<div>:message</div>')) }}
+        @endif
     </div>
     <div class="container-fluid py-4">
         <div class="row">
@@ -162,7 +165,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-control-label">Telefon</label>
-                                        <input type="text" name="telefon" id="telefon" class="form-control">
+                                        <input type="text" name="telefon" id="telefon" class="form-control" value="{{ old('telefon') }}">
+                                        @error('telefon') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                     </div>
                                 </div>
                             </div>
