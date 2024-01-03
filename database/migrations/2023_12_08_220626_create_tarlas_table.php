@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('SahipSoyad')->nullable();
             $table->string('SahipTc')->nullable();
             $table->string('SahipTel')->nullable();
+            $table->string('tarlaFiat')->nullable();
+            $table->string('tarlaPesin')->nullable();
             $table->integer('kim');
             $table->timestamps();
         });

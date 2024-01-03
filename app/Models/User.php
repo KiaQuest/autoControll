@@ -53,6 +53,7 @@ protected $guarded = ['id'];
 //        'last_active_at' => 'datetime',
     ];
 
+//    public $timestamps = true;
     /**
      * Always encrypt the password when it is updated.
      *

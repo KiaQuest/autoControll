@@ -19,7 +19,21 @@ class TarlaController extends Controller
     public function create(Request $request)
     {
 //        dd($request->all());
-        tarla::create($request->all() + ['kim' => auth()->user()->id]);
+
+        $data = tarla::create($request->all() + ['kim' => auth()->user()->id]);
+        $data->save();
+        $id = $data->id;
+//        dd($id);
+        Odeme::insert([
+            'OdemeTipi' => 'alinmis',
+            'OdemeSekli' => $request->OdemeSekli,
+            'tarlaID' => $id,
+            'kapora' => $request->tarlaPesin,
+            'parselfiyati' => $request->tarlaFiat,
+            'kalan' => $request->kalan,
+            'kim' => auth()->user()->id,
+            'created_at' => now()
+        ]);
         return redirect()->route('tarla.index');
 
     }

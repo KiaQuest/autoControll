@@ -10,4 +10,5 @@ class Odeme extends Model
     use HasFactory;
     protected $table = 'odemes';
     protected $guarded = ['id'];
+//    public $timestamps = true;
 }
