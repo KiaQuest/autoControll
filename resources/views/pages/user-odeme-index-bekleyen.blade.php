@@ -21,22 +21,26 @@
                                         Tip
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Odeyen
+                                        tarla
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        $
-                                    </th>
+{{--                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">--}}
+{{--                                        $--}}
+{{--                                    </th>--}}
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Sekli
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        user
+                                        kapora
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Aciklama
+                                        kalan
+                                    </th>
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        toplam
                                     </th>
                                     {{--                                        <th--}}
                                     {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
@@ -97,7 +101,7 @@
                                     }
                                 </style>
                                 @foreach($data as $z)
-                                    <tr>
+                                    <tr style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
                                         <td>
 
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
@@ -120,26 +124,26 @@
                                             {{--                                                </div>--}}
                                             {{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->OdeyenAd }}</p>
-                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->OdeyenSoyad }}</p>
+                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>
+{{--                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->OdeyenSoyad }}</p>--}}
 
                                         </td>
-                                        <td>
-                                            {{--                                            <div class="d-flex px-2 py-1">--}}
-                                            {{--                                                <div>--}}
-                                            {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
-                                            {{--                                                        alt="user1">--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                                <div class="d-flex flex-column justify-content-center">--}}
-                                            {{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
-                                            {{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                            </div>--}}
+{{--                                        <td>--}}
+{{--                                            --}}{{--                                            <div class="d-flex px-2 py-1">--}}
+{{--                                            --}}{{--                                                <div>--}}
+{{--                                            --}}{{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
+{{--                                            --}}{{--                                                        alt="user1">--}}
+{{--                                            --}}{{--                                                </div>--}}
+{{--                                            --}}{{--                                                <div class="d-flex flex-column justify-content-center">--}}
+{{--                                            --}}{{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
+{{--                                            --}}{{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
+{{--                                            --}}{{--                                                </div>--}}
+{{--                                            --}}{{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->parselfiyati }}</p>
-                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->kalan }}</p>
+{{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->parselfiyati }}</p>--}}
+{{--                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->kalan }}</p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
                                         {{--                                        <td>--}}
                                         {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
                                         {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
@@ -160,7 +164,7 @@
                                         {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
                                         {{--                                        </td>--}}
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kim }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
                                         </td>
                                         <td class="align-middle">
                                             {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
@@ -170,17 +174,27 @@
                                             {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
                                             {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $z->OdemeAciklama }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $z->kalan }}</span>
                                         </td>
+
+
+                                        <td class="align-middle">
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>
+                                        </td>
+
+
                                         <td class="align-middle">
                                             <span
                                                 class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
                                         </td>
                                         <td>
                                             <a href="{{ route('odeme.onayla' , [ 'id' => $z->id ]) }}"><span
-                                                    class="badge badge-sm bg-gradient-success">Onayla</span></a>
-                                            <button type="button" class="btn btn-danger btn-sm btnkia"
-                                                    onclick="sor({{ $z->id }})"><i class="fa fa-trash"> sil</i></button>
+                                                    class="badge badge-sm bg-gradient-success"><i class="fa fa-check"></i></span></a>
+                                            <button type="button" class="btn btn-danger btn-lg btnkia"
+                                                    onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>
+{{--                                            <button type="button" class="btn btn-info btn-sm btnkia"--}}
+{{--                                                    onclick="sor({{ $z->id }})"><i class="fa fa-eye"></i></button>--}}detay
                                             {{--                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>--}}
                                         </td>
                                     </tr>

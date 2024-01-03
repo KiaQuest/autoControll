@@ -19,19 +19,19 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tip</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Odeyen</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Vade tarihi</th>
+                                            tarla</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Sekli</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            user</th>
+                                            Kapora</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Aciklama</th>
+                                            Kalan</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Toplam</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            tutar</th>--}}
@@ -88,7 +88,7 @@
     }
 </style>
                                 @foreach($data as $z)
-                                    <tr>
+                                    <tr  style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
                                         <td>
 
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
@@ -111,17 +111,18 @@
 {{--                                                </div>--}}
 {{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>
-                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>
+{{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>--}}
+{{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
+                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>
 
                                         </td>
-                                        <td>
+{{--                                        <td>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
 
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->VadeTarihi }}</p>
+{{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->VadeTarihi }}</p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
 {{--                                        <td class="align-middle text-center text-sm">--}}
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>--}}
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->SatisDurumu == 'satilmadi' ? "warning" : "info" }}">{{ $z->SatisDurumu}}</span>--}}
@@ -130,11 +131,14 @@
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeSekli }}</span>
                                         </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                        </td>
 {{--                                        <td class="align-middle text-center">--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kim }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kalan }}</span>
                                         </td>
                                         <td class="align-middle">
 {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
@@ -143,7 +147,7 @@
 {{--                                            </a>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeAciklama }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
@@ -164,7 +168,7 @@
     <td>sililanlar</td>
 </tr>
                                 @foreach($sililanlar as $x)
-                                    <tr>
+                                    <tr  style="background-color: {{ $x->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
                                         <td>
 
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
@@ -177,22 +181,23 @@
                                         </td>
                                         <td>
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>
-                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>
+{{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>--}}
+{{--                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
+                                            <p class="text-xs text-secondary mb-0">{{ $x->tarlaID }}</p>
 
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->VadeTarihi }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->OdemeSekli }}</p>
 
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->OdemeSekli }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->kim }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->kalan }}</span>
                                         </td>
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->OdemeAciklama }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->parselfiyati }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->created_at->todatestring() }}</span>

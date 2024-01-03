@@ -102,20 +102,66 @@
 {{--                                        <input name="__Invariant" type="hidden" value="VadeTarihi">--}}
                                         <br>
 
-                                        <label class="form-label" for="OdemeSekli">OdemeSekli</label>
-                                        <select class="form-control" name="OdemeSekli"data-val="true" data-val-required="'Odeme Sekli' must not be empty." id="OdemeSekli">
-                                            <option value="kart" selected="selected">kart</option>
-                                            <option value="nakit">nakit</option>
-                                            <option value="havale">havale</option>
-                                        </select>
-                                        <span class="text-danger field-validation-valid" data-valmsg-for="OdemeSekli" data-valmsg-replace="true"></span><br>
+{{--                                        <label class="form-label" for="OdemeSekli">OdemeSekli</label>--}}
+{{--                                        <select class="form-control" name="OdemeSekli"data-val="true" data-val-required="'Odeme Sekli' must not be empty." id="OdemeSekli">--}}
+{{--                                            <option value="kart" selected="selected">kart</option>--}}
+{{--                                            <option value="nakit">nakit</option>--}}
+{{--                                            <option value="havale">havale</option>--}}
+{{--                                        </select>--}}
+{{--                                        <span class="text-danger field-validation-valid" data-valmsg-for="OdemeSekli" data-valmsg-replace="true"></span><br>--}}
 
 
-                                        <label class="form-label" for="kapora">Kapora</label>
-                                        <input name="kapora" type="text" class="form-control" id="kapora">
+
+
+
+
+                                        <br>
+                                        <div class="row" style="justify-content: space-around">
+                                            {{--                                    <div class="row" style="justify-content: space-around">--}}
+                                            <div class="col-md-5">
+                                                <label class="form-label" for="parselfiyati">Toplam Fiat<span
+                                                        class="req">*</span></label>
+                                                <input name="parselfiyati" type="text" class="form-control" id="parselfiyati"
+                                                       required>
+                                            </div>
+                                            <div class="col-md-5">
+
+                                                <label class="form-label" for="kapora">Peşin (Kapora)<span
+                                                        class="req">*</span></label>
+                                                <input name="kapora" type="text" class="form-control" id="kapora"
+                                                       required value="0">
+                                            </div>
+
+                                            <div class="col-md-5">
+                                                <label class="form-label" for="OdemeSekli">OdemeSekli</label>
+                                                <select class="form-control" name="OdemeSekli" data-val="true"
+                                                        data-val-required="'Odeme Sekli' must not be empty."
+                                                        id="OdemeSekli">
+                                                    <option value="kart" selected="selected">kart</option>
+                                                    <option value="nakit">nakit</option>
+                                                    <option value="havale">havale</option>
+                                                </select><br>
+                                            </div>
+
+
+
+                                            <div class="col-md-5">
+
+                                                <label class="form-label" for="kalan">Kalan<span
+                                                        class="req">*</span></label>
+                                                <input name="kalan" type="text" class="form-control" id="kalan"
+                                                       required value="0">
+                                            </div>
+
+                                        </div>
+
+
+                                        <br>
+{{--                                        <label class="form-label" for="kapora">Kapora</label>--}}
+{{--                                        <input name="kapora" type="text" class="form-control" id="kapora">--}}
 {{--                                        <input name="OdemeTipi" type="hidden" class="form-control" value="alacak" data-val="true" data-val-required="'Odeme Tipi' must not be empty." id="OdemeTipi">--}}
 
-                                        <span class="text-danger field-validation-valid" data-valmsg-for="OdemeTipi" data-valmsg-replace="true"></span><br>
+{{--                                        <span class="text-danger field-validation-valid" data-valmsg-for="OdemeTipi" data-valmsg-replace="true"></span><br>--}}
 
 
                                         <label class="form-label" for="Tutar"> Tutar</label>
@@ -169,66 +215,66 @@
                     </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card card-profile">
-                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">
-                    <div class="row justify-content-center">
-                        <div class="col-4 col-lg-4 order-lg-2">
-                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">
-                                <a href="javascript:;">
-                                    <img src="/img/team-2.jpg"
-                                        class="rounded-circle img-fluid border border-2 border-white">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">
-                        <div class="d-flex justify-content-between">
-                            <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-none d-lg-block">Connect</a>
-                            <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-block d-lg-none"><i
-                                    class="ni ni-collection"></i></a>
-                            <a href="javascript:;"
-                                class="btn btn-sm btn-dark float-right mb-0 d-none d-lg-block">Message</a>
-                            <a href="javascript:;" class="btn btn-sm btn-dark float-right mb-0 d-block d-lg-none"><i
-                                    class="ni ni-email-83"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body pt-0">
-                        <div class="row">
-                            <div class="col">
-                                <div class="d-flex justify-content-center">
-                                    <div class="d-grid text-center">
-                                        <span class="text-lg font-weight-bolder">22</span>
-                                        <span class="text-sm opacity-8">Friends</span>
-                                    </div>
-                                    <div class="d-grid text-center mx-4">
-                                        <span class="text-lg font-weight-bolder">10</span>
-                                        <span class="text-sm opacity-8">Photos</span>
-                                    </div>
-                                    <div class="d-grid text-center">
-                                        <span class="text-lg font-weight-bolder">89</span>
-                                        <span class="text-sm opacity-8">Comments</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mt-4">
-                            <h5>
-                                Mark Davis<span class="font-weight-light">, 35</span>
-                            </h5>
-                            <div class="h6 font-weight-300">
-                                <i class="ni location_pin mr-2"></i>Bucharest, Romania
-                            </div>
-                            <div class="h6 mt-4">
-                                <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer
-                            </div>
-                            <div>
-                                <i class="ni education_hat mr-2"></i>University of Computer Science
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--            <div class="col-md-4">--}}
+{{--                <div class="card card-profile">--}}
+{{--                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">--}}
+{{--                    <div class="row justify-content-center">--}}
+{{--                        <div class="col-4 col-lg-4 order-lg-2">--}}
+{{--                            <div class="mt-n4 mt-lg-n6 mb-4 mb-lg-0">--}}
+{{--                                <a href="javascript:;">--}}
+{{--                                    <img src="/img/team-2.jpg"--}}
+{{--                                        class="rounded-circle img-fluid border border-2 border-white">--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="card-header text-center border-0 pt-0 pt-lg-2 pb-4 pb-lg-3">--}}
+{{--                        <div class="d-flex justify-content-between">--}}
+{{--                            <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-none d-lg-block">Connect</a>--}}
+{{--                            <a href="javascript:;" class="btn btn-sm btn-info mb-0 d-block d-lg-none"><i--}}
+{{--                                    class="ni ni-collection"></i></a>--}}
+{{--                            <a href="javascript:;"--}}
+{{--                                class="btn btn-sm btn-dark float-right mb-0 d-none d-lg-block">Message</a>--}}
+{{--                            <a href="javascript:;" class="btn btn-sm btn-dark float-right mb-0 d-block d-lg-none"><i--}}
+{{--                                    class="ni ni-email-83"></i></a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="card-body pt-0">--}}
+{{--                        <div class="row">--}}
+{{--                            <div class="col">--}}
+{{--                                <div class="d-flex justify-content-center">--}}
+{{--                                    <div class="d-grid text-center">--}}
+{{--                                        <span class="text-lg font-weight-bolder">22</span>--}}
+{{--                                        <span class="text-sm opacity-8">Friends</span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="d-grid text-center mx-4">--}}
+{{--                                        <span class="text-lg font-weight-bolder">10</span>--}}
+{{--                                        <span class="text-sm opacity-8">Photos</span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="d-grid text-center">--}}
+{{--                                        <span class="text-lg font-weight-bolder">89</span>--}}
+{{--                                        <span class="text-sm opacity-8">Comments</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="text-center mt-4">--}}
+{{--                            <h5>--}}
+{{--                                Mark Davis<span class="font-weight-light">, 35</span>--}}
+{{--                            </h5>--}}
+{{--                            <div class="h6 font-weight-300">--}}
+{{--                                <i class="ni location_pin mr-2"></i>Bucharest, Romania--}}
+{{--                            </div>--}}
+{{--                            <div class="h6 mt-4">--}}
+{{--                                <i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <i class="ni education_hat mr-2"></i>University of Computer Science--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         @include('layouts.footers.auth.footer')
     </div>

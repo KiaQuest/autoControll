@@ -25,7 +25,7 @@ class TarlaController extends Controller
         $id = $data->id;
 //        dd($id);
         Odeme::insert([
-            'OdemeTipi' => 'alinmis',
+            'OdemeTipi' => 'verecek',
             'OdemeSekli' => $request->OdemeSekli,
             'tarlaID' => $id,
             'kapora' => $request->tarlaPesin,
