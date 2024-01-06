@@ -442,82 +442,82 @@
 
                                         // TEKRAR--START 4
 
-                                        function addInput5(loop, num, w3yzid, w3yzid2, w3yzid3, w3yzid4, w3yzid5) {
-
-                                            let z = document.getElementsByName(loop)[0];
-                                            z.addEventListener('change', function () {
-
-                                                let lo = 'loop';
-                                                let n = 1;
-                                                let loopNUM = n + num;
-                                                let loop = lo.concat(loopNUM);
-
-                                                var w3yzid6 = document.getElementById(this.value).getAttribute('w3yz-id');
-
-                                                fetch("getCategoryAPI.php")
-                                                    .then((response) => {
-                                                        if (response.ok) {
-                                                            return response.json();
-                                                        }
-                                                    })
-                                                    .then(data => {
-
-                                                        if (typeof data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories[0] != 'undefined') {
-
-                                                            let para = document.createElement("input");
-                                                            para.setAttribute("list", loop);
-                                                            para.setAttribute("class", 'form-control');
-                                                            para.type = "text";
-                                                            para.name = loop;
-
-
-                                                            let dl = document.createElement('datalist');
-                                                            dl.id = loop;
-
-                                                            for (var i = 0; i < data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories.length; i++) {
-
-                                                                let cocktail = data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories[i].name;
-
-                                                                let opt2 = document.createElement("option");
-                                                                opt2.setAttribute("value", cocktail);
-                                                                opt2.setAttribute("class", loop);
-                                                                opt2.setAttribute("id", cocktail);
-                                                                opt2.setAttribute("w3yz-id", i);
-                                                                opt2.innerHTML = cocktail;
-
-                                                                dl.appendChild(opt2);
-                                                            }
-
-                                                            para.appendChild(dl);
-                                                            document.getElementById('p'.concat(loop)).appendChild(para);
-
-                                                            // return;
-                                                            // addInput3()
-
-                                                        } else {
-
-
-                                                            let urunID = data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].id;
-                                                            let anaID = data.categories[w3yzid].id;
-
-                                                            let para = document.createElement("input");
-                                                            para.setAttribute("value", urunID);
-                                                            para.type = "hidden";
-                                                            para.name = "urunID";
-
-                                                            let adaInput = document.createElement("input");
-                                                            adaInput.setAttribute("value", anaID);
-                                                            adaInput.type = "hidden";
-                                                            adaInput.name = "anaID";
-
-                                                            document.getElementById('urun').appendChild(para);
-                                                            document.getElementById('ana').appendChild(adaInput);
-                                                            attribute(urunID);
-                                                            tik();
-                                                        }
-                                                    });
-                                            });
-                                        }
+                                        // function addInput5(loop, num, w3yzid, w3yzid2, w3yzid3, w3yzid4, w3yzid5) {
+                                        //
+                                        //     let z = document.getElementsByName(loop)[0];
+                                        //     z.addEventListener('change', function () {
+                                        //
+                                        //         let lo = 'loop';
+                                        //         let n = 1;
+                                        //         let loopNUM = n + num;
+                                        //         let loop = lo.concat(loopNUM);
+                                        //
+                                        //         var w3yzid6 = document.getElementById(this.value).getAttribute('w3yz-id');
+                                        //
+                                        //         fetch("getCategoryAPI.php")
+                                        //             .then((response) => {
+                                        //                 if (response.ok) {
+                                        //                     return response.json();
+                                        //                 }
+                                        //             })
+                                        //             .then(data => {
+                                        //
+                                        //                 if (typeof data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories[0] != 'undefined') {
+                                        //
+                                        //                     let para = document.createElement("input");
+                                        //                     para.setAttribute("list", loop);
+                                        //                     para.setAttribute("class", 'form-control');
+                                        //                     para.type = "text";
+                                        //                     para.name = loop;
+                                        //
+                                        //
+                                        //                     let dl = document.createElement('datalist');
+                                        //                     dl.id = loop;
+                                        //
+                                        //                     for (var i = 0; i < data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories.length; i++) {
+                                        //
+                                        //                         let cocktail = data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].subCategories[i].name;
+                                        //
+                                        //                         let opt2 = document.createElement("option");
+                                        //                         opt2.setAttribute("value", cocktail);
+                                        //                         opt2.setAttribute("class", loop);
+                                        //                         opt2.setAttribute("id", cocktail);
+                                        //                         opt2.setAttribute("w3yz-id", i);
+                                        //                         opt2.innerHTML = cocktail;
+                                        //
+                                        //                         dl.appendChild(opt2);
+                                        //                     }
+                                        //
+                                        //                     para.appendChild(dl);
+                                        //                     document.getElementById('p'.concat(loop)).appendChild(para);
+                                        //
+                                        //                     // return;
+                                        //                     // addInput3()
+                                        //
+                                        //                 } else {
+                                        //
+                                        //
+                                        //                     let urunID = data.categories[w3yzid].subCategories[w3yzid2].subCategories[w3yzid3].subCategories[w3yzid4].subCategories[w3yzid5].subCategories[w3yzid6].id;
+                                        //                     let anaID = data.categories[w3yzid].id;
+                                        //
+                                        //                     let para = document.createElement("input");
+                                        //                     para.setAttribute("value", urunID);
+                                        //                     para.type = "hidden";
+                                        //                     para.name = "urunID";
+                                        //
+                                        //                     let adaInput = document.createElement("input");
+                                        //                     adaInput.setAttribute("value", anaID);
+                                        //                     adaInput.type = "hidden";
+                                        //                     adaInput.name = "anaID";
+                                        //
+                                        //                     document.getElementById('urun').appendChild(para);
+                                        //                     document.getElementById('ana').appendChild(adaInput);
+                                        //                     attribute(urunID);
+                                        //                     tik();
+                                        //                 }
+                                        //             });
+                                        //     });
+                                        // }
 
 
                                     </script>

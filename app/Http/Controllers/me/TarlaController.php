@@ -128,4 +128,15 @@ class TarlaController extends Controller
         return redirect()->back();
     }
 
+
+
+    public function tarlas2()
+    {
+//        dd('$id');
+//         dd(auth()->user()->id);
+        $data = tarla::all('konum_il','konum_ilce','konum_mahalle',);
+//        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
+        return response()->json($data);
+//        dd($data);
+    }
 }

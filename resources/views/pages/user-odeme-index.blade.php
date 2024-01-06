@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Odeme table</h6>
+                        <h6>Odeme table (max = 20)</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -99,7 +99,7 @@
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
 
                                         </td>
-                                        <td>
+                                        <td id="z{{ $loop->iteration }}" zid="{{ $z->tarlaID }}">
 {{--                                            <div class="d-flex px-2 py-1">--}}
 {{--                                                <div>--}}
 {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
@@ -114,7 +114,7 @@
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
                                             <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>
-
+                                            <p class="text-xs text-secondary mb-0" id="bname"></p>
                                         </td>
 {{--                                        <td>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
@@ -166,6 +166,22 @@
                                 @endforeach
 <tr>
     <td>sililanlar</td>
+
+{{--    <script>--}}
+
+
+
+{{--        function cc(){--}}
+
+{{--            let g = document.getElementById('bname');--}}
+
+{{--            let man = document.createElement("span");--}}
+{{--            man.innerHTML = 's2' ;--}}
+{{--            g.appendChild(man);--}}
+{{--        }--}}
+
+
+{{--        </script>--}}
 </tr>
                                 @foreach($sililanlar as $x)
                                     <tr  style="background-color: {{ $x->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
@@ -179,11 +195,13 @@
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $x->OdemeTipi  }}</p>
 
                                         </td>
-                                        <td>
+                                        <td id="{{ $loop->iteration }}" kid="{{ $x->tarlaID }}">
 
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
-                                            <p class="text-xs text-secondary mb-0">{{ $x->tarlaID }}</p>
+{{--                                            <p class="text-xs text-secondary mb-0">{{ $x->tarlaID }}</p>--}}
+{{--                                            <script>cc()</script>--}}
+{{--                                            <p class="text-xs text-secondary mb-0" id="tname"></p>--}}
 
                                         </td>
                                         <td>
@@ -231,6 +249,143 @@
                 </div>
             </div>
         </div>
+
+
+        <script>
+
+
+
+{{--            let p = document.getElementById('tname');--}}
+
+{{--            // console.log(p);--}}
+{{--            // console.log('p');--}}
+{{--            fetch("{{ route('tarlas', ['id' => auth()->user()->id]) }}")--}}
+{{--            fetch("{{ route('tarlas2') }}")--}}
+{{--                .then((response) => {--}}
+{{--                    if (response.ok) {--}}
+{{--                        return response.json();--}}
+{{--                    }--}}
+{{--                })--}}
+{{--                .then(data => {--}}
+
+{{--                    // const ali = data;--}}
+{{--                    // console.log(data[1].konum_id)--}}
+
+{{--                    // for (var i = 0; i < data.length; i++) {--}}
+{{--                        // console.log('ya2')--}}
+{{--                        // console.log(data[i].konum_id)--}}
+{{--                        // let cocktail = data.categories[w3yzid].subCategories[i].name;--}}
+
+{{--                        // if (ko2 == ko){--}}
+
+{{--                    let i = 4--}}
+{{--                        // let man = document.createElement("option");--}}
+{{--                        let man = document.createElement("span");--}}
+{{--                        man.setAttribute("value", data[i].id);--}}
+{{--                        // opt2.setAttribute("id", "wid".concat(loop,i));--}}
+{{--                        man.setAttribute("id", data[i].id);--}}
+{{--                        man.setAttribute("class", data[i].ParselSayisi);--}}
+{{--                        man.setAttribute("w3", data[i].ParselSayisi);--}}
+{{--                        man.innerHTML = data[i].konum_il + ' / ' + data[i].konum_ilce + ' / '  + data[i].konum_mahalle ;--}}
+{{--                        // man.innerHTML = data[i].ParselSayisi + ' Parsel / ' + data[i].konum_ilce + ' / ' + data[i].konum_mahalle + ' ( no ' + [i + 1] + ' )';--}}
+
+{{--                        // if (ko === ko2) { continue; }--}}
+{{--                        // var ko2 = ko;--}}
+{{--                        p.appendChild(man);--}}
+
+{{--                        // }--}}
+{{--                    // }--}}
+{{--                });--}}
+
+
+
+
+            for (var i = 1; i < 20; i++) {
+
+
+                if (!document.getElementById(i)){
+                    break
+                }
+            let p = document.getElementById(i);
+            let q = p.getAttribute('kid');
+            let o = q - 1;
+
+
+
+                // console.log(o);
+            // console.log('p');
+            {{--            fetch("{{ route('tarlas', ['id' => auth()->user()->id]) }}")--}}
+            fetch("{{ route('tarlas2') }}")
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                })
+                .then(data => {
+
+                    // const ali = data;
+                    // console.log(data[1].konum_id)
+
+                    // for (var i = 0; i < data.length; i++) {
+                    // console.log('ya2')
+                    // console.log(data[i].konum_id)
+                    // let cocktail = data.categories[w3yzid].subCategories[i].name;
+
+                    // if (ko2 == ko){
+
+                    // let i = 4
+                    // let man = document.createElement("option");
+                    let man = document.createElement("div");
+                    man.setAttribute("class", 'text-xxs');
+                    man.innerHTML = data[o].konum_il + ' / ' + data[o].konum_ilce + ' / '  + data[o].konum_mahalle ;
+                    // man.innerHTML = data[i].ParselSayisi + ' Parsel / ' + data[i].konum_ilce + ' / ' + data[i].konum_mahalle + ' ( no ' + [i + 1] + ' )';
+
+                    // if (ko === ko2) { continue; }
+                    // var ko2 = ko;
+                    p.appendChild(man);
+
+                    // }
+                    // }
+                });
+
+            }
+
+
+
+
+for (var i = 1; i < 20; i++) {
+
+
+    let r = 'z' + i;
+    let p = document.getElementById(r);
+
+    if (!p){
+        break
+    }
+    let q = p.getAttribute('zid');
+    let o = q - 1;
+
+    fetch("{{ route('tarlas2') }}")
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+        })
+        .then(data => {
+
+            // let i = 4
+            // let man = document.createElement("option");
+            let man = document.createElement("div");
+            man.setAttribute("class", 'text-xxs');
+            man.innerHTML = data[o].konum_il + ' / ' + data[o].konum_ilce + ' / '  + data[o].konum_mahalle ;
+            p.appendChild(man);
+
+        });
+
+}
+
+
+        </script>
 {{--        <div class="row">--}}
 {{--            <div class="col-12">--}}
 {{--                <div class="card mb-4">--}}

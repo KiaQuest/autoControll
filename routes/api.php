@@ -25,6 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/mudurs', [adminController::class, 'mudurs']);
 Route::get('/konum', [firmaController::class, 'konum'])->name('konum');
 Route::get('/tarlalarim/{id}', [TarlaController::class, 'tarlas'])->name('tarlas');
+Route::get('/tarlalarim2', [TarlaController::class, 'tarlas2'])->name('tarlas2');
 
 
 
