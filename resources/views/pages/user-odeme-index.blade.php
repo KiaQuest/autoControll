@@ -113,8 +113,8 @@
 
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
-                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>
-                                            <p class="text-xs text-secondary mb-0" id="bname"></p>
+{{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>--}}
+{{--                                            <p class="text-xs text-secondary mb-0" id="bname"></p>--}}
                                         </td>
 {{--                                        <td>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}

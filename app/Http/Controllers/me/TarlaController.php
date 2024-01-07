@@ -134,7 +134,17 @@ class TarlaController extends Controller
     {
 //        dd('$id');
 //         dd(auth()->user()->id);
-        $data = tarla::all('konum_il','konum_ilce','konum_mahalle',);
+        $data = tarla::all('konum_il','konum_ilce','konum_mahalle');
+//        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
+        return response()->json($data);
+//        dd($data);
+    }
+
+    public function tarlas3($id)
+    {
+//        dd('$id');
+//         dd(auth()->user()->id);
+        $data = tarla::where('id' , $id)->first();
 //        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
         return response()->json($data);
 //        dd($data);

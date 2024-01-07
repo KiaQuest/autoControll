@@ -193,8 +193,8 @@
                                                     class="badge badge-sm bg-gradient-success"><i class="fa fa-check"></i></span></a>
                                             <button type="button" class="btn btn-danger btn-lg btnkia"
                                                     onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>
-{{--                                            <button type="button" class="btn btn-info btn-sm btnkia"--}}
-{{--                                                    onclick="sor({{ $z->id }})"><i class="fa fa-eye"></i></button>--}}detay
+                                            <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
+                                                    onclick="zor({{ $z->tarlaID}})"><i class="fa fa-eye"></i></button>
                                             {{--                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>--}}
                                         </td>
                                     </tr>
@@ -260,7 +260,7 @@
                                 }
 
                                 /* The Close Button */
-                                .close {
+                                .close , .close2 {
                                     color: white;
                                     float: right;
                                     font-size: 28px;
@@ -268,7 +268,9 @@
                                 }
 
                                 .close:hover,
-                                .close:focus {
+                                .close:focus,
+                                .close2:hover,
+                                .close2:focus {
                                     color: #000;
                                     text-decoration: none;
                                     cursor: pointer;
@@ -294,6 +296,9 @@
                                     display: flex;
                                     justify-content: space-evenly;
                                     padding: 6%;
+                                }
+                                .in{
+                                    padding: inherit;
                                 }
                             </style>
 
@@ -330,6 +335,64 @@
 
                             </div>
 
+
+ <!-- The Modal2 -->
+                            <div id="myModal2" class="modal">
+
+                                <!-- Modal content -->
+
+                                <div class="modal-content">
+                                    <div class="modal-header" style="direction: rtl; background-color: darkcyan">
+                                        <span class="close2">&times;</span>
+                                        <h3>Detay</h3>
+                                    </div>
+                                    <div class="modal-body modalkia">
+                                        {{--                                        <p>Some text in the Modal Body</p>--}}
+                                        {{--                                        <p>Some other text...</p>--}}
+{{--                                            <a href="" id="a1">--}}
+{{--                                                <button class="btn badge badge-sm bg-gradient-info p-3">Kaporanida sil--}}
+{{--                                                </button>--}}
+{{--                                            </a>--}}
+{{--                                            <a href="" id="a2">--}}
+{{--                                                <button class="btn badge badge-sm bg-gradient-secondary p-3"--}}
+{{--                                                        value="bt5">Kapora cibde kalsin--}}
+{{--                                                </button>--}}
+{{--                                            </a>--}}
+
+                                        <div class="row">
+                                            <div class="col-md-6"><label for="">Adres: </label><div id="d1" class="in"> </div></div>
+                                            <div class="col-md-6"><label for="">Ada/Parsel: </label><div id="d2" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">ParselSayi:</label><div  id="d3" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Sahip:</label><div  id="d4" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Sahip TC:</label><div  id="d5" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Sahip Tel:</label><div id="d6" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Tarla Fiyati:</label><div  id="d7" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Pesin:</label><div  id="d8" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Tarih:</label><div  id="d9" class="in"></div></div>
+                                        </div>
+                                    </div>
+                                    {{--                                    <div class="modal-footer">--}}
+                                    {{--                                        <h3>Modal Footer</h3>--}}
+                                    {{--                                    </div>--}}
+                                </div>
+
+                            </div>
+
+                            <script>
+
+                                function set(){
+                                    document.getElementById('d1').innerHTML = '';
+                                    document.getElementById('d2').innerHTML = '';
+                                    document.getElementById('d3').innerHTML = '';
+                                    document.getElementById('d4').innerHTML = '';
+                                    document.getElementById('d5').innerHTML = '';
+                                    document.getElementById('d6').innerHTML = '';
+                                    document.getElementById('d7').innerHTML = '';
+                                    document.getElementById('d8').innerHTML = '';
+                                    document.getElementById('d9').innerHTML = '';
+                                }
+                            </script>
+
                             <script>
                                 // Get the modal
                                 // var modal = document.getElementsByClassName("btnkia");
@@ -356,7 +419,12 @@
                                     if (event.target == modal) {
                                         modal.style.display = "none";
                                     }
+                                        if (event.target == modal2) {
+                                            modal2.style.display = "none";
+                                        }
+                                    set();
                                 }
+
 
                                 function sor(id) {
 
@@ -374,20 +442,106 @@
                                     // console.log(w3);
                                     document.getElementById('a1').setAttribute('href' , w4);
 
+                                }
 
 
+
+
+                                var modal2 = document.getElementById("myModal2");
+                                var span2 = document.getElementsByClassName("close2")[0];
+                                span2.onclick = function () {
+                                    modal2.style.display = "none";
+                                }
+
+                                // window.onclick = function (event2) {
+                                //     if (event2.target == modal2) {
+                                //         modal2.style.display = "none";
+                                //     }
+                                // }
+
+                                function zor(id) {
+
+                                    modal2.style.display = "block";
+
+                                    {{--let www = '{{ route('odeme.sil') }}';--}}
+                                    {{--let w3 = www + '?id=' + id + '&kapora=' + 1--}}
+                                    {{--// console.log(w3);--}}
+                                    {{--document.getElementById('a2').setAttribute('href' , w3);--}}
+
+                                    {{--let www = '{{ route('odeme.sil') }}';--}}
+                                    // let w4 = www + '?id=' + id + '&kapora=' + 0
+                                    // // console.log(w3);
+                                    // document.getElementById('a1').setAttribute('href' , w4);
+
+                                    let w = "{{ route('tarlas3') }}" + '/' + id
+                                    fetch(w)
+                                        .then((response) => {
+                                            if (response.ok) {
+                                                return response.json();
+                                            }
+                                        })
+                                        .then(data => {
+
+                                            // console.log(data);
+                                            let man = document.createElement("span");
+                                            man.setAttribute("class", 'text-xxs');
+                                            man.innerHTML = data.konum_il + ' / ' + data.konum_ilce + ' / '  + data.konum_mahalle ;
+                                            document.getElementById('d1').appendChild(man);
+
+                                            // console.log(data);
+                                            let man2 = document.createElement("span");
+                                            man2.setAttribute("class", 'text-xxs');
+                                            man2.innerHTML = data.Ada + ' / ' + data.Parsel + ' / ' + data.MetreKare + ' m2'  ;
+                                            document.getElementById('d2').appendChild(man2);
+
+                                            let man3 = document.createElement("span");
+                                            man3.setAttribute("class", 'text-xxs');
+                                            man3.innerHTML = data.ParselSayisi ;
+                                            // man3.innerHTML = data.ParselSayisi + ' / ' + data.SatisDurumu  ;
+                                            document.getElementById('d3').appendChild(man3);
+
+                                            let man4 = document.createElement("span");
+                                            man4.setAttribute("class", 'text-xxs');
+                                            man4.innerHTML = data.SahipAd + ' / ' + data.SahipSoyad  ;
+                                            document.getElementById('d4').appendChild(man4);
+
+                                            let man5 = document.createElement("span");
+                                            man5.setAttribute("class", 'text-xxs');
+                                            man5.innerHTML = data.SahipTc ;
+                                            document.getElementById('d5').appendChild(man5);
+
+                                            let man6 = document.createElement("span");
+                                            man6.setAttribute("class", 'text-xxs');
+                                            man6.innerHTML = data.SahipTel  ;
+                                            document.getElementById('d6').appendChild(man6);
+
+                                            let man7 = document.createElement("span");
+                                            man7.setAttribute("class", 'text-xxs');
+                                            man7.innerHTML = data.tarlaFiat;
+                                            document.getElementById('d7').appendChild(man7);
+
+                                            let man8 = document.createElement("span");
+                                            man8.setAttribute("class", 'text-xxs');
+                                            man8.innerHTML = data.tarlaPesin  ;
+                                            document.getElementById('d8').appendChild(man8);
+
+                                            let man9 = document.createElement("span");
+                                            man9.setAttribute("class", 'text-xxs');
+                                            man9.innerHTML = data.created_at  ;
+                                            document.getElementById('d9').appendChild(man9);
+
+                                        });
 
                                 }
 
 
 
 
+
+
                                 // get tarla name
 
-
-
                                 for (var i = 1; i < 20; i++) {
-
 
                                     if (!document.getElementById(i)){
                                         break
@@ -403,14 +557,12 @@
                                             }
                                         })
                                         .then(data => {
-
                                             let man = document.createElement("div");
                                             man.setAttribute("class", 'text-xxs');
                                             man.innerHTML = data[o].konum_il + ' / ' + data[o].konum_ilce + ' / '  + data[o].konum_mahalle ;
                                             p.appendChild(man);
 
                                         });
-
                                 }
 
 
