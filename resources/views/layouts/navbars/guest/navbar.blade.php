@@ -50,9 +50,9 @@
                         </div>
 
 <div class="px-4">
-                                                        <a class="nav-link me-2" href="https://www.kiaquest.ir">
+{{--                                                        <a class="nav-link me-2" href="https://www.kiaquest.ir">--}}
                                                             Developed by KiaQuest
-                                                        </a>
+{{--                                                        </a>--}}
 </div>
 
 
