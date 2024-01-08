@@ -53,4 +53,10 @@ class firmaController extends Controller
         firma::where('id' , $id)->update($request->except(['_token']));
         return redirect()->route('firma.index');
     }
+
+    public function firmam($id)
+    {
+        $data = firma::find($id);
+        return response()->json($data);
+    }
 }

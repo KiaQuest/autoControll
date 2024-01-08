@@ -29,5 +29,8 @@ Route::get('/tarlalarim2', [TarlaController::class, 'tarlas2'])->name('tarlas2')
 Route::get('/tarlalarim3/{id?}', [TarlaController::class, 'tarlas3'])->name('tarlas3');
 
 
+Route::get('/firmam/{id?}', [firmaController::class, 'firmam'])->name('firmam');
+
+
 
 
