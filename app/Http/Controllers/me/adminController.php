@@ -62,4 +62,21 @@ class adminController extends Controller
 //        return 'ff';
         return view('pages.user-profile-separate');
     }
+
+    public function showEdit(Request $request)
+    {
+        $profile = User::find($request->id);
+//        dd(auth()->user());
+        $data = User::where('level','4')->get();
+        return view('pages.user-profile-edit' , compact('data' , 'profile'));
+    }
+
+    public function upadeEdit(Request $request)
+    {
+//        return 'll';
+//        dd($request->all());
+        $id = $request->id;
+        User::where('id' , $id)->update($request->except(['_token']));
+        return redirect()->route('users');
+    }
 }

@@ -58,6 +58,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/profile-ekle', [adminController::class, 'show'])->name('profile.ek');
 	Route::post('/profile-ekle', [adminController::class, 'create'])->name('profile.create.ek');
 
+	Route::get('/profile-edit', [adminController::class, 'showEdit'])->name('profile.edit');
+	Route::post('/profile-edit', [adminController::class, 'upadeEdit'])->name('profile.post.edit');
+
 
 	Route::get('/firma-ekle', [firmaController::class, 'show'])->name('firma.show');
 	Route::post('/firma-ekle', [firmaController::class, 'create'])->name('firma.create');
