@@ -75,10 +75,12 @@
                                 {{--style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');--}}
 {{--                                <span class="mask bg-gradient-primary opacity-6"></span>--}}
                                 <span class="mask opacity-6"></span>
-                                <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new
-                                    currency"</h4>
-                                <p class="text-white position-relative">The more effortless the writing looks, the more
-                                    effort the writer actually put into the process.</p>
+{{--                                <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new--}}
+{{--                                    currency"</h4>--}}
+                                <h4 class="mt-5 text-white font-weight-bolder position-relative">"BIESAA GROUP"</h4>
+{{--                                <p class="text-white position-relative">The more effortless the writing looks, the more--}}
+{{--                                    effort the writer actually put into the process.</p>--}}
+                                <p class="text-white position-relative">Türkiye Ko-operatif ve Satış danışmanı, Hobi bahçe lezzetine düy.</p>
                             </div>
                         </div>
                     </div>
