@@ -25,10 +25,10 @@
                                             Parsel sayi</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Alacak(kapora)</th>
+                                            Alacak</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Verecek(kalan)</th>
+                                            Verecek</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Toplam</th>--}}
@@ -177,6 +177,7 @@
                                     </tr>
 
                                 @endforeach
+
 <tr>
     <td></td>
     <td></td>
@@ -187,6 +188,103 @@
     <td></td>
     <td></td>
 </tr>
+
+<tr>
+    <td>
+        vade
+    </td>
+</tr>
+
+@foreach($vade as $z)
+    <tr  style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
+        <td>
+
+            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+
+        </td>
+        <td>
+
+            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
+
+        </td>
+        <td id="z{{ $loop->iteration }}" zid="{{ $z->tarlaID }}">
+            {{--                                            <div class="d-flex px-2 py-1">--}}
+            {{--                                                <div>--}}
+            {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
+            {{--                                                        alt="user1">--}}
+            {{--                                                </div>--}}
+            {{--                                                <div class="d-flex flex-column justify-content-center">--}}
+            {{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
+            {{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
+            {{--                                                </div>--}}
+            {{--                                            </div>--}}
+
+            {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>--}}
+            {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
+            {{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>--}}
+            {{--                                            <p class="text-xs text-secondary mb-0" id="bname"></p>--}}
+        </td>
+        {{--                                        <td>--}}
+        {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
+        {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
+
+        {{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->VadeTarihi }}</p>--}}
+
+        {{--                                        </td>--}}
+        {{--                                        <td class="align-middle text-center text-sm">--}}
+        {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>--}}
+        {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->SatisDurumu == 'satilmadi' ? "warning" : "info" }}">{{ $z->SatisDurumu}}</span>--}}
+        {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Ada }}</span>--}}
+        {{--                                        </td>--}}
+        <td class="align-middle text-center">
+            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>
+        </td>
+        @if($z->OdemeTipi == 'alacak')
+
+            <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+            </td>
+            <td class="align-middle text-center">
+            </td>
+        @else()
+
+            <td class="align-middle text-center">
+            </td>
+            <td class="align-middle text-center">
+                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+            </td>
+        @endif
+        {{--                                        <td class="align-middle text-center">--}}
+        {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
+        {{--                                        </td>--}}
+        {{--                                        /////// kalan   //////   kalan //////////   kalan /////////////  kalan --}}
+        {{--                                        <td class="align-middle text-center">--}}
+        {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kalan }}</span>--}}
+        {{--                                        </td>--}}
+        {{--                                        <td class="align-middle">--}}
+        {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
+        {{--                                                data-toggle="tooltip" data-original-title="Edit user">--}}
+        {{--                                                Edit--}}
+        {{--                                            </a>--}}
+        {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
+        {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
+        {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>--}}
+        {{--                                        </td>--}}
+        <td class="align-middle">
+            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
+        </td>
+        <td class="align-middle">
+            {{--                                            @if($z->delete == 0)--}}
+            <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>
+            <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
+            {{--                                            @else--}}
+            {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
+            {{--                                            @endif--}}
+            {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
+        </td>
+    </tr>
+
+@endforeach
 <tr>
     <td>sililanlar</td>
 

@@ -190,7 +190,7 @@
                                                 class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
                                         </td>
                                         <td>
-                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id ]) }}"><span
+                                            <a href="{{ route('odeme.vade.onayla' , [ 'id' => $z->id ]) }}"><span
                                                     class="badge badge-sm bg-gradient-success"><i class="fa fa-check"></i></span></a>
 {{--                                            <button type="button" class="btn btn-danger btn-lg btnkia"--}}
 {{--                                                    onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>--}}

@@ -60,6 +60,8 @@ class OdemeController extends Controller
         $sililanlar = Odeme::where('onay' , 0)->where('delete' , '=' , 1)->get();
 //        $sililanlar = Odeme::where('onay' , 0)->where('delete' , '!=' , 2)->get();
 
+        $vade = Odeme::where('vade' , 3)->get();
+
         $select2 = $sililanlar->pluck('OdemeTipi','kapora');
         $r2 = $select2->all();
         $k2 = 0;
@@ -78,7 +80,7 @@ class OdemeController extends Controller
         $toplam2 = $k2 - $z2;
 //dd($sililanlar);
 
-        return view('pages.user-odeme-index' , compact('data' , 'sililanlar' , 'toplam' , 'toplam2'));
+        return view('pages.user-odeme-index' , compact('data' , 'sililanlar' , 'toplam' , 'toplam2' , 'vade'));
     }
     public function index2()
     {
@@ -93,7 +95,9 @@ class OdemeController extends Controller
 //        dd('kk');
 //        $data = Odeme::where('kim' , auth()->user()->id)->where('onay' , '=' , NULL)->get();
         $data = Odeme::where('onay' , '!=' , 1)->where('delete' , 0)->get();
-        return view('pages.user-odeme-index-bekleyen' , compact('data'));
+        $vade = Odeme::where('vade' , 2)->where('delete' , 0)->get();
+//        dd($vade);
+        return view('pages.user-odeme-index-bekleyen' , compact('data','vade'));
         // fake comment
     }
 
@@ -129,6 +133,16 @@ class OdemeController extends Controller
     public function onayDurumu2(Request $request)
     {
         Odeme::where('id' , $request->id)->update(['onay' => 1]);
+        return redirect()->back();
+    }
+    public function onayDurumu3(Request $request)
+    {
+        Odeme::where('id' , $request->id)->update(['vade' => 2]);
+        return redirect()->back();
+    }
+    public function onayDurumu4(Request $request)
+    {
+        Odeme::where('id' , $request->id)->update(['vade' => 3]);
         return redirect()->back();
     }
 

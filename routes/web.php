@@ -89,6 +89,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/odeme-index-vade-bekleyen', [OdemeController::class, 'vade'])->name('odeme.vade.bekleyen');
 
 	Route::get('/odeme-onayla', [OdemeController::class, 'onayDurumu2'])->name('odeme.onayla');
+	Route::get('/odeme-vade-onayla', [OdemeController::class, 'onayDurumu3'])->name('odeme.vade.onayla');
+	Route::get('/odeme-vade-onayla-muahebe', [OdemeController::class, 'onayDurumu4'])->name('odeme.vade.onayla.muhasebe');
 	Route::get('/onay-durumu-change', [OdemeController::class, 'onayDurumu'])->name('onay.durumu.change');
 
     Route::get('/odeme-sil', [OdemeController::class, 'sil'])->name('odeme.sil');

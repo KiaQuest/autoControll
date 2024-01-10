@@ -32,16 +32,16 @@
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        kapora
+                                        alacak
                                     </th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        kalan
+                                        verecek
                                     </th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        toplam
-                                    </th>
+{{--                                    <th--}}
+{{--                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                        toplam--}}
+{{--                                    </th>--}}
                                     {{--                                        <th--}}
                                     {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
                                     {{--                                            tutar</th>--}}
@@ -163,25 +163,23 @@
                                         {{--                                        <td class="align-middle text-center">--}}
                                         {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
                                         {{--                                        </td>--}}
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
-                                        </td>
-                                        <td class="align-middle">
-                                            {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
-                                            {{--                                                data-toggle="tooltip" data-original-title="Edit user">--}}
-                                            {{--                                                Edit--}}
-                                            {{--                                            </a>--}}
-                                            {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
-                                            {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $z->kalan }}</span>
-                                        </td>
+                                        @if($z->OdemeTipi == 'alacak')
+
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                            </td>
+                                        @else()
+
+                                            <td class="align-middle text-center">
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                            </td>
+                                        @endif
 
 
-                                        <td class="align-middle">
-                                            <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>
-                                        </td>
 
 
                                         <td class="align-middle">
@@ -200,7 +198,113 @@
                                     </tr>
 
                                 @endforeach
+
+                                <tr>
+                                    <td>
+                                        Vade
+                                    </td>
+                                </tr>
+
+                                @foreach($vade as $z)
+                                    <tr style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
+                                        <td>
+
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+
+                                        </td>
+                                        <td>
+
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
+
+                                        </td>
+                                        <td id="{{ $loop->iteration }}" kid="{{ $z->tarlaID }}">
+                                            {{--                                            <div class="d-flex px-2 py-1">--}}
+                                            {{--                                                <div>--}}
+                                            {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
+                                            {{--                                                        alt="user1">--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                                <div class="d-flex flex-column justify-content-center">--}}
+                                            {{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
+                                            {{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
+                                            {{--                                                </div>--}}
+                                            {{--                                            </div>--}}
+
+                                            {{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>--}}
+                                            {{--                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->OdeyenSoyad }}</p>--}}
+
+                                        </td>
+                                        {{--                                        <td>--}}
+                                        {{--                                            --}}{{--                                            <div class="d-flex px-2 py-1">--}}
+                                        {{--                                            --}}{{--                                                <div>--}}
+                                        {{--                                            --}}{{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
+                                        {{--                                            --}}{{--                                                        alt="user1">--}}
+                                        {{--                                            --}}{{--                                                </div>--}}
+                                        {{--                                            --}}{{--                                                <div class="d-flex flex-column justify-content-center">--}}
+                                        {{--                                            --}}{{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
+                                        {{--                                            --}}{{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
+                                        {{--                                            --}}{{--                                                </div>--}}
+                                        {{--                                            --}}{{--                                            </div>--}}
+
+                                        {{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->parselfiyati }}</p>--}}
+                                        {{--                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->kalan }}</p>--}}
+
+                                        {{--                                        </td>--}}
+                                        {{--                                        <td>--}}
+                                        {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
+                                        {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
+
+                                        {{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->VadeTarihi }}</p>--}}
+
+                                        {{--                                        </td>--}}
+                                        {{--                                        <td class="align-middle text-center text-sm">--}}
+                                        {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>--}}
+                                        {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->SatisDurumu == 'satilmadi' ? "warning" : "info" }}">{{ $z->SatisDurumu}}</span>--}}
+                                        {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Ada }}</span>--}}
+                                        {{--                                        </td>--}}
+                                        <td class="align-middle text-center">
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold">{{ $z->OdemeSekli }}</span>
+                                        </td>
+                                        {{--                                        <td class="align-middle text-center">--}}
+                                        {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
+                                        {{--                                        </td>--}}
+                                        @if($z->OdemeTipi == 'alacak')
+
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                            </td>
+                                        @else()
+
+                                            <td class="align-middle text-center">
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                            </td>
+                                        @endif
+
+
+
+
+                                        <td class="align-middle">
+                                            <span
+                                                class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('odeme.vade.onayla.muhasebe' , [ 'id' => $z->id ]) }}"><span
+                                                    class="badge badge-sm bg-gradient-success"><i class="fa fa-check"></i></span></a>
+{{--                                            <button type="button" class="btn btn-danger btn-lg btnkia"--}}
+{{--                                                    onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>--}}
+                                            <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
+                                                    onclick="zor({{ $z->tarlaID}})"><i class="fa fa-eye"></i></button>
+                                            {{--                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>--}}
+                                        </td>
+                                    </tr>
+
+                                @endforeach
                                 </tbody>
+
                             </table>
 
 
