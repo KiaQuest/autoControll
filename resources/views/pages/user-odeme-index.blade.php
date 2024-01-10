@@ -22,16 +22,16 @@
                                             tarla</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Sekli</th>
+                                            Parsel sayi</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kapora</th>
+                                            Alacak(kapora)</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kalan</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Toplam</th>
+                                            Verecek(kalan)</th>
+{{--                                        <th--}}
+{{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            Toplam</th>--}}
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            tutar</th>--}}
@@ -129,26 +129,39 @@
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Ada }}</span>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->OdemeSekli }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
-                                        </td>
+                                        @if($z->OdemeTipi == 'alacak')
+
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                            </td>
+                                        @else()
+
+                                            <td class="align-middle text-center">
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                            </td>
+                                            @endif
 {{--                                        <td class="align-middle text-center">--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tutar }}</span>--}}
 {{--                                        </td>--}}
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kalan }}</span>
-                                        </td>
-                                        <td class="align-middle">
+{{--                                        /////// kalan   //////   kalan //////////   kalan /////////////  kalan --}}
+{{--                                        <td class="align-middle text-center">--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->kalan }}</span>--}}
+{{--                                        </td>--}}
+{{--                                        <td class="align-middle">--}}
 {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
 {{--                                                data-toggle="tooltip" data-original-title="Edit user">--}}
 {{--                                                Edit--}}
 {{--                                            </a>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>
-                                        </td>
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>--}}
+{{--                                        </td>--}}
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
                                         </td>
@@ -164,6 +177,16 @@
                                     </tr>
 
                                 @endforeach
+<tr>
+    <td></td>
+    <td></td>
+    <td>Toplam </td>
+    <td> {{ $toplam }}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
 <tr>
     <td>sililanlar</td>
 
@@ -205,18 +228,29 @@
 
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->OdemeSekli }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->parselsayisi }}</p>
 
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }}</span>
-                                        </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->kalan }}</span>
-                                        </td>
-                                        <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->parselfiyati }}</span>
-                                        </td>
+
+                                        @if($x->OdemeTipi == 'alacak')
+
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }}</span>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                            </td>
+                                        @else()
+
+                                            <td class="align-middle text-center">
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }}</span>
+                                            </td>
+                                        @endif
+
+{{--                                        <td class="align-middle">--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->parselfiyati }}</span>--}}
+{{--                                        </td>--}}
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->created_at->todatestring() }}</span>
                                         </td>
@@ -231,7 +265,16 @@
                                     </tr>
 
                                 @endforeach
-
+<tr>
+    <td></td>
+    <td></td>
+    <td>Toplam </td>
+    <td> {{ $toplam2 }}</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>
 
 
                                 </tbody>
