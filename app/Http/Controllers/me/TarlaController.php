@@ -89,6 +89,10 @@ class TarlaController extends Controller
         if ($say > $check){
             return 'parsel sayisi yanlisdir ';
         }
+
+        if ($request->kalan != null && $request->kalan != 0){
+            $request->request->add(['vade' => '1']); //add request
+        }
 //        dd($say , $check);
 //        $tarlaID = $request
         $action = Odeme::create($request->all() + ['kim' => auth()->user()->id]);
@@ -100,13 +104,13 @@ class TarlaController extends Controller
         if ($kapora != 0){
             echo '0 degil';
 
-            Alinmis::create([
-                'user' => auth()->user()->username,
-                'onaylian' => 'direkt',
-                'tarla' => $request->tarlaID,
-                'odemeID' => $odemeID,
-                'mikdar' => $kapora
-            ]);
+//            Alinmis::create([
+//                'user' => auth()->user()->username,
+//                'onaylian' => 'direkt',
+//                'tarla' => $request->tarlaID,
+//                'odemeID' => $odemeID,
+//                'mikdar' => $kapora
+//            ]);
 
         }
 
