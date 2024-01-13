@@ -16,8 +16,8 @@
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             #</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Kim</th>
+{{--                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            Kim</th>--}}
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Yapilacak Is</th>
                                         <th
@@ -32,7 +32,7 @@
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
-                                        <th class="text-secondary opacity-7"></th>
+{{--                                        <th class="text-secondary opacity-7"></th>--}}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,11 +75,11 @@
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
 
                                         </td>
-                                        <td>
+{{--                                        <td>--}}
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
                                         <td>
 {{--                                            <div class="d-flex px-2 py-1">--}}
 {{--                                                <div>--}}
