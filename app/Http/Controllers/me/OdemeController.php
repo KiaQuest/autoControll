@@ -146,6 +146,12 @@ class OdemeController extends Controller
         return redirect()->back();
     }
 
+    public function vadeDurumSil(Request $request)
+    {
+        Odeme::where('id' , $request->id)->update(['vade' => 2]);
+        return redirect()->back();
+    }
+
     public function sil(Request $request)
     {
 //        dd($request->kapora);
