@@ -16,6 +16,9 @@ return new class extends Migration
             $table->string('ad')->nullable();
             $table->string('soyad')->nullable();
             $table->string('tel')->nullable();
+            $table->string('adres')->nullable();
+            $table->string('mail')->nullable();
+            $table->string('about')->nullable();
             $table->string('kim')->nullable();
             $table->timestamps();
         });

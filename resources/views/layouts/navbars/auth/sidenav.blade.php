@@ -362,10 +362,33 @@
                 </div>
 
 
+            <button class="collapsible po   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'customer.list'   ? 'active' : '' }}">Müşteri İşlemleri <i class="arrow down"></i></button>
+            <div class="content"   {{ Route::currentRouteName() == 'customer.show' ||  Route::currentRouteName() == 'customer.list'   ? 'style=max-height:447px' : '' }}>
 
-                <button class="collapsible po">Müşteri İşlemleri <i class="arrow down"></i></button>
-                <div class="content">
+
+
                     {{--                    <p>Loremrrnsequat.</p>--}}
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'customer.show' ? 'active' : '' }}" href="{{ route('customer.show') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Müşteri Ekle</span>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'customer.list' ? 'active' : '' }}" href="{{ route('customer.list') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Müşteri Listesi</span>
+                        </a>
+                    </li>
 
                 </div>
 

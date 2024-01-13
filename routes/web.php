@@ -34,6 +34,7 @@ use App\Http\Controllers\me\OdemeController;
 use App\Http\Controllers\me\IsController;
 use App\Http\Controllers\me\IhtiacController;
 use App\Http\Controllers\me\SikayetController;
+use App\Http\Controllers\me\CustomerController;
 
 Route::get('/ilhan', [adminController::class, 'test1']);
 
@@ -95,6 +96,11 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/vade-onay-sil', [OdemeController::class, 'vadeDurumSil'])->name('vade.onay.sil');
 
     Route::get('/odeme-sil', [OdemeController::class, 'sil'])->name('odeme.sil');
+
+
+    Route::get('/customer-ek', [CustomerController::class, 'show'])->name('customer.show');
+    Route::post('/customer-ek', [CustomerController::class, 'create'])->name('customer.ek');
+    Route::get('/customer-list', [CustomerController::class, 'list'])->name('customer.list');
 
 
 	Route::get('/is-ekle', [IsController::class, 'show'])->name('is.show');
