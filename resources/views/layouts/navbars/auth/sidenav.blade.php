@@ -107,7 +107,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'firma.show' ? 'active' : '' }}" href="{{ route('firma.show') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-plus-circle text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">fırma ekle</span>
                         </a>
@@ -117,7 +117,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'firma.index' ? 'active' : '' }}" href="{{ route('firma.index') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="ni ni-app text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">fırma listesı</span>
                         </a>
@@ -129,14 +129,14 @@
 
 
 
-                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
-                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'style=max-height:447px' : '' }}>
+                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ||  Route::currentRouteName() == 'odeme.vade.bekleyen' ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
+                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ||  Route::currentRouteName() == 'odeme.vade.bekleyen'  ? 'style=max-height:502px' : '' }}>
 
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'profile.ek' ? 'active' : '' }}" href="{{ route('profile.ek') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-user-plus text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Çalışn ekle</span>
                         </a>
@@ -146,7 +146,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-users text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Çalışanlar</span>
                         </a>
@@ -158,7 +158,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'is.show' ? 'active' : '' }}" href="{{ route('is.show') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-calendar-plus-o text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Iş Ekle</span>
                         </a>
@@ -168,7 +168,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'is.index' ? 'active' : '' }}" href="{{ route('is.index') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-briefcase text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Yapılan işler</span>
                         </a>
@@ -179,7 +179,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'ihtiac.show' ? 'active' : '' }}" href="{{ route('ihtiac.show') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-tag text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Ihtiac Ekle</span>
                         </a>
@@ -189,7 +189,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'ihtiac.index' ? 'active' : '' }}" href="{{ route('ihtiac.index') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-tags text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">İhtiyaçlarım</span>
                         </a>
@@ -200,7 +200,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'sikayet.show' ? 'active' : '' }}" href="{{ route('sikayet.show') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-legal text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Şikayet Ekle</span>
                         </a>
@@ -210,7 +210,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'sikayet.index' ? 'active' : '' }}" href="{{ route('sikayet.index') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-file-text text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Şikayetlerim</span>
                         </a>
@@ -221,7 +221,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'odeme.vade.bekleyen' ? 'active' : '' }}" href="{{ route('odeme.vade.bekleyen') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-check-square text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Vade Bekleyen Ödemeler</span>
                         </a>
@@ -265,7 +265,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'tarla.show' ? 'active' : '' }}" href="{{ route('tarla.show') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-plus-square text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Tarla ekle</span>
                         </a>
@@ -275,7 +275,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'tarla.index' ? 'active' : '' }}" href="{{ route('tarla.index') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-list text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Tarla listesı</span>
                         </a>
@@ -285,7 +285,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'tarla.satis' ? 'active' : '' }}" href="{{ route('tarla.satis') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-pie-chart text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Tarla Satışı</span>
                         </a>
@@ -304,7 +304,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'odeme.show' ? 'active' : '' }}" href="{{ route('odeme.show') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-plus-square text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Ödeme Ekle <br> <span class="text-xxs font-weight-lighter mb-0 px-2" style="font-weight: 100 !important;">( alacak & verecek )</span></span>
                         </a>
@@ -316,7 +316,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'odeme.index' ? 'active' : '' }}" href="{{ route('odeme.index') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-navicon text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Ödeme listesı</span>
 {{--                            <span class="nav-link-text ms-1">Satiş listesı</span>--}}
@@ -352,7 +352,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'odeme.index.bekleyen' ? 'active' : '' }}" href="{{ route('odeme.index.bekleyen') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-check-square-o text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Onay bekleyen</span>
                         </a>
@@ -373,7 +373,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'customer.show' ? 'active' : '' }}" href="{{ route('customer.show') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-user-circle-o text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Müşteri Ekle</span>
                         </a>
@@ -384,7 +384,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'customer.list' ? 'active' : '' }}" href="{{ route('customer.list') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-vcard text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Müşteri Listesi</span>
                         </a>
@@ -419,7 +419,7 @@
 {{--                        <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">--}}
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-group text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Çalışanlarim</span>
                         </a>
@@ -431,7 +431,7 @@
                         <a class="nav-link {{ Route::currentRouteName() == 'bildirmeler' ? 'active' : '' }}" href="{{ route('bildirmeler') }}">
                             <div
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+                                <i class="fa fa-bullhorn text-dark text-sm opacity-10"></i>
                             </div>
                             <span class="nav-link-text ms-1">Bildirmeler</span>
                         </a>
