@@ -20,9 +20,9 @@
                                             Tip</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             tarla</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Parsel sayi</th>
+{{--                                        <th--}}
+{{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            Parsel sayi</th>--}}
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Alacak</th>
@@ -128,13 +128,13 @@
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->SatisDurumu == 'satilmadi' ? "warning" : "info" }}">{{ $z->SatisDurumu}}</span>--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Ada }}</span>--}}
 {{--                                        </td>--}}
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>
-                                        </td>
+{{--                                        <td class="align-middle text-center">--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>--}}
+{{--                                        </td>--}}
                                         @if($z->OdemeTipi == 'alacak')
 
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
                                             </td>
                                             <td class="align-middle text-center">
                                             </td>
@@ -143,7 +143,7 @@
                                             <td class="align-middle text-center">
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
                                             </td>
                                             @endif
 {{--                                        <td class="align-middle text-center">--}}
@@ -167,8 +167,10 @@
                                         </td>
                                         <td class="align-middle">
 {{--                                            @if($z->delete == 0)--}}
-                                                <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>
+{{--                                                <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>--}}
                                                 <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
+                                            <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
+                                                    onclick="zor({{ $z->tarlaID}})"><i class="fa fa-eye"></i></button>
 {{--                                            @else--}}
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
 {{--                                            @endif--}}
@@ -179,13 +181,21 @@
                                 @endforeach
 
 <tr>
-    <td></td>
-    <td></td>
-    <td>Toplam </td>
-    <td> {{ $toplam }}</td>
+
     <td></td>
     <td></td>
     <td></td>
+    @if($toplam < 0 )
+
+        <td> </td>
+        <td> {{ $toplam }} ₺</td>
+    @else
+
+
+        <td> {{ $toplam }} ₺</td>
+        <td> </td>
+    @endif
+    <td> </td>
     <td></td>
 </tr>
 
@@ -210,13 +220,13 @@
         <td id="z{{ $loop->iteration }}" zid="{{ $z->tarlaID }}">
 
         </td>
-        <td class="align-middle text-center">
-            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>
-        </td>
+{{--        <td class="align-middle text-center">--}}
+{{--            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>--}}
+{{--        </td>--}}
         @if($z->OdemeTipi == 'alacak')
 
             <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
             </td>
             <td class="align-middle text-center">
             </td>
@@ -225,7 +235,7 @@
             <td class="align-middle text-center">
             </td>
             <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
             </td>
         @endif
         <td class="align-middle">
@@ -283,15 +293,15 @@
 {{--                                            <p class="text-xs text-secondary mb-0" id="tname"></p>--}}
 
                                         </td>
-                                        <td>
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->parselsayisi }}</p>
+{{--                                        <td>--}}
+{{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->parselsayisi }}</p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
 
                                         @if($x->OdemeTipi == 'alacak')
 
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }} ₺</span>
                                             </td>
                                             <td class="align-middle text-center">
                                             </td>
@@ -300,7 +310,7 @@
                                             <td class="align-middle text-center">
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }} ₺</span>
                                             </td>
                                         @endif
 
@@ -322,12 +332,22 @@
 
                                 @endforeach
 <tr>
+
     <td></td>
     <td></td>
-    <td>Toplam </td>
-    <td> {{ $toplam2 }}</td>
     <td></td>
-    <td></td>
+
+
+    @if($toplam2 < 0 )
+
+        <td> </td>
+        <td> {{ $toplam2 }} ₺</td>
+    @else
+
+        <td> {{ $toplam2 }} ₺</td>
+        <td> </td>
+    @endif
+
     <td></td>
     <td></td>
 </tr>
@@ -402,9 +422,12 @@
             for (var i = 1; i < 20; i++) {
 
 
+                // agar ashagi da delete ya silinen olsa chalishir VA NORMAL DA AKTIVIDE
                 if (!document.getElementById(i)){
+                    // console.log('p');
                     break
                 }
+
             let p = document.getElementById(i);
             let q = p.getAttribute('kid');
             let o = q - 1;
@@ -412,7 +435,7 @@
 
 
                 // console.log(o);
-            // console.log('p');
+
             {{--            fetch("{{ route('tarlas', ['id' => auth()->user()->id]) }}")--}}
             fetch("{{ route('tarlas2') }}")
                 .then((response) => {
@@ -452,36 +475,36 @@
 
 
 
-for (var i = 1; i < 20; i++) {
+            // tarla adini secip va yerine koyiyor jadvalda
+        {{--for (var i = 1; i < 20; i++) {--}}
+        {{--    --}}
+        {{--    let r = 'z' + i;--}}
+        {{--    let p = document.getElementById(r);--}}
+        {{--    if (!p){--}}
+        {{--        break--}}
+        {{--    }--}}
 
 
-    let r = 'z' + i;
-    let p = document.getElementById(r);
+        {{--    let q = p.getAttribute('zid');--}}
+        {{--    let o = q - 1;--}}
+        {{--    --}}
+        {{--    fetch("{{ route('tarlas2') }}")--}}
+        {{--        .then((response) => {--}}
+        {{--            if (response.ok) {--}}
+        {{--                return response.json();--}}
+        {{--            }--}}
+        {{--        })--}}
+        {{--        .then(data => {--}}
 
-    if (!p){
-        break
-    }
-    let q = p.getAttribute('zid');
-    let o = q - 1;
+        {{--            // let i = 4--}}
+        {{--            // let man = document.createElement("option");--}}
+        {{--            let man = document.createElement("div");--}}
+        {{--            man.setAttribute("class", 'text-xxs');--}}
+        {{--            man.innerHTML = data[o].konum_il + ' / ' + data[o].konum_ilce + ' / '  + data[o].konum_mahalle ;--}}
+        {{--            p.appendChild(man);--}}
 
-    fetch("{{ route('tarlas2') }}")
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-        })
-        .then(data => {
-
-            // let i = 4
-            // let man = document.createElement("option");
-            let man = document.createElement("div");
-            man.setAttribute("class", 'text-xxs');
-            man.innerHTML = data[o].konum_il + ' / ' + data[o].konum_ilce + ' / '  + data[o].konum_mahalle ;
-            p.appendChild(man);
-
-        });
-
-}
+        {{--        });--}}
+        {{--}--}}
 
 
         </script>

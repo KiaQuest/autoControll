@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('OdemeAciklama')->nullable();
             $table->string('About')->nullable();
             $table->string('kim')->nullable();
+            $table->string('yapan')->nullable();
             $table->string('tarlaID')->nullable();
             $table->string('parselsayisi')->nullable();
             $table->string('parselfiyati')->nullable();

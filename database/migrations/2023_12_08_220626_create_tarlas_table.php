@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('tarlaFiat')->nullable();
             $table->string('tarlaPesin')->nullable();
             $table->integer('kim');
+            $table->string('yapan')->nullable();
             $table->timestamps();
         });
     }

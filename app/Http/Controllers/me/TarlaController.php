@@ -20,7 +20,7 @@ class TarlaController extends Controller
     {
 //        dd($request->all());
 
-        $data = tarla::create($request->all() + ['kim' => auth()->user()->id]);
+        $data = tarla::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
         $data->save();
         $id = $data->id;
 //        dd($id);
@@ -95,7 +95,7 @@ class TarlaController extends Controller
         }
 //        dd($say , $check);
 //        $tarlaID = $request
-        $action = Odeme::create($request->all() + ['kim' => auth()->user()->id]);
+        $action = Odeme::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
         $odemeID = $action->id;
 //        Customer::create($request->all() + ['kim' => auth()->user()->id]);
 //        dd($request->all());

@@ -18,7 +18,7 @@ class OdemeController extends Controller
     public function create(Request $request)
     {
 //        dd($request->all());
-        Odeme::create($request->all() + ['kim' => auth()->user()->id]);
+        Odeme::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
         return redirect()->route('odeme.index');
     }
 
