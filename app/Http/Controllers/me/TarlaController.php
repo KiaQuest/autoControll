@@ -57,11 +57,11 @@ class TarlaController extends Controller
     public function update(Request $request)
     {
 
-        dd($request->all());
+//        dd($request->all());
         // il ilcede kaldi ishimiz
         $id = $request->id;
-        tarla::where('id' , $id)->update($request->except(['_token']));
-        return redirect()->route('firma.index');
+        tarla::where('id' , $id)->update($request->except('_token'));
+        return redirect()->route('tarla.index');
     }
 
     public function satis()

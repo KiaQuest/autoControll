@@ -57,7 +57,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
-                    <form role="form" method="POST" action={{ route('tarla.create') }} enctype="multipart/form-data">
+                    <form role="form" method="POST" action={{ route('tarla.edit' , ['id' => request()->id ]) }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
@@ -411,10 +411,10 @@ console.log('p');
 {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Durum" data-valmsg-replace="true"></span><br>--}}
 
                                 <label class="form-label" for="SatisDurumu">SatisDurumu</label>
-                                <select class="form-control" name="SatisDurumu" required="" data-val="true" data-val-required="'Satis Durumu' must not be empty." id="SatisDurumu">
+                                <select class="form-control" name="SatisDurumu" required=""  id="SatisDurumu">
 
-                                    <option value="satilmadi">Satışta Değil</option>
-                                    <option value="satiliyor"  {{ ($data->SatisDurumu == 1 ? 'selected' : '') }}  >Satışta</option>
+                                    <option value="0">Satışta Değil</option>
+                                    <option value="1"  {{ ($data->SatisDurumu == 1 ? 'selected' : '') }}  >Satışta</option>
 
                                 </select>
                                 <span class="text-danger field-validation-valid" data-valmsg-for="SatisDurumu" data-valmsg-replace="true"></span><br>

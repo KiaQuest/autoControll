@@ -436,15 +436,13 @@
                                     {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Durum" data-valmsg-replace="true"></span><br>--}}
 
                                     <label class="form-label" for="SatisDurumu">SatisDurumu</label>
-                                    <select class="form-control" name="SatisDurumu" required="" data-val="true"
-                                            data-val-required="'Satis Durumu' must not be empty." id="SatisDurumu">
+                                    <select class="form-control" name="SatisDurumu" required=""
+                                           id="SatisDurumu">
 
                                         <option value="0">Satışta Değil</option>
                                         <option value="1" selected="selected">Satışta</option>
 
-                                    </select>
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="SatisDurumu"
-                                          data-valmsg-replace="true"></span><br>
+                                    </select><br>
 
                                     {{--                                <label class="form-label">Tarla Fotoğraf</label>--}}
                                     {{--                                <input name="files" type="file" class="form-control" multiple="" ><br>--}}

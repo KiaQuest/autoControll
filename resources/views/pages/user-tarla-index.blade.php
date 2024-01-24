@@ -138,7 +138,7 @@
                                         </td>
                                         <td class="align-middle">
                                             <a href="{{ route('tarla.edit' , ['id' => $z->id]) }}"><span class="badge badge-sm bg-gradient-info">Düzenle</span></a>
-                                            <span class="text-xs">duzenlenecek</span>
+{{--                                            <span class="text-xs">duzenlenecek</span>--}}
                                         </td>
                                     </tr>
 
