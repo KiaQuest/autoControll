@@ -7,9 +7,10 @@
                     <script>
                         document.write(new Date().getFullYear())
                     </script>,
-                    made with <i class="fa fa-ghost"></i> by
+                    made with <i class="fa fa-ghost"></i> to
 {{--                    <a href="https://www.kiaquest.ir" class="font-weight-bold" target="_blank">KiaQuest</a>--}}
-                    KiaQuest
+{{--                    KiaQuest--}}
+                     <b>BIESAA</b>
 {{--                    &--}}
 {{--                    <a href="https://www.updivision.com" class="font-weight-bold" target="_blank">UPDIVISION</a>--}}
                     for a better web.

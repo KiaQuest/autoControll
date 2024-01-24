@@ -15,20 +15,23 @@
                                 <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        #
+{{--                                        #--}}
+                                        yapan
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Tip
+{{--                                        Tip--}}
+                                        açıklama
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        tarla
-                                    </th>
+{{--                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">--}}
+{{--                                        tarla--}}
+{{--                                    </th>--}}
 {{--                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">--}}
 {{--                                        $--}}
 {{--                                    </th>--}}
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        muşteri adı
+{{--                                        muşteri adı--}}
+                                        Ödeyen adı
                                     </th>
 {{--                                    <th--}}
 {{--                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
@@ -104,30 +107,32 @@
                                     <tr style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
                                         <td>
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->yapan  }}</p>
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>--}}
 
                                         </td>
                                         <td>
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->About  }}</p>
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>--}}
 
-                                        </td>
-                                        <td id="{{ $loop->iteration }}" kid="{{ $z->tarlaID }}">
-                                            {{--                                            <div class="d-flex px-2 py-1">--}}
-                                            {{--                                                <div>--}}
-                                            {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
-                                            {{--                                                        alt="user1">--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                                <div class="d-flex flex-column justify-content-center">--}}
-                                            {{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
-                                            {{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                            </div>--}}
+{{--                                        </td>--}}
+{{--                                        <td id="{{ $loop->iteration }}" kid="{{ $z->tarlaID }}">--}}
+{{--                                            --}}{{--                                            <div class="d-flex px-2 py-1">--}}
+{{--                                            --}}{{--                                                <div>--}}
+{{--                                            --}}{{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
+{{--                                            --}}{{--                                                        alt="user1">--}}
+{{--                                            --}}{{--                                                </div>--}}
+{{--                                            --}}{{--                                                <div class="d-flex flex-column justify-content-center">--}}
+{{--                                            --}}{{--                                                    <h6 class="mb-0 text-sm">John Michael</h6>--}}
+{{--                                            --}}{{--                                                    <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>--}}
+{{--                                            --}}{{--                                                </div>--}}
+{{--                                            --}}{{--                                            </div>--}}
 
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->OdeyenSoyad }}</p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
 {{--                                        <td>--}}
 {{--                                            --}}{{--                                            <div class="d-flex px-2 py-1">--}}
 {{--                                            --}}{{--                                                <div>--}}
@@ -195,7 +200,8 @@
 {{--                                            <button type="button" class="btn btn-danger btn-lg btnkia"--}}
 {{--                                                    onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>--}}
                                             <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
-                                                    onclick="zor({{ $z->tarlaID}})" style="padding: 0.35em 0.8em !important;"><i class="fa fa-eye"></i></button>
+                                                    onclick="odemeDetay({{ $z->id }})" style="padding: 0.35em 0.8em !important;"><i class="fa fa-eye"></i></button>
+{{--                                                    onclick="zor({{ $z->tarlaID}})" style="padding: 0.35em 0.8em !important;"><i class="fa fa-eye"></i></button>--}}
                                             {{--                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>--}}
                                         </td>
                                     </tr>
@@ -361,16 +367,33 @@
 {{--                                            </a>--}}
 
                                         <div class="row">
-                                            <div class="col-md-6"><label for="">Adres: </label><div id="d1" class="in"> </div></div>
-                                            <div class="col-md-6"><label for="">Ada/Parsel: </label><div id="d2" class="in"></div></div>
-                                            <div class="col-md-6"><label for="">ParselSayi:</label><div  id="d3" class="in"></div></div>
-                                            <div class="col-md-6"><label for="">Sahip:</label><div  id="d4" class="in"></div></div>
-                                            <div class="col-md-6"><label for="">Sahip TC:</label><div  id="d5" class="in"></div></div>
-                                            <div class="col-md-6"><label for="">Sahip Tel:</label><div id="d6" class="in"></div></div>
-                                            <div class="col-md-6"><label for="">Tarla Fiyati:</label><div  id="d7" class="in"></div></div>
-                                            <div class="col-md-6"><label for="">Pesin:</label><div  id="d8" class="in"></div></div>
-                                            <div class="col-md-6"><label for="">Tarih:</label><div  id="d9" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">About: </label><div id="d1" class="in"> </div></div>
+                                            <div class="col-md-6"><label for="">OdemeAciklama: </label><div id="d2" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Odeme Sekli:</label><div  id="d3" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Odeyen:</label><div  id="d4" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">OdeyenTc:</label><div id="d5" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">OdeyenTel:</label><div  id="d6" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">OdemeTipi:</label><div  id="d7" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">VadeTarihi:</label><div  id="d8" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Yetkili:</label><div  id="d9" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">Tarih:</label><div  id="d10" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">kalan:</label><div  id="d11" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">kapora:</label><div  id="d12" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">parselfiyati:</label><div  id="d13" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">parselsayisi:</label><div  id="d14" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">yapan:</label><div  id="d15" class="in"></div></div>
                                         </div>
+{{--                                        <div class="row">--}}
+{{--                                            <div class="col-md-6"><label for="">Adres: </label><div id="d1" class="in"> </div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">Ada/Parsel: </label><div id="d2" class="in"></div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">ParselSayi:</label><div  id="d3" class="in"></div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">Sahip:</label><div  id="d4" class="in"></div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">Sahip TC:</label><div  id="d5" class="in"></div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">Sahip Tel:</label><div id="d6" class="in"></div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">Tarla Fiyati:</label><div  id="d7" class="in"></div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">Pesin:</label><div  id="d8" class="in"></div></div>--}}
+{{--                                            <div class="col-md-6"><label for="">Tarih:</label><div  id="d9" class="in"></div></div>--}}
+{{--                                        </div>--}}
                                     </div>
                                     {{--                                    <div class="modal-footer">--}}
                                     {{--                                        <h3>Modal Footer</h3>--}}
@@ -391,6 +414,12 @@
                                     document.getElementById('d7').innerHTML = '';
                                     document.getElementById('d8').innerHTML = '';
                                     document.getElementById('d9').innerHTML = '';
+                                    document.getElementById('d10').innerHTML = '';
+                                    document.getElementById('d11').innerHTML = '';
+                                    document.getElementById('d12').innerHTML = '';
+                                    document.getElementById('d13').innerHTML = '';
+                                    document.getElementById('d14').innerHTML = '';
+                                    document.getElementById('d15').innerHTML = '';
                                 }
                             </script>
 
@@ -460,7 +489,7 @@
                                 //     }
                                 // }
 
-                                function zor(id) {
+                                function odemeDetay(id) {
 
                                     modal2.style.display = "block";
 
@@ -474,7 +503,7 @@
                                     // // console.log(w3);
                                     // document.getElementById('a1').setAttribute('href' , w4);
 
-                                    let w = "{{ route('tarlas3') }}" + '/' + id
+                                    let w = "{{ route('odemeDetay') }}" + '/' + id
                                     fetch(w)
                                         .then((response) => {
                                             if (response.ok) {
@@ -483,57 +512,169 @@
                                         })
                                         .then(data => {
 
-                                            // console.log(data);
+                                            console.log(data);
                                             let man = document.createElement("span");
                                             man.setAttribute("class", 'text-xxs');
-                                            man.innerHTML = data.konum_il + ' / ' + data.konum_ilce + ' / '  + data.konum_mahalle ;
+                                            man.innerHTML = data.About ;
                                             document.getElementById('d1').appendChild(man);
 
                                             // console.log(data);
                                             let man2 = document.createElement("span");
                                             man2.setAttribute("class", 'text-xxs');
-                                            man2.innerHTML = data.Ada + ' / ' + data.Parsel + ' / ' + data.MetreKare + ' m2'  ;
+                                            man2.innerHTML = data.OdemeAciklama ;
                                             document.getElementById('d2').appendChild(man2);
 
                                             let man3 = document.createElement("span");
                                             man3.setAttribute("class", 'text-xxs');
-                                            man3.innerHTML = data.ParselSayisi ;
+                                            man3.innerHTML = data.OdemeSekli ;
                                             // man3.innerHTML = data.ParselSayisi + ' / ' + data.SatisDurumu  ;
                                             document.getElementById('d3').appendChild(man3);
 
                                             let man4 = document.createElement("span");
                                             man4.setAttribute("class", 'text-xxs');
-                                            man4.innerHTML = data.SahipAd + ' / ' + data.SahipSoyad  ;
+                                            man4.innerHTML = data.OdeyenAd + ' / ' + data.OdeyenSoyad  ;
                                             document.getElementById('d4').appendChild(man4);
 
                                             let man5 = document.createElement("span");
                                             man5.setAttribute("class", 'text-xxs');
-                                            man5.innerHTML = data.SahipTc ;
+                                            man5.innerHTML = data.OdeyenTc ;
                                             document.getElementById('d5').appendChild(man5);
 
                                             let man6 = document.createElement("span");
                                             man6.setAttribute("class", 'text-xxs');
-                                            man6.innerHTML = data.SahipTel  ;
+                                            man6.innerHTML = data.OdeyenTel  ;
                                             document.getElementById('d6').appendChild(man6);
 
                                             let man7 = document.createElement("span");
                                             man7.setAttribute("class", 'text-xxs');
-                                            man7.innerHTML = data.tarlaFiat;
+                                            man7.innerHTML = data.OdemeTipi;
                                             document.getElementById('d7').appendChild(man7);
 
                                             let man8 = document.createElement("span");
                                             man8.setAttribute("class", 'text-xxs');
-                                            man8.innerHTML = data.tarlaPesin  ;
+                                            man8.innerHTML = data.VadeTarihi  ;
                                             document.getElementById('d8').appendChild(man8);
 
                                             let man9 = document.createElement("span");
                                             man9.setAttribute("class", 'text-xxs');
-                                            man9.innerHTML = data.created_at  ;
+                                            man9.innerHTML = data.Yetkili  ;
                                             document.getElementById('d9').appendChild(man9);
+
+                                            let man10 = document.createElement("span");
+                                            man10.setAttribute("class", 'text-xxs');
+                                            man10.innerHTML = data.created_at  ;
+                                            document.getElementById('d10').appendChild(man10);
+
+
+                                            let man11 = document.createElement("span");
+                                            man11.setAttribute("class", 'text-xxs');
+                                            man11.innerHTML = data.kalan  ;
+                                            document.getElementById('d11').appendChild(man11);
+
+
+
+
+                                            let man12 = document.createElement("span");
+                                            man12.setAttribute("class", 'text-xxs');
+                                            man12.innerHTML = data.kapora  ;
+                                            document.getElementById('d12').appendChild(man12);
+
+
+                                            let man13 = document.createElement("span");
+                                            man13.setAttribute("class", 'text-xxs');
+                                            man13.innerHTML = data.parselfiyati  ;
+                                            document.getElementById('d13').appendChild(man13);
+
+
+                                            let man14 = document.createElement("span");
+                                            man14.setAttribute("class", 'text-xxs');
+                                            man14.innerHTML = data.parselsayisi  ;
+                                            document.getElementById('d14').appendChild(man14);
+
+                                            let man15 = document.createElement("span");
+                                            man15.setAttribute("class", 'text-xxs');
+                                            man15.innerHTML = data.yapan  ;
+                                            document.getElementById('d15').appendChild(man15);
 
                                         });
 
                                 }
+
+                                ///////////////////////////////////////////////// gedip taladan CEKIR OXUR
+                                {{--function zor(id) {--}}
+
+                                {{--    modal2.style.display = "block";--}}
+
+                                {{--    --}}{{--let www = '{{ route('odeme.sil') }}';--}}
+                                {{--    --}}{{--let w3 = www + '?id=' + id + '&kapora=' + 1--}}
+                                {{--    --}}{{--// console.log(w3);--}}
+                                {{--    --}}{{--document.getElementById('a2').setAttribute('href' , w3);--}}
+
+                                {{--    --}}{{--let www = '{{ route('odeme.sil') }}';--}}
+                                {{--    // let w4 = www + '?id=' + id + '&kapora=' + 0--}}
+                                {{--    // // console.log(w3);--}}
+                                {{--    // document.getElementById('a1').setAttribute('href' , w4);--}}
+
+                                {{--    let w = "{{ route('tarlas3') }}" + '/' + id--}}
+                                {{--    fetch(w)--}}
+                                {{--        .then((response) => {--}}
+                                {{--            if (response.ok) {--}}
+                                {{--                return response.json();--}}
+                                {{--            }--}}
+                                {{--        })--}}
+                                {{--        .then(data => {--}}
+
+                                {{--            // console.log(data);--}}
+                                {{--            let man = document.createElement("span");--}}
+                                {{--            man.setAttribute("class", 'text-xxs');--}}
+                                {{--            man.innerHTML = data.konum_il + ' / ' + data.konum_ilce + ' / '  + data.konum_mahalle ;--}}
+                                {{--            document.getElementById('d1').appendChild(man);--}}
+
+                                {{--            // console.log(data);--}}
+                                {{--            let man2 = document.createElement("span");--}}
+                                {{--            man2.setAttribute("class", 'text-xxs');--}}
+                                {{--            man2.innerHTML = data.Ada + ' / ' + data.Parsel + ' / ' + data.MetreKare + ' m2'  ;--}}
+                                {{--            document.getElementById('d2').appendChild(man2);--}}
+
+                                {{--            let man3 = document.createElement("span");--}}
+                                {{--            man3.setAttribute("class", 'text-xxs');--}}
+                                {{--            man3.innerHTML = data.ParselSayisi ;--}}
+                                {{--            // man3.innerHTML = data.ParselSayisi + ' / ' + data.SatisDurumu  ;--}}
+                                {{--            document.getElementById('d3').appendChild(man3);--}}
+
+                                {{--            let man4 = document.createElement("span");--}}
+                                {{--            man4.setAttribute("class", 'text-xxs');--}}
+                                {{--            man4.innerHTML = data.SahipAd + ' / ' + data.SahipSoyad  ;--}}
+                                {{--            document.getElementById('d4').appendChild(man4);--}}
+
+                                {{--            let man5 = document.createElement("span");--}}
+                                {{--            man5.setAttribute("class", 'text-xxs');--}}
+                                {{--            man5.innerHTML = data.SahipTc ;--}}
+                                {{--            document.getElementById('d5').appendChild(man5);--}}
+
+                                {{--            let man6 = document.createElement("span");--}}
+                                {{--            man6.setAttribute("class", 'text-xxs');--}}
+                                {{--            man6.innerHTML = data.SahipTel  ;--}}
+                                {{--            document.getElementById('d6').appendChild(man6);--}}
+
+                                {{--            let man7 = document.createElement("span");--}}
+                                {{--            man7.setAttribute("class", 'text-xxs');--}}
+                                {{--            man7.innerHTML = data.tarlaFiat;--}}
+                                {{--            document.getElementById('d7').appendChild(man7);--}}
+
+                                {{--            let man8 = document.createElement("span");--}}
+                                {{--            man8.setAttribute("class", 'text-xxs');--}}
+                                {{--            man8.innerHTML = data.tarlaPesin  ;--}}
+                                {{--            document.getElementById('d8').appendChild(man8);--}}
+
+                                {{--            let man9 = document.createElement("span");--}}
+                                {{--            man9.setAttribute("class", 'text-xxs');--}}
+                                {{--            man9.innerHTML = data.created_at  ;--}}
+                                {{--            document.getElementById('d9').appendChild(man9);--}}
+
+                                {{--        });--}}
+
+                                {{--}--}}
 
 
 

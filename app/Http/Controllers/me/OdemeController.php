@@ -138,6 +138,7 @@ class OdemeController extends Controller
     public function onayDurumu3(Request $request)
     {
        $t = Odeme::where('id' , $request->id)->first();
+        Odeme::where('id' , $request->id)->update(['vade' => 2]);
 //        dd($t);
         Odeme::insert([
             'OdemeTipi' => 'alacak',
@@ -160,7 +161,7 @@ class OdemeController extends Controller
             "parselfiyati" => $t->parselfiyati,
             "kapora" => $t->kalan,
             "kalan" => 0,
-            "vade" => 2,
+            "vade" => 0,
             "onay" => 1,
             "onaylian" => auth()->user()->username,
             "cid" => $t->id,
@@ -195,6 +196,15 @@ class OdemeController extends Controller
         $data = Odeme::where('vade', 1)->get();
 //        $data = Odeme::where('onay' , '!=' , 1)->where('delete' , '0', 0)->get();
         return view('pages.user-odeme-vade-bekleyen',compact('data'));
+    }
+
+    public function odemeDetay(Request $request)
+    {
+//        return $request->id;
+
+        $data = Odeme::where('id' , $request->id)->first();
+//        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
+        return response()->json($data);
     }
 
 }
