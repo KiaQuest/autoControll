@@ -129,8 +129,8 @@
 
 
 
-                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ||  Route::currentRouteName() == 'odeme.vade.bekleyen' ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
-                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ||  Route::currentRouteName() == 'odeme.vade.bekleyen'  ? 'style=max-height:502px' : '' }}>
+                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
+                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'style=max-height:502px' : '' }}>
 
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'profile.ek' ? 'active' : '' }}" href="{{ route('profile.ek') }}">
@@ -217,16 +217,6 @@
                     </li>
 
 
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'odeme.vade.bekleyen' ? 'active' : '' }}" href="{{ route('odeme.vade.bekleyen') }}">
-                            <div
-                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fa fa-check-square text-dark text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Vade Bekleyen Ödemeler</span>
-                        </a>
-                    </li>
-
 
 
                 </div>
@@ -295,8 +285,8 @@
                 </div>
 
 
-                <button class="collapsible po   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen'  ? 'active' : '' }}">Ödeme İşlemleri <i class="arrow down"></i></button>
-                <div class="content"   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen'  ? 'style=max-height:447px' : '' }}>
+                <button class="collapsible po   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen' ||  Route::currentRouteName() == 'odeme.vade.bekleyen'  ? 'active' : '' }}">Ödeme İşlemleri <i class="arrow down"></i></button>
+                <div class="content"   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen'  ||  Route::currentRouteName() == 'odeme.vade.bekleyen'  ? 'style=max-height:447px' : '' }}>
 
 
 
@@ -354,9 +344,21 @@
                                 class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="fa fa-check-square-o text-dark text-sm opacity-10"></i>
                             </div>
-                            <span class="nav-link-text ms-1">Onay bekleyen</span>
+                            <span class="nav-link-text ms-1">Onay bekleyen Ödemeler</span>
                         </a>
                     </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'odeme.vade.bekleyen' ? 'active' : '' }}" href="{{ route('odeme.vade.bekleyen') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="fa fa-check-square text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Vade Bekleyen Ödemeler</span>
+                        </a>
+                    </li>
+
 
 
                 </div>

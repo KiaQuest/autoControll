@@ -83,6 +83,17 @@ class TarlaController extends Controller
 
 //        dd($request->tarlaID);
 
+        $SatilanParselSayisi = $request->parselsayisi;
+        $parselfiyati = $request->parselfiyati;
+        $a = $SatilanParselSayisi * $parselfiyati;
+        $kapora = $request->kapora;
+        $kalan = $request->kalan;
+
+        $b = $kalan + $kapora;
+        if ($a != $b ){
+            dd('Kalan , Kapora ya Parsel fiyati ya da satilan parsel sayi YANLISTIR');
+        }
+
 //        dd($request->all());
         $say = $request->parselsayisi;
         $check = $request->parselcheck;

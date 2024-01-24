@@ -82,13 +82,13 @@ class OdemeController extends Controller
 
         return view('pages.user-odeme-index' , compact('data' , 'sililanlar' , 'toplam' , 'toplam2' , 'vade'));
     }
-    public function index2()
-    {
-        // alinmis
-        $data = Alinmis::all();
-        return view('pages.user-odeme-index-alinmis' , compact('data'));
-        // fake comment
-    }
+//    public function index2()
+//    {
+//        // alinmis
+//        $data = Alinmis::all();
+//        return view('pages.user-odeme-index-alinmis' , compact('data'));
+//        // fake comment
+//    }
     public function index3()
     {
         //bekleyen
@@ -101,29 +101,29 @@ class OdemeController extends Controller
         // fake comment
     }
 
-    public function onayla(Request $request)
-    {
-
-//        dd($request->all());
-        $id = $request->id;
-        $tarlaID = $request->tarlaID;
-
-        Odeme::where('id' , $id)->update([
-            'onay' => 1,
-            'onaylian' => auth()->user()->id]
-        );
-
-        $tarla = tarla::where('id' , $tarlaID)->get('konum_mahalle')->pluck('konum_mahalle');
-        $kim = tarla::where('id' , $tarlaID)->get('kim')->pluck('kim');
-        Alinmis::create([
-           'user' => $kim[0],
-           'onaylian' => auth()->user()->username,
-           'tarla' => $tarla[0],
-           'odemeID' => $id
-        ]);
-
-        return redirect()->back();
-    }
+//    public function onayla(Request $request)
+//    {
+//
+////        dd($request->all());
+//        $id = $request->id;
+//        $tarlaID = $request->tarlaID;
+//
+//        Odeme::where('id' , $id)->update([
+//            'onay' => 1,
+//            'onaylian' => auth()->user()->id]
+//        );
+//
+//        $tarla = tarla::where('id' , $tarlaID)->get('konum_mahalle')->pluck('konum_mahalle');
+//        $kim = tarla::where('id' , $tarlaID)->get('kim')->pluck('kim');
+//        Alinmis::create([
+//           'user' => $kim[0],
+//           'onaylian' => auth()->user()->username,
+//           'tarla' => $tarla[0],
+//           'odemeID' => $id
+//        ]);
+//
+//        return redirect()->back();
+//    }
 
     public function onayDurumu(Request $request)
     {
@@ -137,7 +137,37 @@ class OdemeController extends Controller
     }
     public function onayDurumu3(Request $request)
     {
-        Odeme::where('id' , $request->id)->update(['vade' => 2]);
+       $t = Odeme::where('id' , $request->id)->first();
+//        dd($t);
+        Odeme::insert([
+            'OdemeTipi' => 'alacak',
+            'OdeyenAd' => $t->OdeyenAd,
+            'OdeyenSoyad' => $t->OdeyenSoyad,
+            'OdemeSekli' => $t->OdemeSekli,
+
+            "OdeyenTc" => $t->OdemeSekli,
+            "OdeyenTel" => $t->OdeyenTel,
+            "VadeTarihi" => $t->VadeTarihi,
+            "Tutar" => $t->Tutar,
+            "Tarla" => $t->Tarla,
+            "Yetkili" => $t->Yetkili,
+            "OdemeAciklama" => $t->OdemeAciklama,
+            "About" => $t->About,
+            "kim" => $t->kim,
+            "yapan" => $t->yapan,
+            "tarlaID" => $t->tarlaID,
+            "parselsayisi" => $t->parselsayisi,
+            "parselfiyati" => $t->parselfiyati,
+            "kapora" => $t->kalan,
+            "kalan" => 0,
+            "vade" => 2,
+            "onay" => 1,
+            "onaylian" => auth()->user()->username,
+            "cid" => $t->id,
+
+            'created_at' => now()
+        ]);
+//        Odeme::where('id' , $request->id)->update(['vade' => 2]);
         return redirect()->back();
     }
     public function onayDurumu4(Request $request)

@@ -35,6 +35,7 @@ return new class extends Migration
             $table->integer('vade')->default(0);
             $table->string('onay')->default(0);
             $table->string('onaylian')->nullable();
+            $table->string('cid')->nullable();
             $table->string('delete')->default(0);
             $table->timestamps();
         });

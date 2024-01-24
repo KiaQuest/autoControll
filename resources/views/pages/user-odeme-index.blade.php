@@ -198,63 +198,65 @@
     <td> </td>
     <td></td>
 </tr>
-
-<tr>
-    <td>
-        vade
-    </td>
-</tr>
-
-@foreach($vade as $z)
-    <tr  style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
-        <td>
-
-            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
-
-        </td>
-        <td>
-
-            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
-
-        </td>
-        <td id="z{{ $loop->iteration }}" zid="{{ $z->tarlaID }}">
-
-        </td>
-{{--        <td class="align-middle text-center">--}}
-{{--            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>--}}
-{{--        </td>--}}
-        @if($z->OdemeTipi == 'alacak')
-
-            <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
-            </td>
-            <td class="align-middle text-center">
-            </td>
-        @else()
-
-            <td class="align-middle text-center">
-            </td>
-            <td class="align-middle text-center">
-                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
-            </td>
-        @endif
-        <td class="align-middle">
-            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
-        </td>
-        <td class="align-middle">
-            {{--                                            @if($z->delete == 0)--}}
-            <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>
-            <a href="{{ route('vade.onay.sil' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
-            {{--                                            @else--}}
-            {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
-            {{--                                            @endif--}}
-            {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
-        </td>
-    </tr>
-
-@endforeach
-<tr>
-    <td>sililanlar</td>
+{{--                        VADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE               --}}
+{{--        <tr>--}}
+{{--            <td>--}}
+{{--                vade--}}
+{{--            </td>--}}
+{{--        </tr>--}}
+{{--        --}}
+{{--        @foreach($vade as $z)--}}
+{{--            <tr  style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">--}}
+{{--                <td>--}}
+{{--        --}}
+{{--                    <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>--}}
+{{--        --}}
+{{--                </td>--}}
+{{--                <td>--}}
+{{--        --}}
+{{--                    <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>--}}
+{{--        --}}
+{{--                </td>--}}
+{{--                <td id="z{{ $loop->iteration }}" zid="{{ $z->tarlaID }}">--}}
+{{--        --}}
+{{--                </td>--}}
+{{--        --}}{{--        <td class="align-middle text-center">--}}
+{{--        --}}{{--            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselsayisi }}</span>--}}
+{{--        --}}{{--        </td>--}}
+{{--                @if($z->OdemeTipi == 'alacak')--}}
+{{--        --}}
+{{--                    <td class="align-middle text-center">--}}
+{{--                        <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>--}}
+{{--                    </td>--}}
+{{--                    <td class="align-middle text-center">--}}
+{{--                    </td>--}}
+{{--                @else()--}}
+{{--        --}}
+{{--                    <td class="align-middle text-center">--}}
+{{--                    </td>--}}
+{{--                    <td class="align-middle text-center">--}}
+{{--                        <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>--}}
+{{--                    </td>--}}
+{{--                @endif--}}
+{{--                <td class="align-middle">--}}
+{{--                    <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>--}}
+{{--                </td>--}}
+{{--                <td class="align-middle">--}}
+{{--                    --}}{{--                                            @if($z->delete == 0)--}}
+{{--                    <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>--}}
+{{--                    <a href="{{ route('vade.onay.sil' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>--}}
+{{--                    --}}{{--                                            @else--}}
+{{--                    --}}{{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
+{{--                    --}}{{--                                            @endif--}}
+{{--                    --}}{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
+{{--                </td>--}}
+{{--            </tr>--}}
+{{--        --}}
+{{--        @endforeach--}}
+{{--                        VADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE     END            --}}
+{{--<tr>--}}
+{{--    --}}{{--                       SILILANLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR           --}}
+{{--    <td>sililanlar</td>--}}
 
 {{--    <script>--}}
 
@@ -271,20 +273,20 @@
 
 
 {{--        </script>--}}
-</tr>
-                                @foreach($sililanlar as $x)
-                                    <tr  style="background-color: {{ $x->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
-                                        <td>
+{{--</tr>--}}
+{{--                                @foreach($sililanlar as $x)--}}
+{{--                                    <tr  style="background-color: {{ $x->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">--}}
+{{--                                        <td>--}}
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>--}}
 
-                                        </td>
-                                        <td>
+{{--                                        </td>--}}
+{{--                                        <td>--}}
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $x->OdemeTipi  }}</p>
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $x->OdemeTipi  }}</p>--}}
 
-                                        </td>
-                                        <td id="{{ $loop->iteration }}" kid="{{ $x->tarlaID }}">
+{{--                                        </td>--}}
+{{--                                        <td id="{{ $loop->iteration }}" kid="{{ $x->tarlaID }}">--}}
 
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
@@ -292,66 +294,66 @@
 {{--                                            <script>cc()</script>--}}
 {{--                                            <p class="text-xs text-secondary mb-0" id="tname"></p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
 {{--                                        <td>--}}
 {{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $x->parselsayisi }}</p>--}}
 
 {{--                                        </td>--}}
 
-                                        @if($x->OdemeTipi == 'alacak')
+{{--                                        @if($x->OdemeTipi == 'alacak')--}}
 
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }} ₺</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                            </td>
-                                        @else()
+{{--                                            <td class="align-middle text-center">--}}
+{{--                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }} ₺</span>--}}
+{{--                                            </td>--}}
+{{--                                            <td class="align-middle text-center">--}}
+{{--                                            </td>--}}
+{{--                                        @else()--}}
 
-                                            <td class="align-middle text-center">
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }} ₺</span>
-                                            </td>
-                                        @endif
+{{--                                            <td class="align-middle text-center">--}}
+{{--                                            </td>--}}
+{{--                                            <td class="align-middle text-center">--}}
+{{--                                                <span class="text-secondary text-xs font-weight-bold">{{ $x->kapora }} ₺</span>--}}
+{{--                                            </td>--}}
+{{--                                        @endif--}}
 
 {{--                                        <td class="align-middle">--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->parselfiyati }}</span>--}}
 {{--                                        </td>--}}
-                                        <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->created_at->todatestring() }}</span>
-                                        </td>
-                                        <td class="align-middle">
-                                                <span class="text-secondary text-xs font-weight-bold ">Silinmiş</span>
+{{--                                        <td class="align-middle">--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->created_at->todatestring() }}</span>--}}
+{{--                                        </td>--}}
+{{--                                        <td class="align-middle">--}}
+{{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinmiş</span>--}}
 {{--                                                <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>--}}
 {{--                                            @else--}}
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
 {{--                                            @endif--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
-                                        </td>
-                                    </tr>
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
 
-                                @endforeach
-<tr>
+{{--                                @endforeach--}}
+{{--<tr>--}}
 
-    <td></td>
-    <td></td>
-    <td></td>
+{{--    <td></td>--}}
+{{--    <td></td>--}}
+{{--    <td></td>--}}
 
 
-    @if($toplam2 < 0 )
+{{--    @if($toplam2 < 0 )--}}
 
-        <td> </td>
-        <td> {{ $toplam2 }} ₺</td>
-    @else
+{{--        <td> </td>--}}
+{{--        <td> {{ $toplam2 }} ₺</td>--}}
+{{--    @else--}}
 
-        <td> {{ $toplam2 }} ₺</td>
-        <td> </td>
-    @endif
+{{--        <td> {{ $toplam2 }} ₺</td>--}}
+{{--        <td> </td>--}}
+{{--    @endif--}}
 
-    <td></td>
-    <td></td>
-</tr>
-
+{{--    <td></td>--}}
+{{--    <td></td>--}}
+{{--</tr>--}}
+{{--                       SILILANLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR    END            --}}
 
                                 </tbody>
                             </table>
