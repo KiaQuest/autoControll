@@ -71,29 +71,29 @@
                                 <div class="form-group">
 
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="konum_il">İl</label>
-                                            <select name="konum_il" id="konum_il" class="form-control">
-                                                <option value="">Seçin...</option>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-4">--}}
+{{--                                            <label for="konum_il">İl</label>--}}
+{{--                                            <select name="konum_il" id="konum_il" class="form-control">--}}
+{{--                                                <option value="">Seçin...</option>--}}
 {{--                                                <option value="2">Seçin 2</option>--}}
-                                            </select>
-                                        </div>
+{{--                                            </select>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-4">
-                                            <label for="konum_ilce">İlçe</label>
-                                            <select name="konum_ilce" id="konum_ilce" class="form-control" disabled="disabled">
-                                                <option value="">Seçin...</option>
-                                            </select>
-                                        </div>
+{{--                                        <div class="col-md-4">--}}
+{{--                                            <label for="konum_ilce">İlçe</label>--}}
+{{--                                            <select name="konum_ilce" id="konum_ilce" class="form-control" disabled="disabled">--}}
+{{--                                                <option value="">Seçin...</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-4">
-                                            <label for="konum_mahalle">Mahalle</label>
-                                            <select name="konum_mahalle" id="konum_mahalle" class="form-control" disabled="disabled">
-                                                <option value="">Seçin...</option>
-                                            </select>
-                                        </div>
-                                    </div>
+{{--                                        <div class="col-md-4">--}}
+{{--                                            <label for="konum_mahalle">Mahalle</label>--}}
+{{--                                            <select name="konum_mahalle" id="konum_mahalle" class="form-control" disabled="disabled">--}}
+{{--                                                <option value="">Seçin...</option>--}}
+{{--                                            </select>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
 
                                     <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -387,20 +387,20 @@ console.log('p');
 
 
                                     <label class="form-label" for="Ada">Ada</label>
-                                <input name="Ada" type="number" class="form-control" data-val="true" data-val-number="The field Ada must be a number." data-val-required="'Ada' must not be empty." id="Ada"><input name="__Invariant" type="hidden" value="Ada">
-                                <span class="text-danger field-validation-valid" data-valmsg-for="Ada" data-valmsg-replace="true"></span><br>
+                                <input name="Ada" type="number" class="form-control"   id="Ada" value="{{ $data->Ada }}">
+                                <br>
 
                                 <label class="form-label" for="Parsel">Parsel</label>
-                                <input name="Parsel" type="number" class="form-control" required="" data-val="true" data-val-number="The field Parsel must be a number." data-val-required="'Parsel' must not be empty." id="Parsel" value="0"><input name="__Invariant" type="hidden" value="Parsel">
-                                <span class="text-danger field-validation-valid" data-valmsg-for="Parsel" data-valmsg-replace="true"></span><br>
+                                <input name="Parsel" type="number" class="form-control" required=""  id="Parsel"  value="{{ $data->Parsel }}">
+                               <br>
 
                                 <label class="form-label" for="MetreKare">MetreKare</label>
-                                <input name="MetreKare" type="number" class="form-control" required="" data-val="true" data-val-number="The field MetreKare must be a number." data-val-required="'Metre Kare' must not be empty." id="MetreKare" value="0"><input name="__Invariant" type="hidden" value="MetreKare">
-                                <span class="text-danger field-validation-valid" data-valmsg-for="MetreKare" data-valmsg-replace="true"></span><br>
+                                <input name="MetreKare" type="number" class="form-control"  value="{{ $data->MetreKare }}" required="" data-val="true" data-val-number="The field MetreKare must be a number." data-val-required="'Metre Kare' must not be empty." id="MetreKare" value="0">
+                                <br>
 
                                 <label class="form-label" for="ParselSayisi">Kaç Parsele Bölündü</label>
-                                <input name="ParselSayisi" type="number" class="form-control" required="" data-val="true" data-val-number="The field ParselSayisi must be a number." data-val-required="'Parsel Sayisi' must not be empty." id="ParselSayisi" value="0"><input name="__Invariant" type="hidden" value="ParselSayisi">
-                                <span class="text-danger field-validation-valid" data-valmsg-for="ParselSayisi" data-valmsg-replace="true"></span><br>
+                                <input name="ParselSayisi" type="number" class="form-control"  value="{{ $data->ParselSayisi }}" required="" data-val="true" data-val-number="The field ParselSayisi must be a number." data-val-required="'Parsel Sayisi' must not be empty." id="ParselSayisi" value="0">
+                               <br>
 
 {{--                                <label class="form-label" for="Durum">Durum</label>--}}
 {{--                                <select class="form-control" name="Durum" required="" data-val="true" data-val-required="'Durum' must not be empty." id="Durum">--}}
@@ -414,7 +414,7 @@ console.log('p');
                                 <select class="form-control" name="SatisDurumu" required="" data-val="true" data-val-required="'Satis Durumu' must not be empty." id="SatisDurumu">
 
                                     <option value="satilmadi">Satışta Değil</option>
-                                    <option value="satiliyor" selected="selected">Satışta</option>
+                                    <option value="satiliyor"  {{ ($data->SatisDurumu == 1 ? 'selected' : '') }}  >Satışta</option>
 
                                 </select>
                                 <span class="text-danger field-validation-valid" data-valmsg-for="SatisDurumu" data-valmsg-replace="true"></span><br>
@@ -430,13 +430,13 @@ console.log('p');
                                     </div>
                                     <div class="card-body">
                                         <label class="form-label" for="SahipAd">SahipAd</label>
-                                        <input name="SahipAd" type="text" class="form-control" id="SahipAd">
+                                        <input name="SahipAd" type="text" class="form-control" id="SahipAd"  value="{{ $data->SahipAd }}">
                                         <label class="form-label" for="SahipSoyad">SahipSoyad</label>
-                                        <input name="SahipSoyad" type="text" class="form-control" id="SahipSoyad">
+                                        <input name="SahipSoyad" type="text" class="form-control" id="SahipSoyad"  value="{{ $data->SahipSoyad }}">
                                         <label class="form-label" for="SahipTc">SahipTc</label>
-                                        <input name="SahipTc" type="text" class="form-control" id="SahipTc">
+                                        <input name="SahipTc" type="text" class="form-control" id="SahipTc"  value="{{ $data->SahipTc }}">
                                         <label class="form-label" for="SahipTel">SahipTel</label>
-                                        <input name="SahipTel" type="tel" class="form-control" id="SahipTel">
+                                        <input name="SahipTel" type="tel" class="form-control" id="SahipTel"  value="{{ $data->SahipTel }}">
                                         <span class="text-danger field-validation-valid" data-valmsg-for="SahipTel" data-valmsg-replace="true"></span><br>
 
                                     </div>

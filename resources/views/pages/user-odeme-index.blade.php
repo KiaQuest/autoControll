@@ -170,7 +170,7 @@
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>--}}
                                                 <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
                                             <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
-                                                    onclick="zor({{ $z->tarlaID}})"><i class="fa fa-eye"></i></button>
+                                                    onclick="odemeDetay({{ $z->id}})"><i class="fa fa-eye"></i></button>
 {{--                                            @else--}}
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
 {{--                                            @endif--}}
@@ -372,11 +372,197 @@
         </div>
 
 
+
+        <style>
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0, 0, 0); /* Fallback color */
+                background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #fefefe;
+                margin: auto;
+                padding: 0;
+                border: 1px solid #888;
+                width: 40%;
+                /*width: 80%;*/
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                -webkit-animation-name: animatetop;
+                -webkit-animation-duration: 0.4s;
+                animation-name: animatetop;
+                animation-duration: 0.4s
+            }
+
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+                from {
+                    top: -300px;
+                    opacity: 0
+                }
+                to {
+                    top: 0;
+                    opacity: 1
+                }
+            }
+
+            @keyframes animatetop {
+                from {
+                    top: -300px;
+                    opacity: 0
+                }
+                to {
+                    top: 0;
+                    opacity: 1
+                }
+            }
+
+            /* The Close Button */
+            .close , .close2 {
+                color: white;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus,
+            .close2:hover,
+            .close2:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .modal-header {
+                padding: 2px 16px;
+                background-color: #f9ab57;
+                color: white;
+            }
+
+            .modal-body {
+                padding: 2px 16px;
+            }
+
+            .modal-footer {
+                padding: 2px 16px;
+                background-color: #5cb85c;
+                color: white;
+            }
+
+            .modalkia {
+                display: flex;
+                justify-content: space-evenly;
+                padding: 6%;
+            }
+            .in{
+                padding: inherit;
+            }
+        </style>
+
+        <div id="myModal2" class="modal">
+
+            <!-- Modal content -->
+
+            <div class="modal-content">
+                <div class="modal-header" style="direction: rtl; background-color: darkcyan">
+                    <span class="close2">&times;</span>
+                    <h3>Detay</h3>
+                </div>
+                <div class="modal-body modalkia">
+                    {{--                                        <p>Some text in the Modal Body</p>--}}
+                    {{--                                        <p>Some other text...</p>--}}
+                    {{--                                            <a href="" id="a1">--}}
+                    {{--                                                <button class="btn badge badge-sm bg-gradient-info p-3">Kaporanida sil--}}
+                    {{--                                                </button>--}}
+                    {{--                                            </a>--}}
+                    {{--                                            <a href="" id="a2">--}}
+                    {{--                                                <button class="btn badge badge-sm bg-gradient-secondary p-3"--}}
+                    {{--                                                        value="bt5">Kapora cibde kalsin--}}
+                    {{--                                                </button>--}}
+                    {{--                                            </a>--}}
+
+
+                    <div class="row">
+                        <div class="col-md-6"><label for="">About: </label><div id="d1" class="in"> </div></div>
+                        <div class="col-md-6"><label for="">OdemeAciklama: </label><div id="d2" class="in"></div></div>
+                        <div class="col-md-6"><label for="">Odeme Sekli:</label><div  id="d3" class="in"></div></div>
+                        <div class="col-md-6"><label for="">Odeyen:</label><div  id="d4" class="in"></div></div>
+                        <div class="col-md-6"><label for="">OdeyenTc:</label><div id="d5" class="in"></div></div>
+                        <div class="col-md-6"><label for="">OdeyenTel:</label><div  id="d6" class="in"></div></div>
+                        <div class="col-md-6"><label for="">OdemeTipi:</label><div  id="d7" class="in"></div></div>
+                        <div class="col-md-6"><label for="">VadeTarihi:</label><div  id="d8" class="in"></div></div>
+                        <div class="col-md-6"><label for="">Yetkili:</label><div  id="d9" class="in"></div></div>
+                        <div class="col-md-6"><label for="">Tarih:</label><div  id="d10" class="in"></div></div>
+                        <div class="col-md-6"><label for="">kalan:</label><div  id="d11" class="in"></div></div>
+                        <div class="col-md-6"><label for="">kapora:</label><div  id="d12" class="in"></div></div>
+                        <div class="col-md-6"><label for="">parselfiyati:</label><div  id="d13" class="in"></div></div>
+                        <div class="col-md-6"><label for="">parselsayisi:</label><div  id="d14" class="in"></div></div>
+                        <div class="col-md-6"><label for="">yapan:</label><div  id="d15" class="in"></div></div>
+                    </div>
+
+                    {{--                                        <div class="row">--}}
+                    {{--                                            <div class="col-md-6"><label for="">Adres: </label><div id="d1" class="in"> </div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">Ada/Parsel: </label><div id="d2" class="in"></div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">ParselSayi:</label><div  id="d3" class="in"></div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">Sahip:</label><div  id="d4" class="in"></div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">Sahip TC:</label><div  id="d5" class="in"></div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">Sahip Tel:</label><div id="d6" class="in"></div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">Tarla Fiyati:</label><div  id="d7" class="in"></div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">Pesin:</label><div  id="d8" class="in"></div></div>--}}
+                    {{--                                            <div class="col-md-6"><label for="">Tarih:</label><div  id="d9" class="in"></div></div>--}}
+                    {{--                                        </div>--}}
+                </div>
+                {{--                                    <div class="modal-footer">--}}
+                {{--                                        <h3>Modal Footer</h3>--}}
+                {{--                                    </div>--}}
+            </div>
+
+        </div>
+
         <script>
 
 
+            // var modal = document.getElementById("myModal");
+            //
+            // // Get the button that opens the modal
+            // // var btn = document.getElementById("myBtn");
+            //
+            // // Get the <span> element that closes the modal
+            // var span = document.getElementsByClassName("close")[0];
 
-{{--            let p = document.getElementById('tname');--}}
+            // When the user clicks the button, open the modal
+            // btn.onclick = function() {
+            //     modal.style.display = "block";
+            // }
+
+            // When the user clicks on <span> (x), close the modal
+            // span.onclick = function () {
+            //     modal.style.display = "none";
+            // }
+
+            // When the user clicks anywhere outside of the modal, close it
+
+
+
+
+
+
+
+
+
+            {{--            let p = document.getElementById('tname');--}}
 
 {{--            // console.log(p);--}}
 {{--            // console.log('p');--}}
@@ -418,6 +604,150 @@
 {{--                    // }--}}
 {{--                });--}}
 
+
+
+
+            function odemeDetay(id) {
+
+                window.onclick = function (event) {
+
+                    if (event.target == modal2) {
+                        modal2.style.display = "none";
+                    }
+                    set();
+                }
+                var modal2 = document.getElementById("myModal2");
+                var span2 = document.getElementsByClassName("close2")[0];
+                span2.onclick = function () {
+                    modal2.style.display = "none";
+                }
+
+                modal2.style.display = "block";
+
+                {{--let www = '{{ route('odeme.sil') }}';--}}
+                {{--let w3 = www + '?id=' + id + '&kapora=' + 1--}}
+                {{--// console.log(w3);--}}
+                {{--document.getElementById('a2').setAttribute('href' , w3);--}}
+
+                {{--let www = '{{ route('odeme.sil') }}';--}}
+                // let w4 = www + '?id=' + id + '&kapora=' + 0
+                // // console.log(w3);
+                // document.getElementById('a1').setAttribute('href' , w4);
+
+                let w = "{{ route('odemeDetay') }}" + '/' + id
+                fetch(w)
+                    .then((response) => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                    })
+                    .then(data => {
+
+                        console.log(data);
+                        let man = document.createElement("span");
+                        man.setAttribute("class", 'text-xxs');
+                        man.innerHTML = data.About ;
+                        document.getElementById('d1').appendChild(man);
+
+                        // console.log(data);
+                        let man2 = document.createElement("span");
+                        man2.setAttribute("class", 'text-xxs');
+                        man2.innerHTML = data.OdemeAciklama ;
+                        document.getElementById('d2').appendChild(man2);
+
+                        let man3 = document.createElement("span");
+                        man3.setAttribute("class", 'text-xxs');
+                        man3.innerHTML = data.OdemeSekli ;
+                        // man3.innerHTML = data.ParselSayisi + ' / ' + data.SatisDurumu  ;
+                        document.getElementById('d3').appendChild(man3);
+
+                        let man4 = document.createElement("span");
+                        man4.setAttribute("class", 'text-xxs');
+                        man4.innerHTML = data.OdeyenAd + ' / ' + data.OdeyenSoyad  ;
+                        document.getElementById('d4').appendChild(man4);
+
+                        let man5 = document.createElement("span");
+                        man5.setAttribute("class", 'text-xxs');
+                        man5.innerHTML = data.OdeyenTc ;
+                        document.getElementById('d5').appendChild(man5);
+
+                        let man6 = document.createElement("span");
+                        man6.setAttribute("class", 'text-xxs');
+                        man6.innerHTML = data.OdeyenTel  ;
+                        document.getElementById('d6').appendChild(man6);
+
+                        let man7 = document.createElement("span");
+                        man7.setAttribute("class", 'text-xxs');
+                        man7.innerHTML = data.OdemeTipi;
+                        document.getElementById('d7').appendChild(man7);
+
+                        let man8 = document.createElement("span");
+                        man8.setAttribute("class", 'text-xxs');
+                        man8.innerHTML = data.VadeTarihi  ;
+                        document.getElementById('d8').appendChild(man8);
+
+                        let man9 = document.createElement("span");
+                        man9.setAttribute("class", 'text-xxs');
+                        man9.innerHTML = data.Yetkili  ;
+                        document.getElementById('d9').appendChild(man9);
+
+                        let man10 = document.createElement("span");
+                        man10.setAttribute("class", 'text-xxs');
+                        man10.innerHTML = data.created_at  ;
+                        document.getElementById('d10').appendChild(man10);
+
+
+                        let man11 = document.createElement("span");
+                        man11.setAttribute("class", 'text-xxs');
+                        man11.innerHTML = data.kalan  ;
+                        document.getElementById('d11').appendChild(man11);
+
+
+
+
+                        let man12 = document.createElement("span");
+                        man12.setAttribute("class", 'text-xxs');
+                        man12.innerHTML = data.kapora  ;
+                        document.getElementById('d12').appendChild(man12);
+
+
+                        let man13 = document.createElement("span");
+                        man13.setAttribute("class", 'text-xxs');
+                        man13.innerHTML = data.parselfiyati  ;
+                        document.getElementById('d13').appendChild(man13);
+
+
+                        let man14 = document.createElement("span");
+                        man14.setAttribute("class", 'text-xxs');
+                        man14.innerHTML = data.parselsayisi  ;
+                        document.getElementById('d14').appendChild(man14);
+
+                        let man15 = document.createElement("span");
+                        man15.setAttribute("class", 'text-xxs');
+                        man15.innerHTML = data.yapan  ;
+                        document.getElementById('d15').appendChild(man15);
+
+                    });
+
+            }
+
+            function set(){
+                document.getElementById('d1').innerHTML = '';
+                document.getElementById('d2').innerHTML = '';
+                document.getElementById('d3').innerHTML = '';
+                document.getElementById('d4').innerHTML = '';
+                document.getElementById('d5').innerHTML = '';
+                document.getElementById('d6').innerHTML = '';
+                document.getElementById('d7').innerHTML = '';
+                document.getElementById('d8').innerHTML = '';
+                document.getElementById('d9').innerHTML = '';
+                document.getElementById('d10').innerHTML = '';
+                document.getElementById('d11').innerHTML = '';
+                document.getElementById('d12').innerHTML = '';
+                document.getElementById('d13').innerHTML = '';
+                document.getElementById('d14').innerHTML = '';
+                document.getElementById('d15').innerHTML = '';
+            }
 
 
 

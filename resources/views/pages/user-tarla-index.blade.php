@@ -137,7 +137,7 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->toDateString() }}</span>
                                         </td>
                                         <td class="align-middle">
-{{--                                            <a href="{{ route('tarla.edit' , ['id' => $z->id]) }}"><span class="badge badge-sm bg-gradient-info">Düzenle</span></a>--}}
+                                            <a href="{{ route('tarla.edit' , ['id' => $z->id]) }}"><span class="badge badge-sm bg-gradient-info">Düzenle</span></a>
                                             <span class="text-xs">duzenlenecek</span>
                                         </td>
                                     </tr>

@@ -192,7 +192,7 @@
                                             <button type="button" class="btn btn-danger btn-lg btnkia"
                                                     onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>
                                             <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
-                                                    onclick="odemeDetay({{ $z->id}})"><i class="fa fa-eye"></i></button>
+                                                    onclick="odemeDetay({{ $z->id }})"><i class="fa fa-eye"></i></button>
 {{--                                                    onclick="zor({{ $z->tarlaID}})"><i class="fa fa-eye"></i></button>--}}
                                             {{--                                            <a href="{{ route('odeme.onayla' , [ 'id' => $z->id , 'tarlaID' => $z->tarlaID]) }}"><span class="badge badge-sm bg-gradient-success">Onayla</span></a>--}}
                                         </td>
@@ -483,7 +483,7 @@
                                             <div class="col-md-6"><label for="">parselsayisi:</label><div  id="d14" class="in"></div></div>
                                             <div class="col-md-6"><label for="">yapan:</label><div  id="d15" class="in"></div></div>
                                         </div>
-                                        
+
 {{--                                        <div class="row">--}}
 {{--                                            <div class="col-md-6"><label for="">Adres: </label><div id="d1" class="in"> </div></div>--}}
 {{--                                            <div class="col-md-6"><label for="">Ada/Parsel: </label><div id="d2" class="in"></div></div>--}}

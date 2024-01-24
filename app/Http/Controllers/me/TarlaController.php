@@ -50,7 +50,8 @@ class TarlaController extends Controller
 
 //        dd($request->id);
         $id = $request->id;
-        $data = tarla::where('id' , $id)->get();
+        $data = tarla::where('id' , $id)->first();
+//        dd($data);
         return view('pages.user-tarla-edit' , compact('data'));
     }
     public function update(Request $request)
