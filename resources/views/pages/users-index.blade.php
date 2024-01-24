@@ -22,13 +22,13 @@
                                             Ad</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Adres</th>
+                                            Durum</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             sevie</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tarla</th>
+{{--                                        <th--}}
+{{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            Tarla</th>--}}
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
@@ -101,7 +101,7 @@
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
 
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->address }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->durum == 1 ? "Passif" : "Aktif" }}</p>
 
                                         </td>
 {{--                                        <td class="align-middle text-center text-sm">--}}
@@ -110,11 +110,14 @@
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Ada }}</span>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->level == 5 ? "Çalışan" : "Müdür" }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">
+{{--                                                {{ $z->level == 5 ? "Çalışan" : "Müdür" }}--}}
+                                                @if($z->level == 5 ) {{ 'Çalışan' }} @elseif($z->level == 4) {{ 'Müdür' }}@elseif( $z->level == 3 ) {{ 'muhasebeci' }}@elseif( $z->level == 2 ) {{ 'CEO' }}@elseif( $z->level == 1 ) {{ 'Admin' }}@endif
+                                            </span>
                                         </td>
-                                        <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tarla }}</span>
-                                        </td>
+{{--                                        <td class="align-middle text-center">--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tarla }}</span>--}}
+{{--                                        </td>--}}
 
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->ToDateString() }}</span>
