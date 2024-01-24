@@ -129,8 +129,8 @@
 
 
 
-                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
-                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'user' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'style=max-height:502px' : '' }}>
+                <button class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
+                <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'style=max-height:502px' : '' }}>
 
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'profile.ek' ? 'active' : '' }}" href="{{ route('profile.ek') }}">
@@ -410,22 +410,22 @@
                 </div>
 
 
-                <button class="collapsible po"   {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'bildirmeler'   ? 'active' : '' }}>Müdür Kontrol <i class="arrow down"></i></button>
-                <div class="content"   {{ Route::currentRouteName() == 'users' || Route::currentRouteName() == 'bildirmeler'   ? 'style=max-height:113px' : '' }}>
+                <button class="collapsible po"   {{  Route::currentRouteName() == 'bildirmeler'   ? 'active' : '' }}>Müdür Kontrol <i class="arrow down"></i></button>
+                <div class="content"   {{  Route::currentRouteName() == 'bildirmeler'   ? 'style=max-height:113px' : '' }}>
 
                     {{--                    <p>Loremrrnsequat.</p>--}}
 
 
-                    <li class="nav-item">
-                        <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">
+{{--                    <li class="nav-item">--}}
 {{--                        <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">--}}
-                            <div
-                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="fa fa-group text-dark text-sm opacity-10"></i>
-                            </div>
-                            <span class="nav-link-text ms-1">Çalışanlarim</span>
-                        </a>
-                    </li>
+{{--                        <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">--}}
+{{--                            <div--}}
+{{--                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">--}}
+{{--                                <i class="fa fa-group text-dark text-sm opacity-10"></i>--}}
+{{--                            </div>--}}
+{{--                            <span class="nav-link-text ms-1">Çalışanlarim</span>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
 
 
