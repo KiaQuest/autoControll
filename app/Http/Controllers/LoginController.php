@@ -34,13 +34,13 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password , 'durum' => 0])) {
 //        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
 
 
             return redirect()->intended('dashboard');
-        }elseif (Auth::attempt(['telefon' => $request->username, 'password' => $request->password])) {
+        }elseif (Auth::attempt(['telefon' => $request->username, 'password' => $request->password , 'durum' => 0])) {
 //        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
 
