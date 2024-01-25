@@ -451,8 +451,9 @@
                                     }
                                         if (event.target == modal2) {
                                             modal2.style.display = "none";
+                                            set();
                                         }
-                                    set();
+
                                 }
 
 

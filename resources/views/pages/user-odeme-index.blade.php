@@ -14,12 +14,12 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
+{{--                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            #</th>--}}
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            #</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tip</th>
+                                            açıklama</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            tarla</th>
+                                            yapan</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Parsel sayi</th>--}}
@@ -89,17 +89,18 @@
 </style>
                                 @foreach($data as $z)
                                     <tr  style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
+{{--                                        <td>--}}
+
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>--}}
+
+{{--                                        </td>--}}
                                         <td>
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->About  }}</p>
 
                                         </td>
                                         <td>
-
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
-
-                                        </td>
-                                        <td id="z{{ $loop->iteration }}" zid="{{ $z->tarlaID }}">
+{{--                                        <td id="z{{ $loop->iteration }}" zid="{{ $z->tarlaID }}">--}}
 {{--                                            <div class="d-flex px-2 py-1">--}}
 {{--                                                <div>--}}
 {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
@@ -113,6 +114,7 @@
 
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->OdeyenAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
+                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->yapan }}</p>
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0" id="bname"></p>--}}
                                         </td>
@@ -134,7 +136,7 @@
                                         @if($z->OdemeTipi == 'alacak')
 
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }} ₺</span>
                                             </td>
                                             <td class="align-middle text-center">
                                             </td>
@@ -143,7 +145,7 @@
                                             <td class="align-middle text-center">
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }} ₺</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }} ₺</span>
                                             </td>
                                             @endif
 {{--                                        <td class="align-middle text-center">--}}
@@ -183,20 +185,27 @@
 <tr>
 
     <td></td>
-    <td></td>
+
     <td></td>
     @if($toplam < 0 )
 
         <td> </td>
-        <td> {{ $toplam }} ₺</td>
+        <td>
+{{--            {{ $toplam }} ₺--}}
+            {{ number_format($toplam) }}   ₺
+        </td>
     @else
 
 
-        <td> {{ $toplam }} ₺</td>
+        <td>
+{{--            {{ $toplam }} ₺--}}
+        {{ number_format($toplam) }}   ₺
+        </td>
         <td> </td>
     @endif
     <td> </td>
     <td></td>
+
 </tr>
 {{--                        VADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE               --}}
 {{--        <tr>--}}
@@ -613,8 +622,12 @@
 
                     if (event.target == modal2) {
                         modal2.style.display = "none";
+                        set();
                     }
-                    set();
+                    // if(modal2.style.display == "none"){
+                    //     set();
+                    // }
+
                 }
                 var modal2 = document.getElementById("myModal2");
                 var span2 = document.getElementsByClassName("close2")[0];
