@@ -26,7 +26,8 @@ class OdemeController extends Controller
     {
 //        dd($tarla);
 //        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->get();
-        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->get();
+        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->orderBy('created_at', 'desc')->get();
+//        dd($data);
         $select = $data->pluck('OdemeTipi','kapora');
 //        $select = $data->map->only('OdemeTipi','kapora');
 //        for ($i = 0 ; $i < 5 ; $i++){

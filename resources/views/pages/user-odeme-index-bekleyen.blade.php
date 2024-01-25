@@ -14,14 +14,14 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                 <tr>
+{{--                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                        #--}}
+{{--                                    </th>--}}
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        #
-                                    </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Tip
+                                        açıklama
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        tarla
+                                        yapan
                                     </th>
 {{--                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">--}}
 {{--                                        $--}}
@@ -102,17 +102,18 @@
                                 </style>
                                 @foreach($data as $z)
                                     <tr style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
+{{--                                        <td>--}}
+
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>--}}
+
+{{--                                        </td>--}}
                                         <td>
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->About  }}</p>
 
                                         </td>
-                                        <td>
-
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>
-
-                                        </td>
-                                        <td id="{{ $loop->iteration }}" kid="{{ $z->tarlaID }}">
+                                        <td >
+{{--                                        <td id="{{ $loop->iteration }}" kid="{{ $z->tarlaID }}">--}}
                                             {{--                                            <div class="d-flex px-2 py-1">--}}
                                             {{--                                                <div>--}}
                                             {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
@@ -126,6 +127,7 @@
 
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2"> {{ $z->tarlaID }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Kalan {{ $z->OdeyenSoyad }}</p>--}}
+                                            <p class="text-xs text-secondary mb-0"> {{ $z->yapan }}</p>
 
                                         </td>
 {{--                                        <td>--}}
