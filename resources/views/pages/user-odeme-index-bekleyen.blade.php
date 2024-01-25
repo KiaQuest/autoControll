@@ -168,7 +168,7 @@
                                         @if($z->OdemeTipi == 'alacak')
 
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }}</span>
                                             </td>
                                             <td class="align-middle text-center">
                                             </td>
@@ -177,7 +177,7 @@
                                             <td class="align-middle text-center">
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ $z->kapora }}</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }}</span>
                                             </td>
                                         @endif
 

@@ -180,7 +180,7 @@
                                             {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
                                             {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $z->kalan }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ number_format($z->kalan) }}</span>
                                         </td>
 
 
