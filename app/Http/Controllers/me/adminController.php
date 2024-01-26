@@ -46,7 +46,7 @@ class adminController extends Controller
 
     public function users()
     {
-        $data = User::all();
+        $data = User::all()->except(1);
         return view('pages.users-index' , compact('data'));
 
     }
