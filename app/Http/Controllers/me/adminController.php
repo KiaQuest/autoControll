@@ -74,9 +74,10 @@ class adminController extends Controller
     public function upadeEdit(Request $request)
     {
 //        return 'll';
-//        dd($request->all());
+//        dd(bcrypt($request->password));
         $id = $request->id;
-        User::where('id' , $id)->update($request->except(['_token']));
+        User::where('id' , $id)->update(['password' => bcrypt($request->password)]);
+//        User::where('id' , $id)->update($request->except(['_token']) , ['password' => bcrypt($request->password)]);
         return redirect()->route('users');
     }
 }

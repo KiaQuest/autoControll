@@ -131,20 +131,20 @@
                                         <input class="form-control" type="text" name="lastname" value="{{ $profile->lastname }}">
                                     </div>
                                 </div>
-{{--                                <div class="col-md-5">--}}
-{{--                                    <div class="form-group">--}}
-{{--                                        <label for="example-text-input" class="form-control-label">Password</label><span class="req">*</span>--}}
-{{--                                        <input class="form-control" type="text" name="password" value="{{ $profile->password }}" required>--}}
-{{--                                        @error('password') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-                                <div class="col-md-6">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label for="example-text-input" class="form-control-label">Password</label><span class="req">*</span>
+                                        <input class="form-control" type="text" name="password" value="{{ $profile->password }}" required>
+                                        @error('password') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Maaş</label>
                                         <input class="form-control" type="text" name="maas" value="{{ $profile->maas }}" >
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">Durum</label><span class="req">*</span>
 {{--                                        <input class="form-control" type="text" name="durum" value="{{ old('durum') }}" required>--}}
