@@ -164,8 +164,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="form-control-label">Telefon</label>
-                                        <input type="text" name="telefon" id="telefon" class="form-control" value="{{ old('telefon') }}">
+                                        <label class="form-control-label">Telefon</label><span class="req">*</span>
+                                        <input type="text" name="telefon" id="telefon" class="form-control" value="{{ old('telefon') }}" required>
                                         @error('telefon') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                     </div>
                                 </div>
