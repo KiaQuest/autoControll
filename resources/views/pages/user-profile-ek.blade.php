@@ -283,6 +283,27 @@
     </div>
 
 
+    <script src=
+                "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+
+
+    <script>
+
+        $(function () {
+            $("input[name='maas']").on('input', function (e) {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            });
+        });
+
+            $(function () {
+            $("input[name='telefon']").on('input', function (e) {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            });
+        });
+
+    </script>
+
     <script>
 
         let a = document.getElementById('level');
