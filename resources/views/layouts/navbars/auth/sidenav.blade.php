@@ -403,9 +403,20 @@
 
 
 
-                <button class="collapsible po">Yönetici İşlemleri <i class="arrow down"></i></button>
-                <div class="content">
+                <button class="collapsible po"  {{  Route::currentRouteName() == 'araba.index'   ? 'active' : '' }}>Yönetici İşlemleri <i class="arrow down"></i></button>
+                <div class="content"  {{  Route::currentRouteName() == 'araba.index'   ? 'style=max-height:113px' : '' }} >
                     {{--                    <p>Loremrrnsequat.</p>--}}
+
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Route::currentRouteName() == 'araba.index' ? 'active' : '' }}" href="{{ route('araba.index') }}">
+                            <div
+                                class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="fa fa-car text-dark text-sm opacity-10"></i>
+                            </div>
+                            <span class="nav-link-text ms-1">Arabalar</span>
+                        </a>
+                    </li>
 
                 </div>
 

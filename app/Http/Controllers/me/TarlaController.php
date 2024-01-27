@@ -4,6 +4,7 @@ namespace App\Http\Controllers\me;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alinmis;
+use App\Models\Araba;
 use App\Models\Customer;
 use App\Models\Odeme;
 use App\Models\tarla;
@@ -130,7 +131,11 @@ class TarlaController extends Controller
     public function eksatis(Request $request)
     {
 
-//        dd($request->tarlaID);
+
+
+
+
+
 
         $SatilanParselSayisi = $request->parselsayisi;
         $parselfiyati = $request->parselfiyati;
@@ -160,9 +165,9 @@ class TarlaController extends Controller
 //        Customer::create($request->all() + ['kim' => auth()->user()->id]);
 //        dd($request->all());
 //        dd($odemeID);
-        $kapora = $request->kapora;
-        if ($kapora != 0){
-            echo '0 degil';
+//        $kapora = $request->kapora;
+//        if ($kapora != 0){
+//            echo '0 degil';
 
 //            Alinmis::create([
 //                'user' => auth()->user()->username,
@@ -172,7 +177,25 @@ class TarlaController extends Controller
 //                'mikdar' => $kapora
 //            ]);
 
-        }
+//        }
+
+
+        $a = array(
+            'marka' => $request->marka,
+            'model' => $request->model,
+            'km' => $request->km,
+            'fiyat' => $request->fiyat,
+            'about' => $request->about,
+            'oid' => $odemeID,
+            'yapan' => auth()->user()->username,
+            'created_at' => now()
+        );
+        Araba::insert($a);
+
+//        if ($request->kalan != null && $request->kalan != 0){
+////            $request->request->add(['vade' => '1']); //add request
+//            $a['vade'] = 1;
+//        }
 
         return redirect()->route('odeme.index');
 

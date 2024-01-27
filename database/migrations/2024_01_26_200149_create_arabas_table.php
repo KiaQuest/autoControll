@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('km')->nullable();
             $table->string('fiyat')->nullable();
             $table->string('about')->nullable();
+            $table->string('yapan')->nullable();
             $table->string('cid')->nullable();
             $table->string('oid')->nullable();
             $table->timestamps();

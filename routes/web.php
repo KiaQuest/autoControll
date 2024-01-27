@@ -35,6 +35,7 @@ use App\Http\Controllers\me\IsController;
 use App\Http\Controllers\me\IhtiacController;
 use App\Http\Controllers\me\SikayetController;
 use App\Http\Controllers\me\CustomerController;
+use App\Http\Controllers\me\ArabaController;
 
 Route::get('/ilhan', [adminController::class, 'test1']);
 
@@ -78,6 +79,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/tarla-satis', [TarlaController::class, 'eksatis'])->name('tarla.satis.post');
 
     Route::get('/tarla-satis-change', [TarlaController::class, 'satisDurumu'])->name('satisDurumu.change');
+
+    Route::get('/arabaz', [ArabaController::class, 'index'])->name('araba.index');
 
 
 	Route::get('/odeme-ekle', [OdemeController::class, 'show'])->name('odeme.show');

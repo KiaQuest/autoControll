@@ -135,7 +135,7 @@
 
                                         <div class="col-md-6">
                                             <label for="kapora">Kapora</label>
-                                            <input type="number" name="kapora" id="kapora" class="form-control" value="0">
+                                            <input type="number" name="kapora" id="kapora" class="form-control">
                                         </div>
 
                                         <div class="col-md-6">
@@ -183,8 +183,7 @@
 
                                         <div class="col-md-4">
                                             <label class="form-label" for="OdemeSekli">OdemeSekli</label>
-                                            <select class="form-control " name="OdemeSekli" data-val="true"
-                                                    id="OdemeSekli">
+                                            <select class="form-control " name="OdemeSekli" id="OdemeSekli">
                                                 <option value="" disabled selected>Seçin...</option>
                                                 <option value="kart">kart</option>
                                                 <option value="nakit">nakit</option>
@@ -196,6 +195,46 @@
                                         </div>
                                     </div>
                                     <br>
+
+
+                                        <div class="form-group" id="ustu" style="display: none" >
+
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="form-label" for="marka">Marka</label><span class="req">*</span>
+                                                    <input name="marka" type="text" class="form-control col-md-4" id="marka">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label" for="model">Model</label>
+                                                    <input name="model" type="text" class="form-control col-md-4" id="model">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label" for="km">Kilometre</label>
+                                                    <input name="km" type="text" class="form-control col-md-4" id="km">
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <label class="form-label" for="fiyat">Fiyat</label><span class="req">*</span>
+                                                    <input name="fiyat" type="text" class="form-control col-md-4" id="fiyat" required>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label class="form-label" for="about">Aciklama</label><span class="req">*</span>
+                                                    <input name="about" type="text" class="form-control col-md-4" id="about">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            {{--{{ dd($data) }}--}}
+{{--                                            <select name="ust" id="ust" class="form-control" style="appearance:button" required disabled>--}}
+{{--                                                <option disabled selected value> -- kimin altı -- </option>--}}
+
+{{--                                                @foreach($data as $z)--}}
+{{--                                                    <option value="{{ $z->id }}">{{ $z->username }}</option>--}}
+{{--                                                @endforeach--}}
+
+{{--                                            </select>--}}
+                                            {{--                                        <input class="form-control" type="email" name="email" value="{{ old('email', auth()->user()->email) }}">--}}
+                                        </div>
+                                        <br>
+
 
                                     <label class="form-label" for="OdemeAciklama"> Odeme Açıklaması</label>
                                     <input name="OdemeAciklama" type="text" class="form-control" id="OdemeAciklama">
@@ -234,12 +273,63 @@
                                     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 
+
+
+                                    <script>
+
+                                        let a = document.getElementById('OdemeSekli');
+
+                                        let head = document.getElementById('ustu');
+
+                                        console.log('ff3');
+                                        a.addEventListener('change', function () {
+                                            // console.log(head);
+                                            // console.log(this.value);
+
+                                            // head.style.display = 'initial';
+                                            if (this.value == 'araba'){
+                                                // console.log('dzdz');
+
+                                                head.style.display = 'initial';
+                                                document.getElementById('fiyat').removeAttribute("disabled");
+
+                                            }else {
+
+                                                // tik();
+                                                head.style.display = 'none';
+                                                document.getElementById('fiyat').setAttribute("disabled" , true);
+                                                document.getElementById('fiyat').removeAttribute("required");
+
+                                            }
+
+                                        });
+
+
+                                        // a.setAttribute("onchange", console.log('yuhahahahaha'));
+                                        // console.log('yalla2');
+
+
+
+
+
+
+
+                                        function tik(){
+                                            let per = document.getElementById('tik');
+                                            per.innerHTML = '&#x2705';
+                                        }
+
+                                    </script>
+
+{{--                                    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>--}}
+
+
                                     <script>
 
 
                                         let p = document.getElementById('tarlas');
 
-                                        console.log(p);
+                                        // console.log(p);
                                         console.log('p');
                                         fetch("{{ route('tarlas', ['id' => auth()->user()->id]) }}")
                                             .then((response) => {
