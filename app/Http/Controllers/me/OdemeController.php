@@ -138,11 +138,14 @@ class OdemeController extends Controller
     }
     public function onayDurumu3(Request $request)
     {
+
        $t = Odeme::where('id' , $request->id)->first();
+//        dd($t->OdemeTipi);
         Odeme::where('id' , $request->id)->update(['vade' => 2]);
 //        dd($t);
-        Odeme::insert([
-            'OdemeTipi' => 'alacak',
+
+
+        $a = array(
             'OdeyenAd' => $t->OdeyenAd,
             'OdeyenSoyad' => $t->OdeyenSoyad,
             'OdemeSekli' => $t->OdemeSekli,
@@ -168,7 +171,46 @@ class OdemeController extends Controller
             "cid" => $t->id,
 
             'created_at' => now()
-        ]);
+        );
+
+            $a['OdemeTipi'] = $t->OdemeTipi;
+
+//        array_push($a,"blue","yellow");
+
+        Odeme::insert($a);
+
+
+
+
+//
+//        Odeme::insert([
+//            'OdemeTipi' => 'alacak',
+//            'OdeyenAd' => $t->OdeyenAd,
+//            'OdeyenSoyad' => $t->OdeyenSoyad,
+//            'OdemeSekli' => $t->OdemeSekli,
+//
+//            "OdeyenTc" => $t->OdemeSekli,
+//            "OdeyenTel" => $t->OdeyenTel,
+//            "VadeTarihi" => $t->VadeTarihi,
+//            "Tutar" => $t->Tutar,
+//            "Tarla" => $t->Tarla,
+//            "Yetkili" => $t->Yetkili,
+//            "OdemeAciklama" => $t->OdemeAciklama,
+//            "About" => $t->About,
+//            "kim" => $t->kim,
+//            "yapan" => $t->yapan,
+//            "tarlaID" => $t->tarlaID,
+//            "parselsayisi" => $t->parselsayisi,
+//            "parselfiyati" => $t->parselfiyati,
+//            "kapora" => $t->kalan,
+//            "kalan" => 0,
+//            "vade" => 0,
+//            "onay" => 1,
+//            "onaylian" => auth()->user()->username,
+//            "cid" => $t->id,
+//
+//            'created_at' => now()
+//        ]);
 //        Odeme::where('id' , $request->id)->update(['vade' => 2]);
         return redirect()->back();
     }

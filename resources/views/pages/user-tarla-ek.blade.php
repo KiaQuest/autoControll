@@ -400,32 +400,23 @@
                                     </script>
 
 
-                                    <label class="form-label" for="Ada">Ada</label>
-                                    <input name="Ada" type="number" class="form-control" data-val="true"
-                                           data-val-number="The field Ada must be a number." id="Ada">
+                                    <label class="form-label" for="Ada">Ada<span class="req">*</span></label>
+                                    <input name="Ada" type="number" class="form-control" id="Ada" required>
                                     <span class="text-danger field-validation-valid" data-valmsg-for="Ada"
                                           data-valmsg-replace="true"></span><br>
 
-                                    <label class="form-label" for="Parsel">Parsel</label>
-                                    <input name="Parsel" type="number" class="form-control" required="" id="Parsel"
-                                           value="0">
+                                    <label class="form-label" for="Parsel">Parsel<span class="req">*</span></label>
+                                    <input name="Parsel" type="number" class="form-control" required id="Parsel"
+                                           >
                                     <span class="text-danger field-validation-valid" data-valmsg-for="Parsel"
                                           data-valmsg-replace="true"></span><br>
 
                                     <label class="form-label" for="MetreKare">MetreKare</label>
-                                    <input name="MetreKare" type="number" class="form-control" required=""
-                                           data-val="true" data-val-number="The field MetreKare must be a number."
-                                           id="MetreKare" value="0">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="MetreKare"
-                                          data-valmsg-replace="true"></span><br>
+                                    <input name="MetreKare" type="number" class="form-control" required
+                                           id="MetreKare" ><br>
 
-                                    <label class="form-label" for="ParselSayisi">Kaç Parsele Bölündü</label>
-                                    <input name="ParselSayisi" type="number" class="form-control" required=""
-                                           data-val="true" data-val-number="The field ParselSayisi must be a number."
-                                           data-val-required="'Parsel Sayisi' must not be empty." id="ParselSayisi"
-                                           value="0">
-                                    <span class="text-danger field-validation-valid" data-valmsg-for="ParselSayisi"
-                                          data-valmsg-replace="true"></span><br>
+                                    <label class="form-label" for="ParselSayisi">Kaç Parsele Bölündü<span class="req">*</span></label>
+                                    <input name="ParselSayisi" type="number" class="form-control" required id="ParselSayisi"><br>
 
                                     {{--                                <label class="form-label" for="Durum">Durum</label>--}}
                                     {{--                                <select class="form-control" name="Durum" required="" data-val="true" data-val-required="'Durum' must not be empty." id="Durum">--}}
@@ -507,6 +498,12 @@
 
                                     </div>
 
+                                    <div class="row"  style="justify-content: space-around">
+                                        <div class="col-md-11">
+                                            <label class="form-label" for="aciklama">Aciklama<span class="req">*</span></label>
+                                            <input name="about" type="text" class="form-control" id="aciklama" required>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>

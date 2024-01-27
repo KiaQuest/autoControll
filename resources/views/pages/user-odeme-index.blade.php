@@ -96,7 +96,7 @@
 {{--                                        </td>--}}
                                         <td>
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->About  }}</p>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ Str::limit($z->About, 35)  }} / {{ Str::limit($z->OdemeAciklama, 25) }} </p>
 
                                         </td>
                                         <td>

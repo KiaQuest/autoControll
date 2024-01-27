@@ -19,12 +19,46 @@ class TarlaController extends Controller
     public function create(Request $request)
     {
 //        dd($request->all());
+//        $a = array(
+//            'OdemeTipi' => 'verecek',
+//            'OdemeSekli' => $request->OdemeSekli,
+////            'tarlaID' => $id,
+//            'kapora' => $request->tarlaPesin,
+//            'parselfiyati' => $request->tarlaFiat,
+//            'kalan' => $request->kalan,
+//            'kim' => auth()->user()->id,
+////            'vade' => '1',
+//            'created_at' => now()
+//        );
+//        $a['dd'] = 44;
+////        array_push($a,'blue' => '5');
+//        dd($a);
 
+        $fiat = $request->tarlaFiat;
+        $pesin = $request->tarlaPesin;
+        $kalan = $request->kalan;
+
+//        echo $pesin + $fiat;
+        if ( $fiat != $pesin + $kalan){
+
+//            $this->validate(request(), [
+//                'SahipTc' => 'required|max:20',
+//            ], [
+//                'SahipTc.required' => 'SahipTc boş ola biləmməz',
+//            ]);
+
+            dd('tarla fiyati , ya pesin ya kalan duz degil');
+        }
+
+//        dd($request->all());
         $data = tarla::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
         $data->save();
         $id = $data->id;
+
 //        dd($id);
-        Odeme::insert([
+
+
+        $a = array(
             'OdemeTipi' => 'verecek',
             'OdemeSekli' => $request->OdemeSekli,
             'tarlaID' => $id,
@@ -32,8 +66,23 @@ class TarlaController extends Controller
             'parselfiyati' => $request->tarlaFiat,
             'kalan' => $request->kalan,
             'kim' => auth()->user()->id,
+            'About' => $request->about,
+            'yapan' => auth()->user()->username,
+            'parselsayisi' => $request->ParselSayisi,
+            'OdeyenAd' => $request->SahipAd,
+            'OdeyenSoyad' => $request->SahipSoyad,
+            'OdeyenTc' => $request->SahipTc,
+            'OdeyenTel' => $request->SahipTel,
             'created_at' => now()
-        ]);
+        );
+
+        if ($request->kalan != null && $request->kalan != 0){
+//            $request->request->add(['vade' => '1']); //add request
+            $a['vade'] = 1;
+        }
+//        array_push($a,"blue","yellow");
+
+        Odeme::insert($a);
         return redirect()->route('tarla.index');
 
     }
@@ -47,7 +96,6 @@ class TarlaController extends Controller
 
     public function edit(Request $request)
     {
-
 //        dd($request->id);
         $id = $request->id;
         $data = tarla::where('id' , $id)->first();
