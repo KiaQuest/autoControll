@@ -95,7 +95,7 @@ class OdemeController extends Controller
         //bekleyen
 //        dd('kk');
 //        $data = Odeme::where('kim' , auth()->user()->id)->where('onay' , '=' , NULL)->get();
-        $data = Odeme::where('onay' , '!=' , 1)->where('delete' , 0)->get();
+        $data = Odeme::where('onay' , '!=' , 1)->where('delete' , '!=' , 2)->get();
         $vade = Odeme::where('vade' , 2)->where('delete' , 0)->get();
 //        dd($vade);
         return view('pages.user-odeme-index-bekleyen' , compact('data','vade'));
@@ -230,7 +230,12 @@ class OdemeController extends Controller
     {
 //        dd($request->kapora);
         $request->kapora == 0 ? $action = 2 : $action = 1;
-        Odeme::where('id' , $request->id)->update(['delete' => $action]);
+        if ($action == 1){
+            Odeme::where('id' , $request->id)->update(['delete' => $action , 'onay' => 1]);
+        }elseif ($action == 2){
+            Odeme::where('id' , $request->id)->update(['delete' => $action]);
+        }
+//        Odeme::where('id' , $request->id)->update(['delete' => $action]);
         return redirect()->back();
     }
 
