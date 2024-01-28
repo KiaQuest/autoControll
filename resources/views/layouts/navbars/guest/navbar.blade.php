@@ -45,13 +45,15 @@
 {{--                                    class="btn btn-sm mb-0 me-1 btn-primary">Free Download</a>--}}
 {{--                            </li>--}}
 {{--                        </ul>--}}
-                        <div class="px-4" >
+{{--                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">--}}
+{{--                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/fontawesome.min.css" integrity="sha512-d0olNN35C6VLiulAobxYHZiXJmq+vl+BGIgAxQtD5+kqudro/xNMvv2yIHAciGHpExsIbKX3iLg+0B6d0k4+ZA==" crossorigin="anonymous" referrerpolicy="no-referrer" />--}}
+                        <div class="px-1" >
                         Used for Biesaa Group foundation Bursa,Turkey
-                        </div>
+                        </div> <i class="fa-solid fa-location-dot px-1"></i>
 
 <div class="px-4">
 {{--                                                        <a class="nav-link me-2" href="https://www.kiaquest.ir">--}}
-                                                            Developed by KiaQuest
+{{--                                                            Developed by KiaQuest--}}
 {{--                                                        </a>--}}
 </div>
 
