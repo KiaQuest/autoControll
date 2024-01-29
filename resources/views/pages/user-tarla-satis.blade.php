@@ -2,6 +2,7 @@
 
 @section('content')
     @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
+
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="card-body p-3">
             <div class="row gx-4">
@@ -57,6 +58,10 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
+                    @if($errors->any())
+                        <h4 style="color: deepskyblue; padding: 2em;">{{$errors->first()}}</h4>
+                    @endif
+
                     <form role="form" method="POST"
                           action={{ route('tarla.satis.post') }} enctype="multipart/form-data">
                         @csrf
@@ -116,6 +121,7 @@
                                         }
                                     </style>
                                     <br>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="parsels">Satilan Parsel Sayi <span class="req">*</span></label>

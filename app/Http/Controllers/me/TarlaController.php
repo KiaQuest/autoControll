@@ -131,29 +131,28 @@ class TarlaController extends Controller
     public function eksatis(Request $request)
     {
 
-
-
-
-
-
-
         $SatilanParselSayisi = $request->parselsayisi;
         $parselfiyati = $request->parselfiyati;
         $a = $SatilanParselSayisi * $parselfiyati;
         $kapora = $request->kapora;
         $kalan = $request->kalan;
 
-        $b = $kalan + $kapora;
+//        $arabaFiyat = 0;
+        $arabaFiyat = $request->fiyat;
+
+        $b = $kalan + $kapora + $arabaFiyat;
+//        dd($b);
         if ($a != $b ){
-            dd('Kalan , Kapora ya Parsel fiyati ya da satilan parsel sayi YANLISTIR');
+            return view('pages.user-tarla-satis')->withErrors(['kalan' => 'Kalan , Kapora ya Parsel fiyati  YANLISTIR']);
+//            dd('Kalan , Kapora ya Parsel fiyati  YANLISTIR');
         }
 
 //        dd($request->all());
-        $say = $request->parselsayisi;
-        $check = $request->parselcheck;
-        if ($say > $check){
-            return 'parsel sayisi yanlisdir ';
-        }
+//        $say = $request->parselsayisi;
+//        $check = $request->parselcheck;
+//        if ($say > $check){
+//            return 'parsel sayisi yanlisdir ';
+//        }
 
         if ($request->kalan != null && $request->kalan != 0){
             $request->request->add(['vade' => '1']); //add request
