@@ -119,8 +119,17 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="parsels">Satilan Parsel Sayi <span class="req">*</span></label>
-                                            <input type="number" name="parselsayisi" id="parsels" class="form-control"
-                                                   required>
+{{--                                            <input type="number" name="parselsayisi" id="parsels" class="form-control"--}}
+{{--                                                   required>--}}
+
+{{--                                            <label for="cars">Choose a car:</label>--}}
+
+                                            <select id="parsels" class="form-control" name="parselsayisi">
+                                                <option value="" disabled selected>Seçin...</option>
+{{--                                                <option value="kart">kart</option>--}}
+
+                                            </select>
+
                                         </div>
 
                                         <input type="hidden" name="parselcheck" id="parselcheck" class="form-control">
@@ -373,10 +382,11 @@
                                             });
 
                                         p.addEventListener('change', function () {
-                                            // console.log('dzzzz')
+                                            console.log('dzzzz')
                                             // let lo = 'loop';
                                             // let num = 1;
                                             // let loop = lo.concat(num);
+                                            document.getElementById('parsels').innerHTML = '';
 
                                             // var w3yzid = document.getElementById(this.value).getAttribute('w3yz-id');
                                             // console.log(document.getElementById('brow').id);
@@ -384,9 +394,32 @@
                                             let parselSayisi = document.getElementById(value).getAttribute('w3');
                                             // console.log(parsel);
                                             // let oo = $( "#tarlas option:selected" ).text();
-                                            // console.log(oo);
+                                            // console.log(parselSayisi);
 
-                                            document.getElementById('parselcheck').setAttribute('value', parselSayisi);
+                                            // document.getElementById('parsels').setAttribute('value', parselSayisi);
+
+                                            for (var i = 1; i <= parselSayisi; i++) {
+                                                // var sec2 = data[i].konum_ilce;
+
+
+                                                let sec = document.createElement("option");
+                                                sec.setAttribute("value", i);
+                                                // sec.setAttribute("kid", data[i].konum_id);
+                                                // sec.setAttribute("class", data[i].konum_ilce);
+                                                // sec.setAttribute("id", data[i].konum_id);
+                                                sec.innerHTML = i;
+
+                                                // if (sec2 === sec3) {
+                                                //     continue;
+                                                // }
+                                                // if (data[i].konum_il != data[fin].konum_il) {
+                                                //     break;
+                                                // }
+                                                // var sec3 = sec2;
+                                                // let p = document.getElementById('konum_ilce');
+                                                document.getElementById('parsels').appendChild(sec);
+
+                                            }
                                             // getElementsByClassName(names)
 
                                             // console.log(document.getElementById('konum_il').getAttribute('kid'));
@@ -399,47 +432,47 @@
 
                                             // console.log('3')
                                             // console.log(fin);
-                                            document.getElementById('konum_ilce').removeAttribute("disabled");
+                                            // document.getElementById('konum_ilce').removeAttribute("disabled");
 
 
-                                            fetch("{{ route('konum') }}")
-                                                .then((response) => {
-                                                    if (response.ok) {
-                                                        return response.json();
-                                                    }
-                                                })
-                                                .then(data => {
+                                            {{--fetch("{{ route('konum') }}")--}}
+                                            {{--    .then((response) => {--}}
+                                            {{--        if (response.ok) {--}}
+                                            {{--            return response.json();--}}
+                                            {{--        }--}}
+                                            {{--    })--}}
+                                            {{--    .then(data => {--}}
 
-                                                    console.log(data[fin])
-                                                    // console.log('4')
-                                                    // console.log('4dddd')
-                                                    // const lopo = '4545'
-                                                    // console.log(lopo)
+                                            {{--        console.log(data[fin])--}}
+                                            {{--        // console.log('4')--}}
+                                            {{--        // console.log('4dddd')--}}
+                                            {{--        // const lopo = '4545'--}}
+                                            {{--        // console.log(lopo)--}}
 
-                                                    for (var i = fin; i < data.length; i++) {
-                                                        var sec2 = data[i].konum_ilce;
+                                            {{--        for (var i = fin; i < data.length; i++) {--}}
+                                            {{--            var sec2 = data[i].konum_ilce;--}}
 
 
-                                                        let sec = document.createElement("option");
-                                                        sec.setAttribute("value", data[i].konum_ilce);
-                                                        sec.setAttribute("kid", data[i].konum_id);
-                                                        sec.setAttribute("class", data[i].konum_ilce);
-                                                        // sec.setAttribute("id", data[i].konum_id);
-                                                        sec.innerHTML = data[i].konum_ilce;
+                                            {{--            let sec = document.createElement("option");--}}
+                                            {{--            sec.setAttribute("value", data[i].konum_ilce);--}}
+                                            {{--            sec.setAttribute("kid", data[i].konum_id);--}}
+                                            {{--            sec.setAttribute("class", data[i].konum_ilce);--}}
+                                            {{--            // sec.setAttribute("id", data[i].konum_id);--}}
+                                            {{--            sec.innerHTML = data[i].konum_ilce;--}}
 
-                                                        if (sec2 === sec3) {
-                                                            continue;
-                                                        }
-                                                        if (data[i].konum_il != data[fin].konum_il) {
-                                                            break;
-                                                        }
-                                                        var sec3 = sec2;
-                                                        // let p = document.getElementById('konum_ilce');
-                                                        document.getElementById('konum_ilce').appendChild(sec);
+                                            {{--            if (sec2 === sec3) {--}}
+                                            {{--                continue;--}}
+                                            {{--            }--}}
+                                            {{--            if (data[i].konum_il != data[fin].konum_il) {--}}
+                                            {{--                break;--}}
+                                            {{--            }--}}
+                                            {{--            var sec3 = sec2;--}}
+                                            {{--            // let p = document.getElementById('konum_ilce');--}}
+                                            {{--            document.getElementById('konum_ilce').appendChild(sec);--}}
 
-                                                    }
+                                            {{--        }--}}
 
-                                                });
+                                            {{--    });--}}
 
 
                                             // fetch('https://example.com?' + new URLSearchParams({
@@ -449,69 +482,69 @@
                                         });
 
 
-                                        document.getElementById('konum_ilce').addEventListener('change', function () {
+                                        {{--document.getElementById('konum_ilce').addEventListener('change', function () {--}}
 
 
-                                            // console.log('dzzzz')
-                                            // let lo = 'loop';
-                                            // let num = 1;
-                                            // let loop = lo.concat(num);
+                                        {{--    // console.log('dzzzz')--}}
+                                        {{--    // let lo = 'loop';--}}
+                                        {{--    // let num = 1;--}}
+                                        {{--    // let loop = lo.concat(num);--}}
 
-                                            // var w3yzid = document.getElementById(this.value).getAttribute('w3yz-id');
-                                            // console.log(document.getElementById('brow').id);
-
-
-                                            // console.log(lopo)
-                                            var w3 = document.getElementsByClassName(this.value)[0].getAttribute('kid');
-                                            // let value = this.id;
-                                            let red = parseInt(w3)
-                                            let fin = red - 1
-
-                                            // console.log('3')
-                                            // console.log(value)
-                                            // console.log(fin);
-                                            document.getElementById('konum_mahalle').removeAttribute("disabled");
-
-                                            console.log('geldi')
-                                            fetch("{{ route('konum') }}")
-                                                .then((response) => {
-                                                    if (response.ok) {
-                                                        return response.json();
-                                                    }
-                                                })
-                                                .then(data => {
-
-                                                    console.log(data[fin])
-                                                    // console.log('4')
-
-                                                    for (var i = fin; i < data.length; i++) {
-                                                        var sec3 = data[i].konum_ilce;
+                                        {{--    // var w3yzid = document.getElementById(this.value).getAttribute('w3yz-id');--}}
+                                        {{--    // console.log(document.getElementById('brow').id);--}}
 
 
-                                                        let sec4 = document.createElement("option");
-                                                        sec4.setAttribute("value", data[i].konum_mahalle);
-                                                        sec4.innerHTML = data[i].konum_mahalle;
+                                        {{--    // console.log(lopo)--}}
+                                        {{--    var w3 = document.getElementsByClassName(this.value)[0].getAttribute('kid');--}}
+                                        {{--    // let value = this.id;--}}
+                                        {{--    let red = parseInt(w3)--}}
+                                        {{--    let fin = red - 1--}}
 
-                                                        // if (sec3 === sec5) { continue; }
-                                                        if (data[i].konum_ilce != data[fin].konum_ilce) {
-                                                            break;
-                                                        }
-                                                        // var sec5 = sec3;
-                                                        // let p = document.getElementById('konum_ilce');
-                                                        document.getElementById('konum_mahalle').appendChild(sec4);
+                                        {{--    // console.log('3')--}}
+                                        {{--    // console.log(value)--}}
+                                        {{--    // console.log(fin);--}}
+                                        {{--    document.getElementById('konum_mahalle').removeAttribute("disabled");--}}
 
-                                                    }
+                                        {{--    console.log('geldi')--}}
+                                        {{--    fetch("{{ route('konum') }}")--}}
+                                        {{--        .then((response) => {--}}
+                                        {{--            if (response.ok) {--}}
+                                        {{--                return response.json();--}}
+                                        {{--            }--}}
+                                        {{--        })--}}
+                                        {{--        .then(data => {--}}
 
-                                                });
+                                        {{--            console.log(data[fin])--}}
+                                        {{--            // console.log('4')--}}
+
+                                        {{--            for (var i = fin; i < data.length; i++) {--}}
+                                        {{--                var sec3 = data[i].konum_ilce;--}}
 
 
-                                            // fetch('https://example.com?' + new URLSearchParams({
-                                            //     foo: 'value',
-                                            //     bar: 2,
-                                            // }))
+                                        {{--                let sec4 = document.createElement("option");--}}
+                                        {{--                sec4.setAttribute("value", data[i].konum_mahalle);--}}
+                                        {{--                sec4.innerHTML = data[i].konum_mahalle;--}}
+
+                                        {{--                // if (sec3 === sec5) { continue; }--}}
+                                        {{--                if (data[i].konum_ilce != data[fin].konum_ilce) {--}}
+                                        {{--                    break;--}}
+                                        {{--                }--}}
+                                        {{--                // var sec5 = sec3;--}}
+                                        {{--                // let p = document.getElementById('konum_ilce');--}}
+                                        {{--                document.getElementById('konum_mahalle').appendChild(sec4);--}}
+
+                                        {{--            }--}}
+
+                                        {{--        });--}}
 
 
-                                        });
+                                        {{--    // fetch('https://example.com?' + new URLSearchParams({--}}
+                                        {{--    //     foo: 'value',--}}
+                                        {{--    //     bar: 2,--}}
+                                        {{--    // }))--}}
+
+
+                                        {{--});--}}
 
                                         // TEKRAR--START
 
