@@ -484,6 +484,7 @@
                                             <div class="col-md-6"><label for="">parselfiyati:</label><div  id="d13" class="in"></div></div>
                                             <div class="col-md-6"><label for="">parselsayisi:</label><div  id="d14" class="in"></div></div>
                                             <div class="col-md-6"><label for="">yapan:</label><div  id="d15" class="in"></div></div>
+                                            <div class="col-md-6"><label for="">id:</label><div  id="d16" class="in"></div></div>
                                         </div>
 
 {{--                                        <div class="row">--}}
@@ -614,6 +615,11 @@
                                             man15.innerHTML = data.yapan  ;
                                             document.getElementById('d15').appendChild(man15);
 
+                                            let man16 = document.createElement("span");
+                                            man16.setAttribute("class", 'text-xxs');
+                                            man16.innerHTML = data.id  ;
+                                            document.getElementById('d16').appendChild(man16);
+
                                         });
 
                                 }
@@ -634,6 +640,7 @@
                                     document.getElementById('d13').innerHTML = '';
                                     document.getElementById('d14').innerHTML = '';
                                     document.getElementById('d15').innerHTML = '';
+                                    document.getElementById('d16').innerHTML = '';
                                 }
 
                                 // function set(){
