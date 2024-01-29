@@ -19,7 +19,7 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tip</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                            Odeyen</th>
+                                            miktar</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Vade tarihi</th>
@@ -28,7 +28,7 @@
                                             Sekli</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            user</th>
+                                            yapan</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Aciklama</th>
@@ -102,8 +102,9 @@
                                         </td>
                                         <td>
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>
-                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>
+                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->kapora }}</p>
+{{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>--}}
+{{--                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
 
                                         </td>
                                         <td>
@@ -114,7 +115,7 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->OdemeSekli }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->kim }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->yapan }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->OdemeAciklama }}</span>
