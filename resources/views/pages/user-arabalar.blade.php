@@ -124,9 +124,11 @@
                                         </td>
                                         <td class="align-middle">
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinmiş</span>--}}
-                                                <a href="{{ route('onay.durumu.change' , ['id' => $x->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
+
                                             @if($x->durum == 1)
                                                 <span class="text-secondary text-xs font-weight-bold ">Silinip</span>
+                                            @else
+                                                <a href="{{ route('onay.durumu.change' , ['id' => $x->id]) }}"><button type="button" class="btn btn-outline-success btn-sm btnkia"><i style="font-size: 0.9rem;padding: 0.4rem" class="fa fa-shopping-cart"> iptal</i></button></a>
                                             @endif
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->id }}</span>--}}
                                         </td>
