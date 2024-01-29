@@ -192,7 +192,7 @@
 
                                         <td class="align-middle">
                                             <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
+                                                class="text-secondary text-xs font-weight-bold">{{ $z->created_at }}</span>
                                         </td>
                                         <td>
                                             <a href="{{ route('odeme.vade.onayla' , [ 'id' => $z->id ]) }}"><span

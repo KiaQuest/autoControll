@@ -165,7 +165,7 @@
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at }}</span>
                                         </td>
                                         <td class="align-middle">
 {{--                                            @if($z->delete == 0)--}}
