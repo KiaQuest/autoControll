@@ -169,6 +169,7 @@
                                             <input name="OdeyenTc" type="text" class="form-control" id="OdeyenTc">
                                         </div>
 
+
                                         <div class="col-md-4">
                                             <label class="form-label" for="müşterytel">müştery Telefon</label>
                                             <input name="OdeyenTel" type="text" class="form-control" id="müşterytel">
@@ -182,8 +183,8 @@
                                         </div>
 
                                         <div class="col-md-4">
-                                            <label class="form-label" for="OdemeSekli">OdemeSekli</label>
-                                            <select class="form-control " name="OdemeSekli" id="OdemeSekli">
+                                            <label class="form-label" for="OdemeSekli">OdemeSekli</label><span class="req">*</span>
+                                            <select class="form-control " name="OdemeSekli" id="OdemeSekli" required>
                                                 <option value="" disabled selected>Seçin...</option>
                                                 <option value="kart">kart</option>
                                                 <option value="nakit">nakit</option>
@@ -205,7 +206,7 @@
                                                     <input name="marka" type="text" class="form-control col-md-4" id="marka">
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <label class="form-label" for="model">Model</label>
+                                                    <label class="form-label" for="model">Yil</label>
                                                     <input name="model" type="text" class="form-control col-md-4" id="model">
                                                 </div>
                                                 <div class="col-md-3">
