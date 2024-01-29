@@ -109,7 +109,7 @@
 {{--                                        </td>--}}
                                         <td>
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ Str::limit($z->About, 30)   }} / {{ Str::limit($z->OdemeAciklama, 25) }}</p>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ Str::limit($z->About, 30)   }} {{ $z->About != null ? '/' : '' }} {{ Str::limit($z->OdemeAciklama, 25) }}</p>
 
                                         </td>
                                         <td >

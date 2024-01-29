@@ -102,7 +102,7 @@
                                         </td>
                                         <td>
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->kapora }}</p>
+                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ number_format($x->kapora) }}</p>
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
 
@@ -118,7 +118,7 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->yapan }}</span>
                                         </td>
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->OdemeAciklama }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($x->About, 30)   }} {{ $x->About != null ? '/' : '' }} {{ Str::limit($x->OdemeAciklama, 25) }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->created_at->todatestring() }}</span>
