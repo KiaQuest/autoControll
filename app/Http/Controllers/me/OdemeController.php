@@ -225,4 +225,57 @@ class OdemeController extends Controller
         return response()->json($data);
     }
 
+    public function araba(Request $request)
+    {
+//        dd($request->all());
+
+
+        if ($request->yfiyat == null){
+            $fiyat = $request->fiyat;
+        }else{
+            $fiyat = $request->yfiyat;
+        }
+        $t = Odeme::where('id' , $request->id)->first();
+//        dd($t->OdemeTipi);
+        Araba::where('oid' , $request->id)->update(['durum' => 2]);
+
+        $a = array(
+            'OdemeTipi' => 'alacak',
+            'OdeyenAd' => $t->OdeyenAd,
+            'OdeyenSoyad' => $t->OdeyenSoyad,
+            'OdemeSekli' => 'araba',
+//            'OdemeSekli' => $t->OdemeSekli,
+
+            "OdeyenTc" => $t->OdemeSekli,
+            "OdeyenTel" => $t->OdeyenTel,
+            "VadeTarihi" => $t->VadeTarihi,
+//            "Tutar" => $t->Tutar,
+//            "Tarla" => $t->Tarla,
+            "Yetkili" => $t->Yetkili,
+            "OdemeAciklama" => $t->OdemeAciklama,
+            "About" => $t->About,
+            "kim" => $t->kim,
+            "yapan" => $t->yapan,
+//            "tarlaID" => $t->tarlaID,
+//            "parselsayisi" => $t->parselsayisi,
+//            "parselfiyati" => $t->parselfiyati,
+            "kapora" => $fiyat,
+            "kalan" => 0,
+            "vade" => 0,
+            "onay" => 1,
+            "onaylian" => auth()->user()->username,
+            "cid" => $t->id,
+
+            'created_at' => now()
+        );
+
+//        $a['OdemeTipi'] = $t->OdemeTipi;
+
+//        array_push($a,"blue","yellow");
+
+        Odeme::insert($a);
+
+        return redirect()->back();
+
+    }
 }

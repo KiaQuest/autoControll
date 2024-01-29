@@ -99,6 +99,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/vade-onay-sil', [OdemeController::class, 'vadeDurumSil'])->name('vade.onay.sil');
 
     Route::get('/odeme-sil', [OdemeController::class, 'sil'])->name('odeme.sil');
+    Route::get('/odeme-araba', [OdemeController::class, 'araba'])->name('odeme.araba');
 
 
     Route::get('/customer-ek', [CustomerController::class, 'show'])->name('customer.show');

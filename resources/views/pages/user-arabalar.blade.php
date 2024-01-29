@@ -111,7 +111,7 @@
 
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->fiyat }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ number_format($x->fiyat) }}</span>
                                         </td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->yapan }}</span>
@@ -127,8 +127,10 @@
 
                                             @if($x->durum == 1)
                                                 <span class="text-secondary text-xs font-weight-bold ">Silinip</span>
+                                            @elseif($x->durum == 2)
+                                                <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span> <i class="fa fa-check" aria-hidden="true"></i>
                                             @else
-                                                <a href="#"><button type="button" class="btn btn-outline-success btn-sm btnkia"><i style="font-size: 0.9rem;padding: 0.4rem" class="fa fa-shopping-cart"> SAT</i></button></a>
+                                                <a href="#"><button type="button" class="btn btn-outline-success btn-sm btnkia" onclick="sor({{ $x->oid }} , {{  $x->fiyat }})"><i style="font-size: 0.9rem;padding: 0.4rem" class="fa fa-shopping-cart"> SAT</i></button></a>
 {{--                                                <a href="{{ route('onay.durumu.change' , ['id' => $x->id]) }}"><button type="button" class="btn btn-outline-success btn-sm btnkia"><i style="font-size: 0.9rem;padding: 0.4rem" class="fa fa-shopping-cart"> iptal</i></button></a>--}}
                                             @endif
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->id }}</span>--}}
@@ -154,7 +156,211 @@
                 </div>
             </div>
         </div>
-{{--        <div class="row">--}}
+
+
+
+
+        <style>
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0, 0, 0); /* Fallback color */
+                background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: #fefefe;
+                margin: auto;
+                padding: 0;
+                border: 1px solid #888;
+                width: 40%;
+                /*width: 80%;*/
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                -webkit-animation-name: animatetop;
+                -webkit-animation-duration: 0.4s;
+                animation-name: animatetop;
+                animation-duration: 0.4s
+            }
+
+            /* Add Animation */
+            @-webkit-keyframes animatetop {
+                from {
+                    top: -300px;
+                    opacity: 0
+                }
+                to {
+                    top: 0;
+                    opacity: 1
+                }
+            }
+
+            @keyframes animatetop {
+                from {
+                    top: -300px;
+                    opacity: 0
+                }
+                to {
+                    top: 0;
+                    opacity: 1
+                }
+            }
+
+            /* The Close Button */
+            .close , .close2 {
+                color: white;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus,
+            .close2:hover,
+            .close2:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .modal-header {
+                padding: 2px 16px;
+                background-color: #f9ab57;
+                color: white;
+            }
+
+            .modal-body {
+                padding: 2px 16px;
+            }
+
+            .modal-footer {
+                padding: 2px 16px;
+                background-color: #5cb85c;
+                color: white;
+            }
+
+            .modalkia {
+                display: flex;
+                justify-content: space-evenly;
+                padding: 6%;
+            }
+            .in{
+                padding: inherit;
+            }
+        </style>
+
+
+
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header" style="direction: rtl">
+                    <span class="close">&times;</span>
+                    <h3>? Kapora varsa ne olsun</h3>
+                </div>
+                <div class="modal-body modalkia">
+                    {{--                                        <p>Some text in the Modal Body</p>--}}
+                    {{--                                        <p>Some other text...</p>--}}
+                    <a href="" id="a1">
+                        <button class="btn badge badge-sm bg-gradient-info p-3" id="a1i">
+{{--                        <button class="btn badge badge-sm bg-gradient-info p-3" id="a1i">Kaporanida sil--}}
+                        </button>
+                    </a>
+                    <form action="" method="get" id="form" style="display: contents">
+                    <div>
+                        <input type="text" name="yfiyat" id="a2i" class="form-control" placeholder="Yeni fiyat"></div>
+                        <input type="hidden" name="id" id="a2id" >
+                    <div  id="a2">
+
+                        <button type="submit" class="btn btn-success btn-sm btnkia">
+                            <i style="font-size: 0.9rem; padding: 0.4rem; line-height: 1.5em !important;" class="fa fa-paw" ></i>
+                        </button>
+                    </div>
+                    </form>
+
+{{--                        <button class="btn badge badge-sm bg-gradient-secondary p-3" value="bt5">Kapora cibde kalsin</button>--}}
+{{--                        <label for="a2i">Yeni fiyat</label>--}}
+
+
+                </div>
+                {{--                                    <div class="modal-footer">--}}
+                {{--                                        <h3>Modal Footer</h3>--}}
+                {{--                                    </div>--}}
+            </div>
+
+        </div>
+
+
+        <script>
+            // Get the modal
+            // var modal = document.getElementsByClassName("btnkia");
+            var modal = document.getElementById("myModal");
+
+            // Get the button that opens the modal
+            // var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal
+            // btn.onclick = function() {
+            //     modal.style.display = "block";
+            // }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+                if (event.target == modal2) {
+                    modal2.style.display = "none";
+                    set();
+                }
+
+            }
+
+
+            function sor(id , fiyat) {
+
+                modal.style.display = "block";
+
+                let www = '{{ route('odeme.araba') }}';
+                let w3 = www + '?id=' + id + '&kapora=' + 1
+                // console.log(w3);
+                document.getElementById('a2').setAttribute('href' , w3);
+
+
+
+                {{--let www = '{{ route('odeme.sil') }}';--}}
+                let w4 = www + '?id=' + id + '&fiyat=' + fiyat
+                // let w4 = www + '?id=' + id + '&kapora=' + 0
+                // console.log(w3);
+                // document.getElementById('a1').innerHTML = fiyat;
+                document.getElementById('a1i').innerHTML =  'Ayni fiyat mi ?   ' + fiyat.toLocaleString() + ' ₺  ';
+                document.getElementById('form').setAttribute('action' , w4);
+                document.getElementById('a1').setAttribute('href' , w4);
+                document.getElementById('a2id').setAttribute('value' , id);
+
+            }
+
+
+            </script>
+            {{--        <div class="row">--}}
 {{--            <div class="col-12">--}}
 {{--                <div class="card mb-4">--}}
 {{--                    <div class="card-header pb-0">--}}
