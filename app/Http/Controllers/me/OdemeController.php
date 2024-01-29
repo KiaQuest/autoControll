@@ -4,6 +4,7 @@ namespace App\Http\Controllers\me;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alinmis;
+use App\Models\Araba;
 use App\Models\Odeme;
 use App\Models\tarla;
 use Illuminate\Http\Request;
@@ -138,7 +139,7 @@ class OdemeController extends Controller
     }
     public function onayDurumu3(Request $request)
     {
-
+//      vade onaylamasi
        $t = Odeme::where('id' , $request->id)->first();
 //        dd($t->OdemeTipi);
         Odeme::where('id' , $request->id)->update(['vade' => 2]);
@@ -179,39 +180,6 @@ class OdemeController extends Controller
 
         Odeme::insert($a);
 
-
-
-
-//
-//        Odeme::insert([
-//            'OdemeTipi' => 'alacak',
-//            'OdeyenAd' => $t->OdeyenAd,
-//            'OdeyenSoyad' => $t->OdeyenSoyad,
-//            'OdemeSekli' => $t->OdemeSekli,
-//
-//            "OdeyenTc" => $t->OdemeSekli,
-//            "OdeyenTel" => $t->OdeyenTel,
-//            "VadeTarihi" => $t->VadeTarihi,
-//            "Tutar" => $t->Tutar,
-//            "Tarla" => $t->Tarla,
-//            "Yetkili" => $t->Yetkili,
-//            "OdemeAciklama" => $t->OdemeAciklama,
-//            "About" => $t->About,
-//            "kim" => $t->kim,
-//            "yapan" => $t->yapan,
-//            "tarlaID" => $t->tarlaID,
-//            "parselsayisi" => $t->parselsayisi,
-//            "parselfiyati" => $t->parselfiyati,
-//            "kapora" => $t->kalan,
-//            "kalan" => 0,
-//            "vade" => 0,
-//            "onay" => 1,
-//            "onaylian" => auth()->user()->username,
-//            "cid" => $t->id,
-//
-//            'created_at' => now()
-//        ]);
-//        Odeme::where('id' , $request->id)->update(['vade' => 2]);
         return redirect()->back();
     }
     public function onayDurumu4(Request $request)
@@ -235,13 +203,15 @@ class OdemeController extends Controller
         }elseif ($action == 2){
             Odeme::where('id' , $request->id)->update(['delete' => $action]);
         }
+        Araba::where('oid' , $request->id)->update(['durum' => 1]);
 //        Odeme::where('id' , $request->id)->update(['delete' => $action]);
         return redirect()->back();
     }
 
     public function vade()
     {
-        $data = Odeme::where('vade', 1)->get();
+//        VADE BEKLEYEN
+        $data = Odeme::where('vade', 1)->where( 'delete' , 0 )->get();
 //        $data = Odeme::where('onay' , '!=' , 1)->where('delete' , '0', 0)->get();
         return view('pages.user-odeme-vade-bekleyen',compact('data'));
     }

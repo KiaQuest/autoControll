@@ -69,10 +69,10 @@
 {{--                        </style>--}}
                         <div
                             class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-                            <div class="position-relative  h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
-                                style="background-image: {{ asset('me/ex/2.webp') }};
-                                {{--style="background-image: url('http://emlaksaticilari.online/public/me/ex/2.webp');--}}
-                                {{--style="background-image: url('http://localhost/me/dukan%20projects/auto/public/me/ex/1.jpeg');--}}
+                            <div class="position-relative  h-100 m-3 mx-5 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden"
+{{--                                style="background-image: {{ asset('me/ex/2.webp') }};--}}
+                                style="background-image: url('http://emlaksaticilari.online/public/me/ex/1.jpeg');
+{{--                                style="background-image: url('http://localhost/me/dukan%20projects/auto/public/me/ex/1.jpeg');--}}
                                     background-size: cover;">
                                 {{--style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');--}}
 {{--                                <span class="mask bg-gradient-primary opacity-6"></span>--}}

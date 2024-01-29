@@ -122,14 +122,14 @@
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->created_at->todatestring() }}</span>
                                         </td>
-{{--                                        <td class="align-middle">--}}
+                                        <td class="align-middle">
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinmiş</span>--}}
-{{--                                                <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>--}}
-{{--                                            @else--}}
-{{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
-{{--                                            @endif--}}
-{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
-{{--                                        </td>--}}
+                                                <a href="{{ route('onay.durumu.change' , ['id' => $x->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
+                                            @if($x->durum == 1)
+                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>
+                                            @endif
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->id }}</span>--}}
+                                        </td>
                                     </tr>
 
                                 @endforeach

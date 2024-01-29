@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('yapan')->nullable();
             $table->string('cid')->nullable();
             $table->string('oid')->nullable();
+            $table->string('durum')->default('0');
             $table->timestamps();
         });
     }
