@@ -57,16 +57,21 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
+
+                    @if($errors->any())
+                        <h4 style="color: deepskyblue; padding: 2em;">{{$errors->first()}}</h4>
+                    @endif
+
                     <form role="form" method="POST" action={{ route('ihtiac.create') }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
-                                <p class="mb-0">Edit Profile</p>
+                                <p class="mb-0">ihtiac ekle</p>
                                 <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">User Information</p>
+{{--                            <p class="text-uppercase text-sm">User Information</p>--}}
                             <div class="row">
                                 <div class="form-group">
 
@@ -78,13 +83,22 @@
                                         }
                                     </style>
 
-                                    <label class="form-label" for="Ada">Onay Metni <span class="req">*</span></label>
-                                <input name="metn" type="text" class="form-control" required="" data-val="true" data-val-number="The field Ada must be a number." data-val-required="'Ada' must not be empty." id="Ada">
-                                <span class="text-danger field-validation-valid" data-valmsg-for="Ada" data-valmsg-replace="true"></span><br>
+                                    <label class="form-label" for="about">açiklama <span class="req">*</span></label>
+                                <input name="about" type="text" class="form-control" required >
+                                <span class="text-danger field-validation-valid" ></span><br>
 
-                                <label class="form-label" for="ParselSayisi">Firma</label>
-                                <input name="firma" type="text" class="form-control"  data-val="true" data-val-number="The field ParselSayisi must be a number." data-val-required="'Parsel Sayisi' must not be empty." id="ParselSayisi" >
-                                <span class="text-danger field-validation-valid" data-valmsg-for="ParselSayisi" data-valmsg-replace="true"></span><br>
+                                <label class="form-label" for="firma">Firma</label>
+{{--                                <input name="firma" type="text" class="form-control" >--}}
+                                    <select name="firma" id="firma" class="form-control" style="appearance:button" required>
+                                        <option disabled selected value> -- fırma adı -- </option>
+
+                                        @foreach($firmaz as $z)
+                                            <option value="{{ $z->id }}">{{ $z->firma }}</option>
+                                        @endforeach
+
+                                    </select>
+                                <br>
+
 
 {{--                                <label class="form-label" for="Durum">Durum</label>--}}
 {{--                                <select class="form-control" name="Durum" required="" data-val="true" data-val-required="'Durum' must not be empty." id="Durum">--}}
@@ -95,7 +109,51 @@
 {{--                                <span class="text-danger field-validation-valid" data-valmsg-for="Durum" data-valmsg-replace="true"></span><br>--}}
 
 
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-4"><label for="alacak">alacak </label> <input type="text" name="alacak" id="alacak" class="form-control"></div>--}}
+{{--                                        <select name="OdemeTipi" id="OdemeTipi">--}}
+{{--                                            <option value="alacak">alacak</option>--}}
+{{--                                            <option value="verecek">verecek</option>--}}
+{{--                                        </select>--}}
+{{--                                        <div class="col-4"><label for="alacak">verecek </label> <input type="text" name="verecek" id="verecek" class="form-control"></div>--}}
+{{--                                        <div class="col-4"><label for="kalan">kalan </label> <input type="text" name="kalan" id="kalan" class="form-control"></div>--}}
 
+{{--                                    </div>--}}
+
+
+
+                                    <br>
+                                    <div class="row" style="justify-content: space-around ">
+                                        {{--                                    <div class="row" style="justify-content: space-around">--}}
+
+                                        <div class="col-md-5" >
+                                            <label class="form-label" for="OdemeTipi">OdemeTipi<span
+                                                    class="req"> *</span></label>
+                                            <select class="form-control" name="OdemeTipi" data-val="true" id="OdemeTipi">
+                                                <option disabled selected> -- Tip -- </option>
+                                                <option value="alacak">alacak</option>
+                                                <option value="verecek">verecek</option>
+                                            </select><br>
+                                        </div>
+
+
+                                        <div class="col-md-5" >
+                                            <label class="form-label" for="toplam">Toplam Fiat<span class="req">*</span></label>
+                                            <input name="toplam" type="text" class="form-control" id="toplam" required>
+                                        </div>
+                                        <div class="col-md-5">
+
+                                            <label class="form-label" for="kapora">Alinan ya Verilen Mebleğ <span class="req">*</span></label>
+                                            <input name="kapora" type="text" class="form-control" id="kapora"  required>
+                                        </div>
+
+                                        <div class="col-md-5">
+
+                                            <label class="form-label" for="kalan">Kalan<span class="req">*</span></label>
+                                            <input name="kalan" type="text" class="form-control" id="kalan"  required>
+                                        </div>
+
+                                    </div>
 
 
                                 </div>

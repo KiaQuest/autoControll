@@ -338,9 +338,9 @@
 
         });
 
-console.log('yalla');
+// console.log('yalla');
         // a.setAttribute("onchange", console.log('yuhahahahaha'));
-console.log('yalla2');
+// console.log('yalla2');
 
 
 

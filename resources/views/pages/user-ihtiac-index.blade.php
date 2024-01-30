@@ -17,14 +17,19 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             #</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Onay Metin</th>
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Firma</th>
+                                            aÇıklama</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Fırma</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            alacak</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            verecek</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            kalan</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
-                                        <th class="text-secondary opacity-7"></th>
+                                        <th class="text-secondary opacity-7">işlem</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,7 +84,7 @@
 {{--                                                </div>--}}
 {{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->metn }}</p>
+                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->about }}</p>
 
                                         </td>
                                         <td>
@@ -88,6 +93,15 @@
 
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->firma }}</p>
 
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->alacak }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->verecek }}</p>
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->kalan }}</p>
                                         </td>
 {{--                                        <td class="align-middle text-center text-sm">--}}
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>--}}
@@ -111,7 +125,15 @@
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->toDateString() }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at }}</span>
+                                        </td>
+
+                                        <td>
+                                            @if($z->durum == 0)
+                                                <span class="text-secondary text-xs font-weight-bold">Bekleniyor</span>
+                                            @elseif($z->durum == 1)
+                                                <span class="text-secondary text-xs font-weight-bold">Onaylanmiş   <i class="fa fa-check" aria-hidden="true"> </i></span>
+                                            @endif
                                         </td>
                                     </tr>
 

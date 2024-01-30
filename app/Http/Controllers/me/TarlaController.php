@@ -143,7 +143,7 @@ class TarlaController extends Controller
         $b = $kalan + $kapora + $arabaFiyat;
 //        dd($b);
         if ($a != $b ){
-            return view('pages.user-tarla-satis')->withErrors(['kalan' => 'Kalan , Kapora ya Parsel fiyati  YANLISTIR']);
+            return view('pages.user-tarla-satis')->withErrors(['kalan' => 'Kalan , Kapora ya Parsel fiyati  YANLIŞTIR']);
 //            dd('Kalan , Kapora ya Parsel fiyati  YANLISTIR');
         }
 
