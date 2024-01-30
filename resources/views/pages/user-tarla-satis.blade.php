@@ -141,16 +141,16 @@
                                         <input type="hidden" name="parselcheck" id="parselcheck" class="form-control">
 
                                         <div class="col-md-6">
-                                            <label for="parsels">Parsel Fiyati</label>
-                                            <input type="text" name="parselfiyati" id="parsels" class="form-control">
+                                            <label for="parsels">Parsel Fiyati <span class="req">*</span></label>
+                                            <input type="text" name="parselfiyati" id="parsels" class="form-control" required>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
 
                                         <div class="col-md-6">
-                                            <label for="kapora">Kapora</label>
-                                            <input type="number" name="kapora" id="kapora" class="form-control">
+                                            <label for="kapora">Kapora <span class="req">*</span></label>
+                                            <input type="number" name="kapora" id="kapora" class="form-control" required>
                                         </div>
 
                                         <div class="col-md-6">
@@ -192,8 +192,7 @@
 
                                         <div class="col-md-4">
                                             <label class="form-label" for="VadeTarihi">Vade Tarihi</label>
-                                            <input name="VadeTarihi" type="date" class="form-control col-md-4"
-                                                   id="VadeTarihi">
+                                            <input name="VadeTarihi" type="date" class="form-control col-md-4" id="VadeTarihi">
                                             {{--                                        <input name="__Invariant" type="hidden" value="VadeTarihi">--}}
                                         </div>
 
@@ -293,11 +292,20 @@
 
                                     <script>
 
+
+                                        $(function () {
+                                            $("input[name='model']").on('input', function (e) {
+                                                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                                            });
+                                        });
+
+
+
                                         let a = document.getElementById('OdemeSekli');
 
                                         let head = document.getElementById('ustu');
 
-                                        console.log('ff3');
+                                        // console.log('ff3');
                                         a.addEventListener('change', function () {
                                             // console.log(head);
                                             // console.log(this.value);
@@ -318,6 +326,11 @@
 
                                             }
 
+                                            if (this.value == 'cek' || this.value == 'tapu' ){
+                                                document.getElementById('VadeTarihi').setAttribute("required" , true);
+                                            }else {
+                                                document.getElementById('VadeTarihi').removeAttribute("required");
+                                            }
                                         });
 
 

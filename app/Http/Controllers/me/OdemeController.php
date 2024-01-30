@@ -135,7 +135,12 @@ class OdemeController extends Controller
 
             Odeme::where('id' , $rr->cid)->update(['vade' => 1]);
             Odeme::where('id' , $request->id)->delete();
-        }else{
+        }elseif ($rr->OdemeSekli == 'araba'){
+//            dd($request->cid);
+            Araba::where('oid' , $rr->cid)->update(['durum' => 0]);
+            Odeme::where('id' , $request->id)->delete();
+        }
+        else{
             Odeme::where('id' , $request->id)->update(['onay' => 0]);
         }
 
@@ -212,8 +217,8 @@ class OdemeController extends Controller
         }elseif ($action == 2){
             Odeme::where('id' , $request->id)->update(['delete' => $action]);
         }
-        Araba::where('oid' , $request->id)->delete();
-//        Araba::where('oid' , $request->id)->update(['durum' => 1]);
+//        Araba::where('oid' , $request->id)->delete();
+        Araba::where('oid' , $request->id)->update(['durum' => 1]);
 //        Odeme::where('id' , $request->id)->update(['delete' => $action]);
         return redirect()->back();
     }

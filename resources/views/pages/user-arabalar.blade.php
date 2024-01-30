@@ -269,7 +269,7 @@
             <div class="modal-content">
                 <div class="modal-header" style="direction: rtl">
                     <span class="close">&times;</span>
-                    <h3>? Kapora varsa ne olsun</h3>
+                    <h4>? Araba Satilip ve Ödemelere eklensin mi</h4>
                 </div>
                 <div class="modal-body modalkia">
                     {{--                                        <p>Some text in the Modal Body</p>--}}
@@ -279,14 +279,18 @@
 {{--                        <button class="btn badge badge-sm bg-gradient-info p-3" id="a1i">Kaporanida sil--}}
                         </button>
                     </a>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                     <form action="" method="get" id="form" style="display: contents">
                     <div>
-                        <input type="text" name="yfiyat" id="a2i" class="form-control" placeholder="Yeni fiyat"></div>
+                        <input type="text" name="yfiyat" id="a2i" class="form-control" placeholder="Yeni fiyat">
+                    </div>
                         <input type="hidden" name="id" id="a2id" >
-                    <div  id="a2">
 
+                    <div  id="a2">
                         <button type="submit" class="btn btn-success btn-sm btnkia">
-                            <i style="font-size: 0.9rem; padding: 0.4rem; line-height: 1.5em !important;" class="fa fa-paw" ></i>
+                            <i style="font-size: 0.9rem; padding: 0.4rem; line-height: 1.5em !important;" class="fa fa-shopping-cart" > SAT</i>
                         </button>
                     </div>
                     </form>
