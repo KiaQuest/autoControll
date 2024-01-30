@@ -14,16 +14,16 @@
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            #</th>
+{{--                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
+{{--                                            #</th>--}}
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             aÇıklama</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Fırma</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            alacak</th>
+                                            odeme tipi</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            verecek</th>
+                                            mebleğ</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             kalan</th>
                                         <th
@@ -67,11 +67,11 @@
 
                                 @foreach($data as $z)
                                     <tr>
-                                        <td>
+{{--                                        <td>--}}
 
-                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
+{{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>--}}
 
-                                        </td>
+{{--                                        </td>--}}
                                         <td>
 {{--                                            <div class="d-flex px-2 py-1">--}}
 {{--                                                <div>--}}
@@ -84,7 +84,7 @@
 {{--                                                </div>--}}
 {{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->about }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 px-2">{{ Str::limit($z->about, 35)  }}</p>
 
                                         </td>
                                         <td>
@@ -95,10 +95,10 @@
 
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->alacak }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->OdemeTipi }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->verecek }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->kapora }}</p>
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->kalan }}</p>
@@ -132,7 +132,11 @@
                                             @if($z->durum == 0)
                                                 <span class="text-secondary text-xs font-weight-bold">Bekleniyor</span>
                                             @elseif($z->durum == 1)
-                                                <span class="text-secondary text-xs font-weight-bold">Onaylanmiş   <i class="fa fa-check" aria-hidden="true"> </i></span>
+                                                <span class="text-secondary text-xs font-weight-bold"><i class="fa fa-check" aria-hidden="true"> </i></span>
+                                            @elseif($z->durum == 2)
+                                                <span class="text-secondary text-xs font-weight-bold"><i class="fa fa-check" aria-hidden="true"> </i><i class="fa fa-check" aria-hidden="true"> </i></span>
+                                            @elseif($z->durum == 4)
+                                                <span class="text-secondary text-xs font-weight-bold">Silinmiş</span>
                                             @endif
                                         </td>
                                     </tr>

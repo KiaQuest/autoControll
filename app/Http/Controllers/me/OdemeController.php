@@ -5,6 +5,7 @@ namespace App\Http\Controllers\me;
 use App\Http\Controllers\Controller;
 use App\Models\Alinmis;
 use App\Models\Araba;
+use App\Models\Ihtiac;
 use App\Models\Odeme;
 use App\Models\tarla;
 use Illuminate\Http\Request;
@@ -97,8 +98,8 @@ class OdemeController extends Controller
 //        dd('kk');
 //        $data = Odeme::where('kim' , auth()->user()->id)->where('onay' , '=' , NULL)->get();
         $data = Odeme::where('onay' , '!=' , 1)->where('delete' , '!=' , 2)->get();
-        $vade = Odeme::where('vade' , 2)->where('delete' , 0)->get();
-//        dd($vade);
+//        $vade = Odeme::where('vade' , 2)->where('delete' , 0)->get();
+////        dd($vade);
         return view('pages.user-odeme-index-bekleyen' , compact('data'));
         // fake comment
     }
@@ -129,10 +130,12 @@ class OdemeController extends Controller
 
     public function onayDurumu(Request $request)
     {
+        // IPTAL index den
         $rr = Odeme::where('id' , $request->id)->first();
 //        dd($rr->vade);
         if ($rr->vade == 3){
 
+//            VADEden onaylanmis ve indexde gozukur ama iptali basildi
             Odeme::where('id' , $rr->cid)->update(['vade' => 1]);
             Odeme::where('id' , $request->id)->delete();
         }elseif ($rr->OdemeSekli == 'araba'){
@@ -148,7 +151,17 @@ class OdemeController extends Controller
     }
     public function onayDurumu2(Request $request)
     {
-        Odeme::where('id' , $request->id)->update(['onay' => 1]);
+//       normal BEKLEYEN onaylamasi
+//
+        $x = Odeme::where('id' , $request->id)->first();
+//        dd($x->OdemeAciklama);
+        if ($x->OdemeAciklama == 'ihtiac' && $x->cid != null){
+            Ihtiac::where('id' , $x->cid)->update(['durum' => 1]);
+        }
+//        dd($x->cid);
+//        Odeme::where('id' , $request->id)->update(['onay' => 1]);
+
+        $x->update(['onay' => 1]);
         return redirect()->back();
     }
     public function onayDurumu3(Request $request)
@@ -156,7 +169,10 @@ class OdemeController extends Controller
 //      vade onaylamasi
        $t = Odeme::where('id' , $request->id)->first();
 //        dd($t->OdemeTipi);
-        Odeme::where('id' , $request->id)->update(['vade' => 2]);
+        if ($t->OdemeAciklama == 'ihtiac' && $t->cid != null){
+            Ihtiac::where('id' , $t->cid)->update(['durum' => 2]);
+        }
+        $t->update(['vade' => 2]);
 //        dd($t);
 
 
@@ -213,9 +229,16 @@ class OdemeController extends Controller
 //        dd($request->kapora);
         $request->kapora == 0 ? $action = 2 : $action = 1;
         if ($action == 1){
+//            kapora cibde kalsin
             Odeme::where('id' , $request->id)->update(['delete' => $action , 'onay' => 1]);
         }elseif ($action == 2){
-            Odeme::where('id' , $request->id)->update(['delete' => $action]);
+//            kollan sihtirsin
+            $r = Odeme::where('id' , $request->id)->first();
+            if ($r->OdemeAciklama == 'ihtiac' && $r->cid != null){
+//                eger ihtiac olsa
+                Ihtiac::where('id' , $r->cid)->update(['durum' => 4]);
+            }
+            $r->update(['delete' => $action]);
         }
 //        Araba::where('oid' , $request->id)->delete();
         Araba::where('oid' , $request->id)->update(['durum' => 1]);

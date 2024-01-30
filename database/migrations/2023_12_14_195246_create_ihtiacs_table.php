@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('firma')->nullable();
             $table->string('kim')->nullable();
             $table->string('yapan')->nullable();
-            $table->string('alacak')->nullable();
-            $table->string('verecek')->nullable();
+            $table->string('OdemeTipi')->nullable();
+            $table->string('kapora')->nullable();
             $table->string('kalan')->nullable();
             $table->string('durum')->default(0);
             $table->timestamps();
