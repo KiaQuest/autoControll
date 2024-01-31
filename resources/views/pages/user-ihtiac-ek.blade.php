@@ -162,7 +162,33 @@
                     </form>
                 </div>
             </div>
-{{--            <div class="col-md-4">--}}
+
+
+            <script src=
+                        "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+            </script>
+
+            <script>
+                $(function () {
+                    $("input[name='toplam']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+                $(function () {
+                    $("input[name='kapora']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+                $(function () {
+                    $("input[name='kalan']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+            </script>
+
+            {{--            <div class="col-md-4">--}}
 {{--                <div class="card card-profile">--}}
 {{--                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">--}}
 {{--                    <div class="row justify-content-center">--}}
