@@ -25,7 +25,7 @@ class IsController extends Controller
     public function index()
     {
 
-        $data = Is::where('kim' , auth()->user()->id)->get();
+        $data = Is::where('kim' , auth()->user()->id)->orderBy('created_at' , 'DESC')->get();
         return view('pages.user-is-index' , compact('data'));
         // fake comment
     }

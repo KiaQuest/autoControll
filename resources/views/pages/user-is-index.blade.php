@@ -28,7 +28,7 @@
                                             Bitis</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tarla</th>
+                                            Aciklama</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
@@ -112,7 +112,7 @@
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->IsBitisTarihi }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tarla }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($z->Tarla, 35)  }}</span>
                                         </td>
 
                                         <td class="align-middle">

@@ -89,7 +89,7 @@
                                         <input name="IsBitisTarihi" type="date" class="form-control"  data-val="true" data-val-required="The IsBitisTarihi field is required." id="IsBitisTarihi">
 {{--                                        <input name="__Invariant" type="hidden" value="IsBitisTarihi">--}}
                                         <br>
-                                        <label class="form-label" for="TarlaID">Alınacak Tarla</label>
+                                        <label class="form-label" for="TarlaID">Aciklama</label>
 {{--                                        <select class="form-control" name="TarlaID"  data-val="true" data-val-required="The TarlaID field is required." id="TarlaID">--}}
 {{--                                            <option value="2e687495-e4c2-4e40-8a86-03be0d9a1f4c" selected="selected">Merkez Mahallesi (Ortaburun Köyü) /Çınarcık /Yalova </option>--}}
 {{--                                            <option value="8bfb854b-998c-4489-85bb-164058bbc98a">Akıncılar Mahallesi (Dikyamaç Köyü) /Arhavi /Artvin </option>--}}
