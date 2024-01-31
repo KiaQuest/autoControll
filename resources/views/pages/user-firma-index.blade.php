@@ -100,7 +100,7 @@
                                             <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->adres }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($z->adres, 35)  }}</span>
                                         </td>
                                         <td class="align-middle">
 {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
@@ -111,7 +111,7 @@
                                             <p class="text-xs text-secondary mb-0">{{ $z->yetkilisoyad }}</p>
                                         </td>
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->about }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($z->about, 35)  }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
