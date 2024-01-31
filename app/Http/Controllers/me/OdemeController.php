@@ -135,15 +135,25 @@ class OdemeController extends Controller
 //        dd($rr->vade);
         if ($rr->vade == 3){
 
+            if ($rr->OdemeAciklama == 'ihtiac' && $rr->cid != null){
+//                dd('$rr->cid');
+                $PP = Odeme::where('id' , $rr->cid)->first('cid');
+                Ihtiac::where('id' , $PP->cid)->update(['durum' => 1]);
+            }
 //            VADEden onaylanmis ve indexde gozukur ama iptali basildi
             Odeme::where('id' , $rr->cid)->update(['vade' => 1]);
             Odeme::where('id' , $request->id)->delete();
+
         }elseif ($rr->OdemeSekli == 'araba'){
-//            dd($request->cid);
+//            dd($request->cid); ARABA
             Araba::where('oid' , $rr->cid)->update(['durum' => 0]);
             Odeme::where('id' , $request->id)->delete();
         }
+
         else{
+            if ($rr->OdemeAciklama == 'ihtiac' && $rr->cid != null){
+                Ihtiac::where('id' , $rr->cid)->update(['durum' => 0]);
+            }
             Odeme::where('id' , $request->id)->update(['onay' => 0]);
         }
 
@@ -231,13 +241,16 @@ class OdemeController extends Controller
         if ($action == 1){
 //            kapora cibde kalsin
             Odeme::where('id' , $request->id)->update(['delete' => $action , 'onay' => 1]);
+
         }elseif ($action == 2){
 //            kollan sihtirsin
             $r = Odeme::where('id' , $request->id)->first();
+
             if ($r->OdemeAciklama == 'ihtiac' && $r->cid != null){
 //                eger ihtiac olsa
                 Ihtiac::where('id' , $r->cid)->update(['durum' => 4]);
             }
+
             $r->update(['delete' => $action]);
         }
 //        Araba::where('oid' , $request->id)->delete();

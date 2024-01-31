@@ -47,7 +47,8 @@ class TarlaController extends Controller
 //            ], [
 //                'SahipTc.required' => 'SahipTc boş ola biləmməz',
 //            ]);
-
+//            return view('pages.user-tarla-satis')->withErrors(['kalan' => 'tarla fiyati , ya pesin ya kalan duz degil']);
+            //bir ana sayfa  YAPMALIYIIIIIIIIIIKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
             dd('tarla fiyati , ya pesin ya kalan duz degil');
         }
 

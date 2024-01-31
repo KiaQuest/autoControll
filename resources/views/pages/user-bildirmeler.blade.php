@@ -105,9 +105,10 @@
                                         </td>
                                         <td>
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ number_format($x->kapora) }}</p>
+                                            <p class="text-xs font-weight-bold mb-0 px-2">{{ number_format($x->kapora) }}  ₺</p>
+                                            <p class="text-xs font-weight-bold mb-0 px-2">{{ number_format($x->kalan) }}  ₺</p>
 {{--                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->OdeyenAd }}</p>--}}
-{{--                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
+{{--                                            <p class="text-xs sm text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
 
                                         </td>
                                         <td>

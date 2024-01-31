@@ -191,8 +191,15 @@
                                         <td>
                                             <a href="{{ route('odeme.onayla' , [ 'id' => $z->id ]) }}"><span
                                                     class="badge badge-sm bg-gradient-success"><i class="fa fa-check"></i></span></a>
-                                            <button type="button" class="btn btn-danger btn-lg btnkia"
-                                                    onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>
+
+                                            @if($z->OdemeAciklama == 'ihtiac' && $z->cid != null)
+                                                <a href="{{ route('odeme.sil' , ['id' => $z->id , 'kapora' => 0]) }}"><button type="button" class="btn  btn-lg btnkia" style="background-color: #f59f00; color: white"
+                                                       ><i class="fa fa-trash  text-sm"> sil</i></button></a>
+                                            @else
+                                                <button type="button" class="btn btn-danger btn-lg btnkia"
+                                                        onclick="sor({{ $z->id }})"><i class="fa fa-trash  text-sm"> sil</i></button>
+                                            @endif
+
                                             <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
                                                     onclick="odemeDetay({{ $z->id }})"><i class="fa fa-eye"></i></button>
 {{--                                                    onclick="zor({{ $z->tarlaID}})"><i class="fa fa-eye"></i></button>--}}

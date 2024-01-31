@@ -69,6 +69,11 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
+
+                    @if($errors->any())
+                        <h4 style="color: deepskyblue; padding: 2em;">{{$errors->first()}}</h4>
+                    @endif
+
                     <form role="form" method="POST" action={{ route('tarla.create') }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
