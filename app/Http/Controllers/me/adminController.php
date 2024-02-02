@@ -53,7 +53,7 @@ class adminController extends Controller
 
     public function bildirmeler()
     {
-        $data = Odeme::where('delete' , 2)->orderBy('created_at', 'DESC')->get();
+        $data = Odeme::where('delete' , 2)->orderBy('updated_at', 'DESC')->get();
         return view('pages.user-bildirmeler' , compact('data'));
     }
 

@@ -100,7 +100,7 @@
                     background-color: #d5d5d5 !important;
                 }
             </style>
-                <button id="lp" class="collapsible po {{ Route::currentRouteName() == 'firma.show' ||  Route::currentRouteName() ==  'firma.index' ? 'active' : '' }}">Firma İşlemleri <i class="arrow down"></i></button>
+                <button id="lp" class="collapsible po {{ Route::currentRouteName() == 'firma.show' ||  Route::currentRouteName() ==  'firma.index' ? 'active' : '' }}" onclick="dzdz(this)">Firma İşlemleri <i class="arrow down"></i></button>
                 <div class="content" {{ Route::currentRouteName() == 'firma.show' ||  Route::currentRouteName() == 'firma.index' ? 'style=max-height:114px' : '' }}>
 
                     <li class="nav-item">
@@ -127,7 +127,14 @@
                 </div>
 
 
-
+            <script >
+                // document.getElementById('lp').addEventListener('click', function () {
+                //     console.log('wads');
+                // });
+                function dzdz(obj) {
+                    console.log(obj);
+                }
+            </script>
 
                 <button id="lp" class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
                 <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'style=max-height:502px' : '' }}>

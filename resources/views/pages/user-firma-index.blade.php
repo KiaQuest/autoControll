@@ -263,6 +263,7 @@
 
                     <div class="row">
                         <div class="col-md-6"><label for="">Firma: </label><div id="d1" class="in"> </div></div>
+{{--                        <a href="tel:{{ $z->telefon }}"><p class="text-xs font-weight-bold mb-0 ">{{ $z->telefon }}</p></a>--}}
                         <div class="col-md-6"><label for="">Telefon: </label><div id="d2" class="in"></div></div>
                         <div class="col-md-6"><label for="">E-posta:</label><div  id="d3" class="in"></div></div>
                         <div class="col-md-6"><label for="">Vergi numara:</label><div  id="d4" class="in"></div></div>

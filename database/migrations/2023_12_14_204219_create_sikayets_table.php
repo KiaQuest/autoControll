@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('metn')->nullable();
             $table->string('kim')->nullable();
+            $table->string('yapan')->nullable();
             $table->timestamps();
         });
     }

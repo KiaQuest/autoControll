@@ -29,6 +29,9 @@
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Verecek</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            kalan</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Toplam</th>--}}
@@ -87,7 +90,31 @@
         padding: revert !important;
     }
 </style>
+@php
+//    if ($data[0]->OdemeTipi == 'alacak'){
+//
+//                                           $kalan = $data[0]->kapora;
+//                                       }else{
+//                                           $kalan = $data[0]->kapora * -1;
+//                                       }
+   $kalan = 0;
+   $ek = 0;
+   echo $data[0]->kapora;
+   $katalizgar = 0;
+@endphp
                                 @foreach($data as $z)
+                                    @php
+
+
+//                                    $ek = 5;
+                                    if ($z->OdemeTipi == 'alacak'){
+                                        $ek = $z->kapora;
+                                    }else{
+                                        $ek = $z->kapora * -1;
+                                    }
+                                    $son = $kalan + $ek + $katalizgar;
+                                    $katalizgar = $son;
+                                    @endphp
                                     <tr  style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
 {{--                                        <td>--}}
 
@@ -165,6 +192,9 @@
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ number_format($son) }}</span>
+                                        </td>
+                                        <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at }}</span>
                                         </td>
                                         <td class="align-middle">
@@ -203,7 +233,7 @@
         </td>
         <td> </td>
     @endif
-    <td> </td>
+    <td> {{ number_format($son) }}</td>
     <td></td>
 
 </tr>

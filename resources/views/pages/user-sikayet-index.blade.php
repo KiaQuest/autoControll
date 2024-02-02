@@ -17,6 +17,8 @@
 {{--                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            #</th>--}}
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            kim</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Şikayet Metni</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -62,6 +64,9 @@
 {{--                                        <td>--}}
 {{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>--}}
 {{--                                        </td>--}}
+                                        <td>
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->yapan  }}</p>
+                                        </td>
                                         <td>
 {{--                                            <div class="d-flex px-2 py-1">--}}
 {{--                                                <div>--}}

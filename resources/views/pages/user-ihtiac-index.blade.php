@@ -142,6 +142,7 @@
                                     </tr>
 
                                 @endforeach
+{{--                                CC{{ $data->links() }}XX--}}
                                 </tbody>
                             </table>
                             <style>

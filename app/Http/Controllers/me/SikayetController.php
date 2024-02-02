@@ -17,8 +17,9 @@ class SikayetController extends Controller
     public function create(Request $request)
     {
 //        dd($request->all());
-        Sikayet::create($request->all() + ['kim' => auth()->user()->id]);
-        return redirect()->route('home');
+        Sikayet::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
+        return redirect()->route('sikayet.index');
+//        return redirect()->route('home');
 
     }
 

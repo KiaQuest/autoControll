@@ -187,6 +187,14 @@
                                             });
                                         </script>
 
+                                        <script>
+                                            $(function () {
+                                                $("input[name='vnum']").on('input', function (e) {
+                                                    $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                                                });
+                                            });
+                                        </script>
+
 
 
 

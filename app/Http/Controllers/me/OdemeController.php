@@ -251,7 +251,7 @@ class OdemeController extends Controller
                 Ihtiac::where('id' , $r->cid)->update(['durum' => 4]);
             }
 
-            $r->update(['delete' => $action]);
+            $r->update(['delete' => $action , 'silen' => auth()->user()->username]);
         }
 //        Araba::where('oid' , $request->id)->delete();
         Araba::where('oid' , $request->id)->update(['durum' => 1]);

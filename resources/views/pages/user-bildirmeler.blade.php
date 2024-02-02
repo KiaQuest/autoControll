@@ -31,6 +31,9 @@
                                             yapan</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            silen</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Aciklama</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
@@ -120,6 +123,9 @@
                                         </td>
                                         <td class="align-middle text-center">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->yapan }}</span>
+                                        </td>
+                                        <td class="align-middle text-center">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $x->silen }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($x->About, 30)   }} {{ $x->About != null ? '/' : '' }} {{ Str::limit($x->OdemeAciklama, 25) }}</span>

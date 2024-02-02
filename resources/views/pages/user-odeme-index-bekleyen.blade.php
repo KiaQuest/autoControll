@@ -409,8 +409,10 @@
 
                                 .modalkia {
                                     display: flex;
-                                    justify-content: space-evenly;
+                                    /*justify-content: space-evenly;*/
                                     padding: 6%;
+                                    justify-content: space-evenly;
+                                    flex-wrap: wrap;
                                 }
                                 .in{
                                     padding: inherit;
@@ -428,18 +430,20 @@
                                 <div class="modal-content">
                                     <div class="modal-header" style="direction: rtl">
                                         <span class="close">&times;</span>
-                                        <h3>? Kapora varsa ne olsun</h3>
+{{--                                        <h3>? Kapora varsa ne olsun</h3>--}}
                                     </div>
                                     <div class="modal-body modalkia">
                                         {{--                                        <p>Some text in the Modal Body</p>--}}
                                         {{--                                        <p>Some other text...</p>--}}
                                             <a href="" id="a1">
-                                                <button class="btn badge badge-sm bg-gradient-info p-3">Kaporanida sil
+                                                <button class="btn badge badge-sm bg-gradient-info p-3">Bu ödemeyi tamamen iptal edin
+{{--                                                <button class="btn badge badge-sm bg-gradient-info p-3">Kaporanida sil--}}
                                                 </button>
                                             </a>
                                             <a href="" id="a2">
                                                 <button class="btn badge badge-sm bg-gradient-secondary p-3"
-                                                        value="bt5">Kapora cibde kalsin
+                                                        value="bt5">silinsin ama seçtiğiniz ödeme , ödeme listesine eklensin
+{{--                                                        value="bt5">Kapora cibde kalsin--}}
                                                 </button>
                                             </a>
                                     </div>
