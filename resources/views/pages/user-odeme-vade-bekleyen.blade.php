@@ -443,7 +443,10 @@
 
                                 // When the user clicks on <span> (x), close the modal
                                 span.onclick = function () {
+                                    // console.log('sd');
                                     modal.style.display = "none";
+
+                                    // set();
                                 }
 
                                 // When the user clicks anywhere outside of the modal, close it
@@ -451,10 +454,10 @@
                                     if (event.target == modal) {
                                         modal.style.display = "none";
                                     }
-                                        if (event.target == modal2) {
-                                            modal2.style.display = "none";
-                                            set();
-                                        }
+                                    if (event.target == modal2) {
+                                        modal2.style.display = "none";
+                                        set();
+                                    }
 
                                 }
 
@@ -483,6 +486,7 @@
                                 var modal2 = document.getElementById("myModal2");
                                 var span2 = document.getElementsByClassName("close2")[0];
                                 span2.onclick = function () {
+                                    set();
                                     modal2.style.display = "none";
                                 }
 
@@ -515,7 +519,8 @@
                                         })
                                         .then(data => {
 
-                                            console.log(data);
+                                            // inpute kollan log elir
+                                            // console.log(data);
                                             let man = document.createElement("span");
                                             man.setAttribute("class", 'text-xxs');
                                             man.innerHTML = data.About ;

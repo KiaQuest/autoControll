@@ -97,9 +97,10 @@
 //                                       }else{
 //                                           $kalan = $data[0]->kapora * -1;
 //                                       }
+//dd($data);
    $kalan = 0;
    $ek = 0;
-   echo $data[0]->kapora;
+//   echo $data[0]->kapora;
    $katalizgar = 0;
 @endphp
                                 @foreach($data as $z)
@@ -114,6 +115,7 @@
                                     }
                                     $son = $kalan + $ek + $katalizgar;
                                     $katalizgar = $son;
+
                                     @endphp
                                     <tr  style="background-color: {{ $z->OdemeTipi == 'alacak' ? '#7fffab50' : '#fdefdc' }}">
 {{--                                        <td>--}}
@@ -210,6 +212,10 @@
                                         </td>
                                     </tr>
 
+                                    @php
+
+                                    $r = $son;
+                                 @endphp
                                 @endforeach
 
 <tr>
@@ -217,23 +223,23 @@
     <td></td>
 
     <td></td>
-    @if($toplam < 0 )
+    @if($toplamHep < 0 )
 
         <td> </td>
         <td>
 {{--            {{ $toplam }} ₺--}}
-            {{ number_format($toplam) }}   ₺
+            {{ number_format($toplamHep) }}   ₺
         </td>
     @else
 
 
         <td>
 {{--            {{ $toplam }} ₺--}}
-        {{ number_format($toplam) }}   ₺
+        {{ number_format($toplamHep) }}   ₺
         </td>
         <td> </td>
     @endif
-    <td> {{ number_format($son) }}</td>
+    <td> {{ number_format($r) }}</td>
     <td></td>
 
 </tr>
@@ -395,6 +401,7 @@
 {{--                       SILILANLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAR    END            --}}
 
                                 </tbody>
+
                             </table>
                             <style>
                                 td{
@@ -405,9 +412,15 @@
                                 }
                             </style>
                         </div>
+
                     </div>
+{{--                    ZZZZZZZZZz--}}
+                </div>
+                <div class="links">
+                    {{ $data->links() }}
                 </div>
             </div>
+
         </div>
 
 
@@ -663,6 +676,7 @@
                 var modal2 = document.getElementById("myModal2");
                 var span2 = document.getElementsByClassName("close2")[0];
                 span2.onclick = function () {
+                    set()
                     modal2.style.display = "none";
                 }
 
@@ -687,7 +701,7 @@
                     })
                     .then(data => {
 
-                        console.log(data);
+                        // console.log(data);
                         let man = document.createElement("span");
                         man.setAttribute("class", 'text-xxs');
                         man.innerHTML = data.About ;

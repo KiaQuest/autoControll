@@ -14,6 +14,7 @@ class UserProfileController extends Controller
 
     public function update(Request $request)
     {
+//        dd($request->all());
         $attributes = $request->validate([
             'username' => ['required','max:255', 'min:2'],
             'firstname' => ['max:100'],
@@ -27,10 +28,11 @@ class UserProfileController extends Controller
         ]);
 
         auth()->user()->update([
-            'username' => $request->get('username'),
+//            'username' => $request->get('username'),
             'firstname' => $request->get('firstname'),
             'lastname' => $request->get('lastname'),
-            'email' => $request->get('email') ,
+            'email' => $request->get('email'),
+//            'password' => $request->get(bcrypt('password')) ,
             'address' => $request->get('address'),
             'city' => $request->get('city'),
             'country' => $request->get('country'),

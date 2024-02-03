@@ -63,6 +63,12 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="card">
+
+                    @if($errors->any())
+                        <h4 style="color: deepskyblue; padding: 2em;">{{$errors->first()}}</h4>
+                    @endif
+
+
                     <form role="form" method="POST" action={{ route('odeme.create') }} enctype="multipart/form-data">
                         @csrf
                         <div class="card-header pb-0">
@@ -129,7 +135,7 @@
                                                 <label class="form-label" for="kapora">Peşin (Kapora)<span
                                                         class="req">*</span></label>
                                                 <input name="kapora" type="text" class="form-control" id="kapora"
-                                                       required value="0">
+                                                       required>
                                             </div>
 
                                             <div class="col-md-5">
@@ -215,7 +221,42 @@
                     </form>
                 </div>
             </div>
-{{--            <div class="col-md-4">--}}
+
+
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+
+
+            <script>
+
+
+                $(function () {
+                    $("input[name='OdeyenTc']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+                $(function () {
+                    $("input[name='parselfiyati']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+                $(function () {
+                    $("input[name='kapora']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+                $(function () {
+                    $("input[name='kalan']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+            </script>
+                {{--            <div class="col-md-4">--}}
 {{--                <div class="card card-profile">--}}
 {{--                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">--}}
 {{--                    <div class="row justify-content-center">--}}

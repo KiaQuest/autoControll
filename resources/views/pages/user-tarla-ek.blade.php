@@ -477,7 +477,7 @@
                                             <label class="form-label" for="tarlaPesin">Peşin<span
                                                     class="req">*</span></label>
                                             <input name="tarlaPesin" type="text" class="form-control" id="tarlaPesin"
-                                                   required value="0">
+                                                   required >
                                         </div>
 
                                         <div class="col-md-5">
@@ -518,7 +518,87 @@
             </div>
 
 
-            {{--            <div class="col-md-4">--}}
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+
+
+            <script>
+
+
+                $(function () {
+                    $("input[name='Ada']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+
+                $(function () {
+                    $("input[name='Parsel']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+
+                $(function () {
+                    $("input[name='MetreKare']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+
+                $(function () {
+                    $("input[name='ParselSayisi']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+
+                $(function () {
+                    $("input[name='SahipTc']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+
+                $(function () {
+                    $("input[name='SahipTel']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+
+                $(function () {
+                    $("input[name='tarlaFiat']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+
+                $(function () {
+                    $("input[name='tarlaPesin']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+                $(function () {
+                    $("input[name='kalan']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+
+            </script>
+
+                {{--            <div class="col-md-4">--}}
             {{--                <div class="card card-profile">--}}
             {{--                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">--}}
             {{--                    <div class="row justify-content-center">--}}

@@ -301,6 +301,47 @@
 
 
 
+                                        $(function () {
+                                            $("input[name='parselfiyati']").on('input', function (e) {
+                                                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                                            });
+                                        });
+
+
+
+                                        $(function () {
+                                            $("input[name='kapora']").on('input', function (e) {
+                                                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                                            });
+                                        });
+
+
+
+                                        $(function () {
+                                            $("input[name='kalan']").on('input', function (e) {
+                                                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                                            });
+                                        });
+
+
+
+                                        $(function () {
+                                            $("input[name='OdeyenTc']").on('input', function (e) {
+                                                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                                            });
+                                        });
+
+
+
+                                        $(function () {
+                                            $("input[name='OdeyenTel']").on('input', function (e) {
+                                                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                                            });
+                                        });
+
+
+
+
                                         let a = document.getElementById('OdemeSekli');
 
                                         let head = document.getElementById('ustu');

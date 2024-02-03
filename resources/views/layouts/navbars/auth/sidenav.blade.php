@@ -18,7 +18,8 @@
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                     </div>
-                    <span class="nav-link-text ms-1">Dashboard</span>
+                    <span class="nav-link-text ms-1">Ana Sayfa</span>
+{{--                    <span class="nav-link-text ms-1">Dashboard</span>--}}
                 </a>
             </li>
 
@@ -413,22 +414,17 @@
                 </div>
 
 
-                <button class="collapsible po">Çalışan Kontrol <i class="arrow down"></i></button>
-                <div class="content">
+{{--                <button class="collapsible po">Çalışan Kontrol <i class="arrow down"></i></button>--}}
+{{--                <div class="content">--}}
 
 
-                </div>
-
-
-
-                <button class="collapsible po"  {{  Route::currentRouteName() == 'araba.indexX'   ? 'active' : '' }}>Yönetici İşlemleri <i class="arrow down"></i></button>
-                <div class="content"  {{  Route::currentRouteName() == 'araba.indexXXXXXX'   ? 'style=max-height:113px' : '' }} >
-                    {{--                    <p>Loremrrnsequat.</p>--}}
-
-
-
-
-                </div>
+{{--                </div>--}}
+{{--            --}}
+{{--                <button class="collapsible po"  {{  Route::currentRouteName() == 'araba.indexX'   ? 'active' : '' }}>Yönetici İşlemleri <i class="arrow down"></i></button>--}}
+{{--                <div class="content"  {{  Route::currentRouteName() == 'araba.indexXXXXXX'   ? 'style=max-height:113px' : '' }} >--}}
+{{--                    --}}{{--                    <p>Loremrrnsequat.</p>--}}
+{{--                    --}}
+{{--                </div>--}}
 
 
                 <button class="collapsible po"   {{  Route::currentRouteName() == 'bildirmeler'   ? 'active' : '' }}>Müdür Kontrol <i class="arrow down"></i></button>

@@ -74,14 +74,18 @@
                         <div class="card-body">
                             <p class="text-uppercase text-sm">User Information</p>
                             <div class="row">
-                                <div class="col-md-5">
-                                    <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Username</label><span class="req">*</span>
+
+
+{{--                                <div class="col-md-5">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <label for="example-text-input" class="form-control-label">Username</label><span class="req">*</span>--}}
 {{--                                        <input class="form-control" type="text" name="username" value="{{ old('username', auth()->user()->username) }}">--}}
-                                        <input class="form-control" type="text" name="username" value="{{ $profile->username }}" required>
-                                        @error('username') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
-                                    </div>
-                                </div>
+{{--                                        <input class="form-control" type="text" name="username" value="{{ $profile->username }}" required>--}}
+{{--                                        @error('username') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                --}}
+
 {{--                                <div class="col-md-3">C{{ $profile->level }}X--}}
 {{--                                    <div class="form-group">--}}
 {{--                                        <label for="example-text-input" class="form-control-label">Rol</label><span class="req">*</span>--}}
@@ -97,21 +101,25 @@
 {{--                                        <input class="form-control" type="email" name="email" value="{{ old('email', auth()->user()->email) }}">--}}
 {{--                                    </div>--}}
 {{--                                </div>--}}
-                                <div class="col-md-4">
-                                    <div class="form-group" id="ustu" style="display: none" style="display: {{ $profile->level == 5 ? 'initial' : 'none' }}">
-                                        <label for="example-text-input" class="form-control-label">Üstü</label><span class="req">*</span>
+
+
+{{--                                <div class="col-md-4">--}}
+{{--                                    <div class="form-group" id="ustu" style="display: none" style="display: {{ $profile->level == 5 ? 'initial' : 'none' }}">--}}
+{{--                                        <label for="example-text-input" class="form-control-label">Üstü</label><span class="req">*</span>--}}
 {{--{{ dd($data) }}--}}
-                                        <select name="ust" id="ust" class="form-control" style="appearance:button"  {{ $profile->level == 5 ? '' : 'disabled' }}>
-                                            <option disabled selected value> -- kimin altı -- </option>
+{{--                                        <select name="ust" id="ust" class="form-control" style="appearance:button"  {{ $profile->level == 5 ? '' : 'disabled' }}>--}}
+{{--                                            <option disabled selected value> -- kimin altı -- </option>--}}
 
-                                            @foreach($data as $z)
-                                                <option value="{{ $z->id }}">{{ $z->username }}</option>
-                                            @endforeach
+{{--                                            @foreach($data as $z)--}}
+{{--                                                <option value="{{ $z->id }}">{{ $z->username }}</option>--}}
+{{--                                            @endforeach--}}
 
-                                        </select>
+{{--                                        </select>--}}
 {{--                                        <input class="form-control" type="email" name="email" value="{{ old('email', auth()->user()->email) }}">--}}
-                                    </div>
-                                </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="example-text-input" class="form-control-label">First name</label><span class="req">*</span>
@@ -285,7 +293,25 @@
     </div>
 
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+
+
+
     <script>
+
+        $(function () {
+            $("input[name='maas']").on('input', function (e) {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            });
+        });
+
+        $(function () {
+            $("input[name='telefon']").on('input', function (e) {
+                $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            });
+        });
+
 
         let a = document.getElementById('level');
 

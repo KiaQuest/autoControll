@@ -20,70 +20,155 @@ class OdemeController extends Controller
     public function create(Request $request)
     {
 //        dd($request->all());
-        Odeme::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
+
+
+//        $SatilanParselSayisi = $request->parselsayisi;
+        $parselfiyati = $request->parselfiyati;
+//        $a = $parselfiyati;
+        $kapora = $request->kapora;
+        $kalan = $request->kalan;
+
+//        $arabaFiyat = 0;
+//        $arabaFiyat = $request->fiyat;
+
+        $b = $kalan + $kapora ;
+//        $b = $kalan + $kapora + $arabaFiyat;
+//        dd($b);
+        if ($parselfiyati != $b ){
+            return view('pages.user-odeme-ek')->withErrors(['kalan' => 'Kalan , Kapora ya Parsel fiyati  YANLIŞTIR']);
+//            dd('Kalan , Kapora ya Parsel fiyati  YANLISTIR');
+        }
+
+//        dd($request->all());
+//        $say = $request->parselsayisi;
+//        $check = $request->parselcheck;
+//        if ($say > $check){
+//            return 'parsel sayisi yanlisdir ';
+//        }
+
+        if ($kalan != null && $kalan != 0){
+            $request->request->add(['vade' => '1']); //add request
+        }
+//        dd($say , $check);
+//        $tarlaID = $request
+        $action = Odeme::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
+        $odemeID = $action->id;
+//        Customer::create($request->all() + ['kim' => auth()->user()->id]);
+//        dd($request->all());
+//        dd($odemeID);
+//        $kapora = $request->kapora;
+//        if ($kapora != 0){
+//            echo '0 degil';
+
+//            Alinmis::create([
+//                'user' => auth()->user()->username,
+//                'onaylian' => 'direkt',
+//                'tarla' => $request->tarlaID,
+//                'odemeID' => $odemeID,
+//                'mikdar' => $kapora
+//            ]);
+
+//        }
+
+
+//        $a = array(
+//            'marka' => $request->marka,
+//            'model' => $request->model,
+//            'km' => $request->km,
+//            'fiyat' => $request->fiyat,
+//            'about' => $request->about,
+//            'oid' => $odemeID,
+//            'yapan' => auth()->user()->username,
+//            'created_at' => now()
+//        );
+//        Araba::insert($a);
+//
+////        if ($request->kalan != null && $request->kalan != 0){
+//////            $request->request->add(['vade' => '1']); //add request
+////            $a['vade'] = 1;
+////        }
+
         return redirect()->route('odeme.index');
+
+
+
+
+//        Odeme::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
+//        return redirect()->route('odeme.index');
     }
 
     public function index()
     {
 //        dd($tarla);
 //        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->get();
-        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->orderBy('created_at', 'desc')->get();
+        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->orderBy('created_at', 'desc')->paginate(12);
+        $hep = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->orderBy('created_at', 'desc')->get();
 //        dd($data);
         $select = $data->pluck('OdemeTipi','kapora');
+        $selectHep = $hep->pluck('OdemeTipi','kapora');
 //        $select = $data->map->only('OdemeTipi','kapora');
 //        for ($i = 0 ; $i < 5 ; $i++){
 //            dump($select);
         $r = $select->all();
+        $rHep = $selectHep->all();
 //        }
         $k = 0;
         $z = 0;
-        foreach ($r as $x => $y){
 
-//                echo "$y : $x <br>";
+        $k2 = 0;
+        $z2 = 0;
+
+        foreach ($r as $x => $y){
                if ($y == 'alacak'){
                    $p = $x + $k;
                    $k = $p;
                }
-//               echo $k;
-
             if ($y == 'verecek'){
                 $c = $x + $z;
                 $z = $c;
             }
-//            echo $z;//
-//            print_r($t[0]);
         }
-//        echo 'toplam alacak = ' . $k . '<br>';
-//        echo 'toplam verecek = ' . $z . '<br>';
-
-        $toplam = $k - $z;
-//        dd($select->all());
-//        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->get();
-        $sililanlar = Odeme::where('onay' , 0)->where('delete' , '=' , 1)->get();
-//        $sililanlar = Odeme::where('onay' , 0)->where('delete' , '!=' , 2)->get();
-
-        $vade = Odeme::where('vade' , 3)->get();
-
-        $select2 = $sililanlar->pluck('OdemeTipi','kapora');
-        $r2 = $select2->all();
-        $k2 = 0;
-        $z2 = 0;
-        foreach ($r2 as $x2 => $y2){
-
-            if ($y2 == 'alacak'){
-                $p2 = $x2 + $k2;
-                $k2 = $p2;
-            }
+        foreach ($rHep as $x2 => $y2){
+               if ($y2 == 'alacak'){
+                   $p2 = $x2 + $k2;
+                   $k2 = $p2;
+               }
             if ($y2 == 'verecek'){
                 $c2 = $x2 + $z2;
                 $z2 = $c2;
             }
         }
-        $toplam2 = $k2 - $z2;
-//dd($sililanlar);
+//        echo 'toplam alacak = ' . $k . '<br>';
+//        echo 'toplam verecek = ' . $z . '<br>';
 
-        return view('pages.user-odeme-index' , compact('data' , 'toplam' ));
+        $toplam = $k - $z;
+        $toplamHep = $k2 - $z2;
+//        dd($select->all());
+//        $data = Odeme::where('onay' , 1)->where('delete' , '!=' , 2)->get();
+//        $sililanlar = Odeme::where('onay' , 0)->where('delete' , '=' , 1)->get();
+////        $sililanlar = Odeme::where('onay' , 0)->where('delete' , '!=' , 2)->get();
+//
+//        $vade = Odeme::where('vade' , 3)->get();
+//
+//        $select2 = $sililanlar->pluck('OdemeTipi','kapora');
+//        $r2 = $select2->all();
+//        $k2 = 0;
+//        $z2 = 0;
+//        foreach ($r2 as $x2 => $y2){
+//
+//            if ($y2 == 'alacak'){
+//                $p2 = $x2 + $k2;
+//                $k2 = $p2;
+//            }
+//            if ($y2 == 'verecek'){
+//                $c2 = $x2 + $z2;
+//                $z2 = $c2;
+//            }
+//        }
+//        $toplam2 = $k2 - $z2;
+//dd($sililanlar);
+//dd('ff');
+        return view('pages.user-odeme-index' , compact('data' , 'toplamHep' ));
     }
 //    public function index2()
 //    {
@@ -236,7 +321,7 @@ class OdemeController extends Controller
 
     public function sil(Request $request)
     {
-//        dd($request->kapora);
+//        dd($request->all());
         $request->kapora == 0 ? $action = 2 : $action = 1;
         if ($action == 1){
 //            kapora cibde kalsin

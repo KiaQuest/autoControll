@@ -164,6 +164,7 @@
                             </style>
                         </div>
                     </div>
+                    {{ $data->links() }}
                 </div>
             </div>
         </div>
@@ -363,6 +364,7 @@
             var modal2 = document.getElementById("myModal2");
             var span2 = document.getElementsByClassName("close2")[0];
             span2.onclick = function () {
+                set();
                 modal2.style.display = "none";
             }
 
@@ -395,7 +397,7 @@
                     })
                     .then(data => {
 
-                        console.log(data);
+                        // console.log(data);
                         let man = document.createElement("span");
                         man.setAttribute("class", 'text-xxs');
                         man.innerHTML = data.About;

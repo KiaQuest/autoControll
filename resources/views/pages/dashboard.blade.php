@@ -10,7 +10,8 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Bugun parasi</p>
+{{--                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>--}}
                                     <h5 class="font-weight-bolder">
                                         $53,000
                                     </h5>
@@ -35,13 +36,15 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">bugunun üyeleri</p>
+{{--                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>--}}
                                     <h5 class="font-weight-bolder">
                                         2,300
                                     </h5>
                                     <p class="mb-0">
                                         <span class="text-success text-sm font-weight-bolder">+3%</span>
-                                        since last week
+                                        geçen haftadan
+{{--                                        since last week--}}
                                     </p>
                                 </div>
                             </div>
@@ -60,13 +63,15 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">yeni üyeler</p>
+{{--                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>--}}
                                     <h5 class="font-weight-bolder">
                                         +3,462
                                     </h5>
                                     <p class="mb-0">
                                         <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                                        since last quarter
+                                        geçen 15 dakika
+{{--                                        since last quarter--}}
                                     </p>
                                 </div>
                             </div>
@@ -85,12 +90,14 @@
                         <div class="row">
                             <div class="col-8">
                                 <div class="numbers">
-                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
+                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">SatiŞlar</p>
+{{--                                    <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>--}}
                                     <h5 class="font-weight-bolder">
                                         $103,430
                                     </h5>
                                     <p class="mb-0">
-                                        <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
+                                        <span class="text-success text-sm font-weight-bolder">+5%</span> geçen aydan
+{{--                                        <span class="text-success text-sm font-weight-bolder">+5%</span> than last month--}}
                                     </p>
                                 </div>
                             </div>

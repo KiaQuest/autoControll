@@ -22,7 +22,7 @@ class CustomerController extends Controller
 
     public function list()
     {
-        $data = Customer::where('kim' , auth()->user()->id)->get();
+        $data = Customer::where('kim' , auth()->user()->id)->paginate(20);
         return view('pages.user-mustery-index', compact('data'));
     }
 }

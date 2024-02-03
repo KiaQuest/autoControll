@@ -314,6 +314,7 @@
             var modal2 = document.getElementById("myModal2");
             var span2 = document.getElementsByClassName("close2")[0];
             span2.onclick = function () {
+                set();
                 modal2.style.display = "none";
             }
 

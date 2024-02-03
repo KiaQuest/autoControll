@@ -409,10 +409,10 @@
 
                                 .modalkia {
                                     display: flex;
-                                    /*justify-content: space-evenly;*/
-                                    padding: 6%;
                                     justify-content: space-evenly;
-                                    flex-wrap: wrap;
+                                    padding: 6%;
+                                    /*justify-content: space-evenly;*/
+                                    /*flex-wrap: wrap;*/
                                 }
                                 .in{
                                     padding: inherit;
@@ -435,14 +435,19 @@
                                     <div class="modal-body modalkia">
                                         {{--                                        <p>Some text in the Modal Body</p>--}}
                                         {{--                                        <p>Some other text...</p>--}}
-                                            <a href="" id="a1">
-                                                <button class="btn badge badge-sm bg-gradient-info p-3">Bu ödemeyi tamamen iptal edin
+{{--                                            <a href="" id="a1">--}}
+{{--                                                <button class="btn badge badge-sm bg-gradient-info p-3">Kapora geri geldi--}}
+{{--                                                <button class="btn badge badge-sm bg-gradient-info p-3">Bu ödemeyi tamamen iptal edin--}}
 {{--                                                <button class="btn badge badge-sm bg-gradient-info p-3">Kaporanida sil--}}
-                                                </button>
+{{--                                                </button>--}}
+{{--                                            </a>--}}
+                                            <a href="" id="a3">
+                                                <button class="btn badge badge-sm bg-gradient-warning p-3">işlem iptal</button>
                                             </a>
                                             <a href="" id="a2">
                                                 <button class="btn badge badge-sm bg-gradient-secondary p-3"
-                                                        value="bt5">silinsin ama seçtiğiniz ödeme , ödeme listesine eklensin
+                                                        value="bt5">Kapora Yandi
+{{--                                                        value="bt5">silinsin ama seçtiğiniz ödeme , ödeme listesine eklensin--}}
 {{--                                                        value="bt5">Kapora cibde kalsin--}}
                                                 </button>
                                             </a>
@@ -706,6 +711,7 @@
                                     modal.style.display = "block";
 
                                     let www = '{{ route('odeme.sil') }}';
+
                                     let w3 = www + '?id=' + id + '&kapora=' + 1
                                     // console.log(w3);
                                     document.getElementById('a2').setAttribute('href' , w3);
@@ -715,7 +721,8 @@
                                     {{--let www = '{{ route('odeme.sil') }}';--}}
                                     let w4 = www + '?id=' + id + '&kapora=' + 0
                                     // console.log(w3);
-                                    document.getElementById('a1').setAttribute('href' , w4);
+                                    // document.getElementById('a1').setAttribute('href' , w4);
+                                    document.getElementById('a3').setAttribute('href' , w4);
 
                                 }
 
@@ -725,6 +732,7 @@
                                 var modal2 = document.getElementById("myModal2");
                                 var span2 = document.getElementsByClassName("close2")[0];
                                 span2.onclick = function () {
+                                    set();
                                     modal2.style.display = "none";
                                 }
 

@@ -108,7 +108,7 @@ class IhtiacController extends Controller
     public function index()
     {
 
-        $data = Ihtiac::where('kim' , auth()->user()->id)->orderBy('created_at', 'DESC')->get();
+        $data = Ihtiac::where('kim' , auth()->user()->id)->orderBy('created_at', 'DESC')->paginate(20);
         return view('pages.user-ihtiac-index' , compact('data'));
         // fake comment
     }
