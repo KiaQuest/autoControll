@@ -16,6 +16,8 @@
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             #</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            yapan</th>
 {{--                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Kim</th>--}}
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
@@ -75,6 +77,11 @@
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
 
                                         </td>
+                                        <td>
+
+                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->yapan  }}</p>
+
+                                        </td>
 {{--                                        <td>--}}
 
 {{--                                            <p class="text-xm font-weight-lighter mb-0 px-2">{{ $z->OdemeTipi  }}</p>--}}
@@ -92,7 +99,7 @@
 {{--                                                </div>--}}
 {{--                                            </div>--}}
 
-                                            <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->YapilacakIs }}</p>
+                                            <p class="text-sm font-weight-bold mb-0 px-2">{{ Str::limit($z->YapilacakIs, 41)  }}</p>
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
 
                                         </td>

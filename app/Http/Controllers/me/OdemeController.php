@@ -325,7 +325,7 @@ class OdemeController extends Controller
         $request->kapora == 0 ? $action = 2 : $action = 1;
         if ($action == 1){
 //            kapora cibde kalsin
-            Odeme::where('id' , $request->id)->update(['delete' => $action , 'onay' => 1]);
+            Odeme::where('id' , $request->id)->update(['delete' => $action , 'onay' => 1 , 'About' => Odeme::raw("CONCAT('Kapora Yandi - ', `About`)")]);
 
         }elseif ($action == 2){
 //            kollan sihtirsin
@@ -337,6 +337,7 @@ class OdemeController extends Controller
             }
 
             $r->update(['delete' => $action , 'silen' => auth()->user()->username]);
+
         }
 //        Araba::where('oid' , $request->id)->delete();
         Araba::where('oid' , $request->id)->update(['durum' => 1]);

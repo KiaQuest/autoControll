@@ -16,8 +16,8 @@ class IsController extends Controller
     public function create(Request $request)
     {
 //        dd($request->all());
-        Is::create($request->all() + ['kim' => auth()->user()->id]);
-        return redirect()->route('home');
+        Is::create($request->all() + ['kim' => auth()->user()->id , 'yapan' => auth()->user()->username]);
+        return redirect()->route('userDashboard');
 
     }
 
@@ -25,7 +25,12 @@ class IsController extends Controller
     public function index()
     {
 
-        $data = Is::where('kim' , auth()->user()->id)->orderBy('created_at' , 'DESC')->paginate(20);
+        if (auth()->user()->level < 3){
+            $data = Is::orderBy('created_at' , 'DESC')->paginate(20);
+        }else{
+            $data = Is::where('kim' , auth()->user()->id)->orderBy('created_at' , 'DESC')->paginate(20);
+        }
+
         return view('pages.user-is-index' , compact('data'));
         // fake comment
     }

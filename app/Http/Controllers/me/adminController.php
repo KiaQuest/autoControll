@@ -46,7 +46,8 @@ class adminController extends Controller
 
     public function users()
     {
-        $data = User::all()->except(1);
+//        1 admin , 2 CEO
+        $data = User::all()->except([1 , 2]);
         return view('pages.users-index' , compact('data'));
 
     }
@@ -81,5 +82,11 @@ class adminController extends Controller
 //        User::where('id' , $id)->update(['password' => bcrypt($request->password)]);
 //        User::where('id' , $id)->update($request->except(['_token']) , ['password' => bcrypt($request->password)]);
         return redirect()->route('users');
+    }
+
+    public function userDashboard()
+    {
+//return 'ss';
+        return view('pages.dashboard-user');
     }
 }

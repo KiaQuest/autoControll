@@ -39,6 +39,9 @@
                                             Açiklama</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            yapan</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
 {{--                                        <th class="text-secondary opacity-7"></th>--}}
                                     </tr>
@@ -103,8 +106,8 @@
                                         <td>
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
-
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->tel }}</p>
+                                            <a href="tel:{{ $z->tel }}"><p class="text-xs font-weight-bold mb-0 ">{{ $z->tel }}</p></a>
+{{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->tel }}</p>--}}
 
                                         </td>
                                         <td>
@@ -140,7 +143,10 @@
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
 {{--                                        </td>--}}
                                         <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->toDateString() }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->yapan }}</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at }}</span>
                                         </td>
                                     </tr>
 

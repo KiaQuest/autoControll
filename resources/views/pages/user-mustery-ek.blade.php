@@ -212,7 +212,19 @@
                     </form>
                 </div>
             </div>
-{{--            <div class="col-md-4">--}}
+
+
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+            <script>
+                $(function () {
+                    $("input[name='tel']").on('input', function (e) {
+                        $(this).val($(this).val().replace(/[^0-9]/g, ''));
+                    });
+                });
+
+            </script>
+                {{--            <div class="col-md-4">--}}
 {{--                <div class="card card-profile">--}}
 {{--                    <img src="/img/bg-profile.jpg" alt="Image placeholder" class="card-img-top">--}}
 {{--                    <div class="row justify-content-center">--}}

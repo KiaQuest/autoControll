@@ -8,6 +8,7 @@ use App\Models\Araba;
 use App\Models\Customer;
 use App\Models\Odeme;
 use App\Models\tarla;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TarlaController extends Controller
@@ -92,7 +93,15 @@ class TarlaController extends Controller
     public function index()
     {
 //        dd(auth()->user()->id);
-        $data = tarla::where('kim' , auth()->user()->id)->get();
+
+        if (auth()->user()->level < 3){
+            $data = tarla::orderBy('created_at' , 'DESC')->paginate(20);
+        }else{
+            $we = User::where('ust' , auth()->user()->id)->get('id')->pluck('id');
+            $data = tarla::where('kim' , auth()->user()->id)->orWhere('kim' , auth()->user()->ust)->orWhereIn('kim' , $we)->orderBy('created_at', 'DESC')->paginate(20);
+        }
+
+
         return view('pages.user-tarla-index' , compact('data'));
     }
 
@@ -119,11 +128,15 @@ class TarlaController extends Controller
         return view('pages.user-tarla-satis');
     }
 
-    public function tarlas($id)
+    public function tarlas($id , $ust)
     {
 //        dd($id);
 //         dd(auth()->user()->id);
-        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
+
+        $we = User::where('ust' , $id)->get('id')->pluck('id');
+        $data = tarla::where('kim' , $id)->orWhere('kim' , $ust)->orWhereIn('kim' , $we)->get();
+
+//        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
         return response()->json($data);
 //        dd($data);
     }

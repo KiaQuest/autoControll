@@ -12,6 +12,7 @@
 
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main" style="height: initial">
         <ul class="navbar-nav">
+            @if(auth()->user()->level < 3 )
             <li class="nav-item">
                 <a class="nav-link {{ Route::currentRouteName() == 'home' ? 'active' : '' }}" href="{{ route('home') }}">
                     <div
@@ -22,6 +23,19 @@
 {{--                    <span class="nav-link-text ms-1">Dashboard</span>--}}
                 </a>
             </li>
+            @endif
+
+            <li class="nav-item">
+                <a class="nav-link {{ Route::currentRouteName() == 'userDashboard' ? 'active' : '' }}" href="{{ route('userDashboard') }}">
+                    <div
+                        class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+                    </div>
+                    <span class="nav-link-text ms-1">Ana Sayfa üye icin</span>
+{{--                    <span class="nav-link-text ms-1">Dashboard</span>--}}
+                </a>
+            </li>
+
 
 {{--            <hr class="horizontal dark mt-0">--}}
 
@@ -137,9 +151,10 @@
                 }
             </script>
 
+
                 <button id="lp" class="collapsible po  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users'  ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index'  ? 'active' : '' }}">Çalışan İşlemleri <i class="arrow down"></i></button>
                 <div class="content"  {{ Route::currentRouteName() == 'profile.ek' ||  Route::currentRouteName() == 'users' ||  Route::currentRouteName() == 'is.show'  ||  Route::currentRouteName() == 'is.index'  ||  Route::currentRouteName() == 'ihtiac.show'  ||  Route::currentRouteName() == 'ihtiac.index'  ||  Route::currentRouteName() == 'sikayet.show'  ||  Route::currentRouteName() == 'sikayet.index' ? 'style=max-height:502px' : '' }}>
-
+                    @if(Auth::user()->level < 4 )
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'profile.ek' ? 'active' : '' }}" href="{{ route('profile.ek') }}">
                             <div
@@ -149,6 +164,7 @@
                             <span class="nav-link-text ms-1">Çalışn ekle</span>
                         </a>
                     </li>
+                    @endif
 
                     <li class="nav-item">
                         <a class="nav-link {{ Route::currentRouteName() == 'users' ? 'active' : '' }}" href="{{ route('users') }}">
@@ -293,6 +309,7 @@
                 </div>
 
 
+                @if(auth()->user()->level <= 3 )
                 <button class="collapsible po   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen' ||  Route::currentRouteName() == 'odeme.vade.bekleyen'  || Route::currentRouteName() == 'araba.index'   ? 'active' : '' }}">Ödeme İşlemleri <i class="arrow down"></i></button>
                 <div class="content"   {{ Route::currentRouteName() == 'odeme.show' ||  Route::currentRouteName() == 'odeme.index'  ||  Route::currentRouteName() == 'odeme.index.bekleyen'  ||  Route::currentRouteName() == 'odeme.vade.bekleyen'  ||  Route::currentRouteName() == 'araba.index'  ? 'style=max-height:447px' : '' }}>
 
@@ -382,6 +399,7 @@
 
                 </div>
 
+                @endif
 
             <button class="collapsible po   {{ Route::currentRouteName() == 'customer.show' ||  Route::currentRouteName() == 'customer.list'   ? 'active' : '' }}">Müşteri İşlemleri <i class="arrow down"></i></button>
             <div class="content"   {{ Route::currentRouteName() == 'customer.show' ||  Route::currentRouteName() == 'customer.list'   ? 'style=max-height:447px' : '' }}>
@@ -426,7 +444,7 @@
 {{--                    --}}
 {{--                </div>--}}
 
-
+                @if(auth()->user()->level < 3 )
                 <button class="collapsible po"   {{  Route::currentRouteName() == 'bildirmeler'   ? 'active' : '' }}>Müdür Kontrol <i class="arrow down"></i></button>
                 <div class="content"   {{  Route::currentRouteName() == 'bildirmeler'   ? 'style=max-height:113px' : '' }}>
 
@@ -458,7 +476,7 @@
 
 
                 </div>
-
+                @endif
 
                 <script>
                     var coll = document.getElementsByClassName("collapsible");

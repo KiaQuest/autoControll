@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('IsBitisTarihi')->nullable();
             $table->string('Tarla')->nullable();
             $table->string('kim')->nullable();
+            $table->string('yapan')->nullable();
             $table->timestamps();
         });
     }

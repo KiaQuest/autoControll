@@ -19,6 +19,8 @@
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             aÇıklama</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            yapan</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Fırma</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             odeme tipi</th>
@@ -86,6 +88,9 @@
 
                                             <p class="text-xs font-weight-bold mb-0 px-2">{{ Str::limit($z->about, 35)  }}</p>
 
+                                        </td>
+                                        <td>
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->yapan }}</p>
                                         </td>
                                         <td>
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}

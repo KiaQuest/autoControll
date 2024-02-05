@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('mail')->nullable();
             $table->string('about')->nullable();
             $table->string('kim')->nullable();
+            $table->string('yapan')->nullable();
             $table->timestamps();
         });
     }

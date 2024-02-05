@@ -24,6 +24,7 @@ return new class extends Migration
             $table->text('about')->nullable();
             $table->boolean('durum')->nullable();
             $table->integer('kim');
+            $table->integer('yapan');
             $table->timestamps();
         });
     }

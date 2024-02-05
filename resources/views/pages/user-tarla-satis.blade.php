@@ -72,7 +72,8 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">User In<a href="{{ route('tarlas', ['id' => auth()->user()->id]) }}">f</a>ormation</p>
+                            <p class="text-uppercase text-sm">User Information</p>
+{{--                            <p class="text-uppercase text-sm">User In<a href="{{ route('tarlas', ['id' => auth()->user()->id]) }}">f</a>ormation</p>--}}
                             <div class="row">
                                 <div class="form-group">
 
@@ -287,19 +288,12 @@
 
                                     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-
-
-
                                     <script>
-
-
                                         $(function () {
                                             $("input[name='model']").on('input', function (e) {
                                                 $(this).val($(this).val().replace(/[^0-9]/g, ''));
                                             });
                                         });
-
-
 
                                         $(function () {
                                             $("input[name='parselfiyati']").on('input', function (e) {
@@ -307,15 +301,11 @@
                                             });
                                         });
 
-
-
                                         $(function () {
                                             $("input[name='kapora']").on('input', function (e) {
                                                 $(this).val($(this).val().replace(/[^0-9]/g, ''));
                                             });
                                         });
-
-
 
                                         $(function () {
                                             $("input[name='kalan']").on('input', function (e) {
@@ -323,15 +313,11 @@
                                             });
                                         });
 
-
-
                                         $(function () {
                                             $("input[name='OdeyenTc']").on('input', function (e) {
                                                 $(this).val($(this).val().replace(/[^0-9]/g, ''));
                                             });
                                         });
-
-
 
                                         $(function () {
                                             $("input[name='OdeyenTel']").on('input', function (e) {
@@ -340,10 +326,7 @@
                                         });
 
 
-
-
                                         let a = document.getElementById('OdemeSekli');
-
                                         let head = document.getElementById('ustu');
 
                                         // console.log('ff3');
@@ -379,15 +362,10 @@
                                         // console.log('yalla2');
 
 
-
-
-
-
-
-                                        function tik(){
-                                            let per = document.getElementById('tik');
-                                            per.innerHTML = '&#x2705';
-                                        }
+                                        // function tik(){
+                                        //     let per = document.getElementById('tik');
+                                        //     per.innerHTML = '&#x2705';
+                                        // }
 
                                     </script>
 
@@ -400,8 +378,19 @@
                                         let p = document.getElementById('tarlas');
 
                                         // console.log(p);
-                                        console.log('p');
-                                        fetch("{{ route('tarlas', ['id' => auth()->user()->id]) }}")
+{{--                                        let ww = {{ route('tarlas', [auth()->user()->id .'/'. auth()->user()->ust ]) }};--}}
+//                                         console.log('ww');
+                                        let yy = 'http://127.0.0.1:8000/api/tarlalarim/'
+                                        let q1 = {{ auth()->user()->id }};
+                                        let q2 = '/';
+                                        let q3 = {{ auth()->user()->ust  }};
+                                        // console.log(yy+q1+q2+q3)
+{{--                                        let uu = {{ auth()->user()->id .'/'. auth()->user()->ust  }};--}}
+//                                         let jj = yy.concat(uu);
+//                                         console.log(q5)
+//                                         console.log(jj)
+                                        fetch(yy+q1+q2+q3)
+{{--                                        fetch("{{ route('tarlas', [auth()->user()->id .'/'. auth()->user()->ust ]) }}")--}}
                                             .then((response) => {
                                                 if (response.ok) {
                                                     return response.json();

@@ -20,6 +20,8 @@
                                             User</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
                                             Ad</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            telefon</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Durum</th>
@@ -29,10 +31,9 @@
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Tarla</th>--}}
-                                        <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Tarih</th>
+                                        @if(auth()->user()->level < 4 )
                                         <th class="text-uppercase text-secondary opacity-7 text-xxs font-weight-bolder "> Işlem</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -97,6 +98,11 @@
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->OdeyenSoyad }}</p>--}}
 
                                         </td>
+                                        <td class="align-middle">
+                                            <a href="tel:{{ $z->telefon }}"><p class="text-xs font-weight-bold mb-0 ">{{ $z->telefon }}</p></a>
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->telefon }}</span>--}}
+{{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->ToDateString() }}</span>--}}
+                                        </td>
                                         <td>
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
@@ -119,13 +125,12 @@
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->Tarla }}</span>--}}
 {{--                                        </td>--}}
 
-                                        <td class="align-middle">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->ToDateString() }}</span>
-                                        </td>
+                                        @if(auth()->user()->level < 3 )
                                         <td class="align-middle">
                                             <a href="{{ route('profile.edit' , ['id' => $z->id]) }}"><span class="badge badge-sm bg-gradient-info">Duzenle</span></a>
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->ToDateString() }}</span>--}}
                                         </td>
+                                        @endif
                                     </tr>
 
                                 @endforeach

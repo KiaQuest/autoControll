@@ -32,6 +32,9 @@
                                             about</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            yapan</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -112,6 +115,9 @@
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($z->about, 35)  }}</span>
+                                        </td>
+                                        <td class="align-middle">
+                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->yapan  }}</span>
                                         </td>
                                         <td class="align-middle">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>

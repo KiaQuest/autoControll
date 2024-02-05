@@ -39,13 +39,15 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
 
-            return redirect()->intended('dashboard');
+            return redirect()->intended('ana-sayfa-uye-icin');
+//            return redirect()->intended('dashboard');
         }elseif (Auth::attempt(['telefon' => $request->username, 'password' => $request->password , 'durum' => 0])) {
 //        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
 
 
-            return redirect()->intended('dashboard');
+            return redirect()->intended('ana-sayfa-uye-icin');
+//            return redirect()->intended('userDashboard');
         }
 
         return back()->withErrors([
