@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Tarla Satişi'])
 
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="card-body p-3">
@@ -17,7 +17,7 @@
                             {{ auth()->user()->firstname ?? 'Firstname' }} {{ auth()->user()->lastname ?? 'Lastname' }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            Public Relations
+                            Tarla satiş sayfasi
                         </p>
                     </div>
                 </div>
@@ -35,14 +35,14 @@
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-email-83"></i>
-                                    <span class="ms-2">Messages</span>
+                                    <span class="ms-2">Mesajlar</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
                                    data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-settings-gear-65"></i>
-                                    <span class="ms-2">Settings</span>
+                                    <span class="ms-2">Ayarlar</span>
                                 </a>
                             </li>
                         </ul>
@@ -67,12 +67,12 @@
                         @csrf
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
-                                <p class="mb-0">Edit Profile</p>
+                                <p class="mb-0">Tarla Satışı</p>
                                 <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">User Information</p>
+                            <p class="text-uppercase text-sm">Tarla Bilgisi</p>
 {{--                            <p class="text-uppercase text-sm">User In<a href="{{ route('tarlas', ['id' => auth()->user()->id]) }}">f</a>ormation</p>--}}
                             <div class="row">
                                 <div class="form-group">

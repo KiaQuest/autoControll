@@ -1,13 +1,16 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Firma Index'])
+    <style>
+
+    </style>
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Authors table</h6>
+                        <h6>Firmalar Tablosu</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -16,28 +19,28 @@
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Fırma</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Telefon</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Status</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Adres</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Yetkili</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             about</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             yapan</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Tarih</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Işlemler</th>
 {{--                                        <th class="text-secondary text-xxs opacity-7"></th>--}}
                                     </tr>
@@ -99,10 +102,10 @@
                                             <a href="tel:{{ $z->telefon }}"><p class="text-xs font-weight-bold mb-0 ">{{ $z->telefon }}</p></a>
 
                                         </td>
-                                        <td class="align-middle text-center text-sm">
+                                        <td class="align-middle text-center text-sm mobile1">
                                             <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle text-center mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($z->adres, 35)  }}</span>
                                         </td>
                                         <td class="align-middle">
@@ -113,19 +116,19 @@
                                             <p class="text-xs font-weight-bold mb-0">{{ $z->yetkiliad }}</p>
                                             <p class="text-xs text-secondary mb-0">{{ $z->yetkilisoyad }}</p>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ Str::limit($z->about, 35)  }}</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->yapan  }}</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at->todatestring() }}</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle firmadume">
                                             <a href="{{ route('firma.edit' , ['id' => $z->id]) }}"><span class="badge badge-sm bg-gradient-warning">Düzenle</span></a>
-                                            <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
-                                                    onclick="zor({{ $z->id}})"><i class="fa fa-eye"></i></button>
+                                            <button type="button" class="btn btn-info btn-sm btnkia solp2" id="b{{ $loop->iteration }}"
+                                                    onclick="zor({{ $z->id }})"><i class="fa fa-eye"></i></button>
                                         </td>
                                     </tr>
 
@@ -270,7 +273,7 @@
                     <div class="row">
                         <div class="col-md-6"><label for="">Firma: </label><div id="d1" class="in"> </div></div>
 {{--                        <a href="tel:{{ $z->telefon }}"><p class="text-xs font-weight-bold mb-0 ">{{ $z->telefon }}</p></a>--}}
-                        <div class="col-md-6"><label for="">Telefon: </label><div id="d2" class="in"></div></div>
+                        <div class="col-md-6"><label for="">Telefon: </label><a href="" id="dtel"><div id="d2" class="in"></div></a></div>
                         <div class="col-md-6"><label for="">E-posta:</label><div  id="d3" class="in"></div></div>
                         <div class="col-md-6"><label for="">Vergi numara:</label><div  id="d4" class="in"></div></div>
                         <div class="col-md-6"><label for="">Adres:</label><div  id="d5" class="in"></div></div>
@@ -303,6 +306,7 @@
                 document.getElementById('d8').innerHTML = '';
                 document.getElementById('d9').innerHTML = '';
                 document.getElementById('d10').innerHTML = '';
+                document.getElementById('dtel').setAttribute('href' , '');
             }
 
 
@@ -407,6 +411,12 @@
                         ( data.durum == 0 ? man10.innerHTML = 'Aktif' : man10.innerHTML = 'Pasif');
                         document.getElementById('d10').appendChild(man10);
 
+
+                        // let mantel = document.createElement("span");
+                        // mantel.setAttribute("class", 'text-xxs');
+                        // mantel.setAttribute('href' , data.telefon);
+                        document.getElementById('dtel').setAttribute('href' , 'tel:' + data.telefon);
+
                     });
 
             }
@@ -414,6 +424,12 @@
 
 
 
+
+            // window.onresize = function() {
+            //     if (window.innerWidth <= 1000) {
+            //         document.getElementsByClassName("solpw").style.margin = '0 0 0 1em';
+            //     }
+            // }
 
         </script>
 

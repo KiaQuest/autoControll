@@ -1,48 +1,53 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Tarlalar Listesi Sayfasi'])
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Authors table</h6>
+                        <h6>Tarlalar Tablosu</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             #</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Il</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Ilce</th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile2">
+                                            Adres</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Durum</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Ada</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Parsel</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Parsel Sayi</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Metrekare</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Sahip</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile2">
+                                            konum</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Tarih</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             islem</th>
 {{--                                        <th class="text-secondary opacity-7"></th>--}}
                                     </tr>
@@ -82,12 +87,12 @@
 
                                 @foreach($data as $z)
                                     <tr>
-                                        <td>
+                                        <td class="mobile1">
 
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
 
                                         </td>
-                                        <td>
+                                        <td class="mobile1">
 {{--                                            <div class="d-flex px-2 py-1">--}}
 {{--                                                <div>--}}
 {{--                                                    <img src="/img/team-2.jpg" class="avatar avatar-sm me-3"--}}
@@ -102,30 +107,40 @@
                                             <p class="text-xm font-weight-bold mb-0 px-2">{{ $z->konum_il }}</p>
 
                                         </td>
-                                        <td>
+                                        <td class="mobile1">
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
 
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->konum_ilce }}</p>
 
                                         </td>
+                                        <td class="mobile2">
+{{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
+{{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
+
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->konum_il }} , {{ $z->konum_ilce }} , {{ $z->konum_mahalle }}</p>
+
+                                        </td>
                                         <td class="align-middle text-center text-sm">
                                             <a href="{{ route('satisDurumu.change' , [ 'id' => $z->id , 'durum' => $z->SatisDurumu]) }}"><span class="badge badge-sm bg-gradient-{{ $z->SatisDurumu == 0 ? "secondary" : "success" }}">{{ $z->SatisDurumu == 0 ? "Satışta Değil" : "Satışta" }}</span></a>
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->SatisDurumu == 'satilmadi' ? "warning" : "info" }}">{{ $z->SatisDurumu}}</span>--}}
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle text-center mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->Ada }}</span>
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle text-center mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->Parsel }}</span>
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle text-center mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->ParselSayisi }}</span>
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle text-center mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->MetreKare }}</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle text-center mobile2">
+                                            <span class="text-secondary text-xs font-weight-bold"> konum : {{ $z->Ada }} , {{ $z->Parsel }} </span>
+                                        </td>
+                                        <td class="align-middle mobile1">
 {{--                                            <a href="javascript:;" class="text-secondary font-weight-bold text-xs"--}}
 {{--                                                data-toggle="tooltip" data-original-title="Edit user">--}}
 {{--                                                Edit--}}

@@ -356,7 +356,7 @@ class OdemeController extends Controller
     public function odemeDetay(Request $request)
     {
 //        return $request->id;
-
+//        odeme detay API
         $data = Odeme::where('id' , $request->id)->first();
 //        $data = tarla::where('kim' , $id)->where('SatisDurumu' , 1)->get();
         return response()->json($data);

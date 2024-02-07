@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Profil Ekleme Sayfasi'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="card-body p-3">
             <div class="row gx-4">
@@ -16,7 +16,7 @@
                             {{ auth()->user()->firstname ?? 'Firstname' }} {{ auth()->user()->lastname ?? 'Lastname' }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            Public Relations
+                            Profile Ekle
                         </p>
                     </div>
                 </div>
@@ -34,14 +34,14 @@
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
                                     data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-email-83"></i>
-                                    <span class="ms-2">Messages</span>
+                                    <span class="ms-2">Mesajlar</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
                                     data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-settings-gear-65"></i>
-                                    <span class="ms-2">Settings</span>
+                                    <span class="ms-2">Ayarlar</span>
                                 </a>
                             </li>
                         </ul>
@@ -66,11 +66,11 @@
                             <div class="d-flex align-items-center">
 {{--                                <p class="mb-0">Edit Profile</p> kament--}}
                                 <p class="mb-0">Üye ekle</p>
-                                <button type="submit" class="btn btn-primary btn-sm ms-auto">Save</button>
+                                <button type="submit" class="btn btn-primary btn-sm ms-auto">Kayd</button>
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">User Information</p>
+                            <p class="text-uppercase text-sm">User Bilgileri</p>
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
@@ -112,7 +112,8 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">First name</label><span class="req">*</span>
+                                        <label for="example-text-input" class="form-control-label">Ad</label><span class="req">*</span>
+{{--                                        <label for="example-text-input" class="form-control-label">First name</label><span class="req">*</span>--}}
                                         <input class="form-control" type="text" name="firstname"  value="{{ old('firstname') }}" required>
 {{--                                        <input class="form-control" type="text" name="firstname"  value="{{ old('firstname', auth()->user()->firstname) }}">--}}
                                     </div>
@@ -125,13 +126,14 @@
                                 </style>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Last name</label>
+                                        <label for="example-text-input" class="form-control-label">Soyad</label>
+{{--                                        <label for="example-text-input" class="form-control-label">Last name</label>--}}
                                         <input class="form-control" type="text" name="lastname" value="{{ old('lastname') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Password</label><span class="req">*</span>
+                                        <label for="example-text-input" class="form-control-label">Şifre</label><span class="req">*</span>
                                         <input class="form-control" type="text" name="password" value="{{ old('password') }}" required>
                                         @error('password') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                     </div>
@@ -182,29 +184,29 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">City</label>
+                                        <label for="example-text-input" class="form-control-label">Şehir</label>
                                         <input class="form-control" type="text" name="city" value="{{ old('city', auth()->user()->city) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Country</label>
+                                        <label for="example-text-input" class="form-control-label">Ülke</label>
                                         <input class="form-control" type="text" name="country" value="{{ old('country', auth()->user()->country) }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Postal code</label>
+                                        <label for="example-text-input" class="form-control-label">Posta kodu</label>
                                         <input class="form-control" type="text" name="postal" value="{{ old('postal', auth()->user()->postal) }}">
                                     </div>
                                 </div>
                             </div>
                             <hr class="horizontal dark">
-                            <p class="text-uppercase text-sm">About me</p>
+                            <p class="text-uppercase text-sm">Benim hakkımda</p>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">About me</label>
+                                        <label for="example-text-input" class="form-control-label">Benim hakkımda</label>
                                         <input class="form-control" type="text" name="about"
                                             value="{{ old('about', auth()->user()->about) }}">
                                     </div>

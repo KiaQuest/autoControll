@@ -39,3 +39,11 @@
         </div>
     </div>
 </footer>
+
+
+<script >
+    var allSelects = document.getElementsByTagName("tr");
+    var lastSelect = allSelects[allSelects.length-1];
+    lastSelect.style.border = "unset";
+    // console.log(lastSelect);
+</script>

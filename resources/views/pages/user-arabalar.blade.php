@@ -1,33 +1,33 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Arabalar Listesi'])
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h3>Sililenler</h3>
+                        <h3>Arabalar Listesi</h3>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             #</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Marka</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             yil</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             km</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             fiyat</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             user</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -42,10 +42,10 @@
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Yetkili</th>--}}
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Tarih</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             işlem</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
@@ -93,7 +93,7 @@
 
                                 @foreach($data as $x)
                                     <tr>
-                                        <td>
+                                        <td class=" mobile1">
 
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
 
@@ -103,20 +103,20 @@
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $x->marka  }}</p>
 
                                         </td>
-                                        <td>
+                                        <td class=" mobile1">
 
                                             <p class="text-xm font-weight-bold mb-0 px-2">{{ $x->model }}</p>
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $x->OdeyenSoyad }}</p>--}}
 
                                         </td>
-                                        <td>
+                                        <td class=" mobile1">
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $x->km }}</p>
 
                                         </td>
                                         <td class="align-middle text-center">
-                                            <span class="text-secondary text-xs font-weight-bold">{{ number_format($x->fiyat) }}</span>
+                                            <span class="text-secondary text-xs font-weight-bold">{{ number_format($x->fiyat) }}   ₺</span>
                                         </td>
-                                        <td class="align-middle text-center">
+                                        <td class="align-middle text-center mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $x->yapan }}</span>
                                         </td>
                                         <td class="align-middle">
@@ -141,7 +141,7 @@
                                     </tr>
 
                                 @endforeach
-
+<tr></tr>
 
 
                                 </tbody>

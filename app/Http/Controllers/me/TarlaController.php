@@ -50,7 +50,8 @@ class TarlaController extends Controller
 //            ]);
 //            return view('pages.user-tarla-satis')->withErrors(['kalan' => 'tarla fiyati , ya pesin ya kalan duz degil']);
             //bir ana sayfa  YAPMALIYIIIIIIIIIIKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-            dd('tarla fiyati , ya pesin ya kalan duz degil');
+            return redirect()->route('userDashboard')->withErrors('Eror (işlem yapılmadı) : tarla fiyati , ya pesin ya kalan duz değil');
+//            dd('tarla fiyati , ya pesin ya kalan duz degil');
         }
 
 //        dd($request->all());

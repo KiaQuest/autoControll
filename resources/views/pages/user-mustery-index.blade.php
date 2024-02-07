@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Muşteri index sayfasi'])
 
 {{--    <style>--}}
 {{--        body{--}}
@@ -17,14 +17,14 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Authors table</h6>
+                        <h6>Muşteriler Tablosu</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             #</th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Müşteri adi</th>
@@ -32,16 +32,16 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Müşteri Telefonu</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Müşteri adresi</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Açiklama</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             yapan</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Tarih</th>
 {{--                                        <th class="text-secondary opacity-7"></th>--}}
                                     </tr>
@@ -81,10 +81,8 @@
 
                                 @foreach($data as $z)
                                     <tr>
-                                        <td>
-
+                                        <td class=" mobile1">
                                             <p class="text-xm font-weight-lighter mb-0 px-2">{{ $loop->iteration  }}</p>
-
                                         </td>
                                         <td>
 {{--                                            <div class="d-flex px-2 py-1">--}}
@@ -110,16 +108,13 @@
 {{--                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->tel }}</p>--}}
 
                                         </td>
-                                        <td>
+                                        <td class=" mobile1">
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
-
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->adres }}</p>
-
                                         </td>
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->about }}</p>
-
                                         </td>
 {{--                                        <td class="align-middle text-center text-sm">--}}
 {{--                                            <span class="badge badge-sm bg-gradient-{{ $z->durum == 0 ? "success" : "secondary" }}">{{ $z->durum == 0 ? "Aktif" : "Pasif" }}</span>--}}
@@ -142,7 +137,7 @@
 {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
 {{--                                        </td>--}}
-                                        <td class="align-middle">
+                                        <td class="align-middle mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->yapan }}</span>
                                         </td>
                                         <td class="align-middle">
@@ -151,6 +146,7 @@
                                     </tr>
 
                                 @endforeach
+                                <tr></tr>
                                 </tbody>
                             </table>
                             <style>

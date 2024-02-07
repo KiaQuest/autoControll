@@ -1,7 +1,7 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Your Profile'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Ödeme Eklemek Sayfasi'])
     <div class="card shadow-lg mx-4 card-profile-bottom">
         <div class="card-body p-3">
             <div class="row gx-4">
@@ -16,7 +16,7 @@
                             {{ auth()->user()->firstname ?? 'Firstname' }} {{ auth()->user()->lastname ?? 'Lastname' }}
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm">
-                            Public Relations
+                            Ödeme Ekle
                         </p>
                     </div>
                 </div>
@@ -34,14 +34,14 @@
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
                                     data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-email-83"></i>
-                                    <span class="ms-2">Messages</span>
+                                    <span class="ms-2">Mesajlar</span>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center "
                                     data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
                                     <i class="ni ni-settings-gear-65"></i>
-                                    <span class="ms-2">Settings</span>
+                                    <span class="ms-2">Ayarlar</span>
                                 </a>
                             </li>
                         </ul>
@@ -207,13 +207,12 @@
 
                             </div>
                             <hr class="horizontal dark">
-                            <p class="text-uppercase text-sm">Firma Açıklaması</p>
+                            <p class="text-uppercase text-sm">Ozel Açıklaması</p>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="example-text-input" class="form-control-label">Firma Açıklaması</label>
-                                        <input class="form-control" type="text" name="About"
-                                            >
+                                        <label for="example-text-input" class="form-control-label">Ozel Açıklaması</label>
+                                        <input class="form-control" type="text" name="About" value="bilgisiz" required>
                                     </div>
                                 </div>
                             </div>

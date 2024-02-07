@@ -36,6 +36,18 @@ use App\Http\Controllers\me\IhtiacController;
 use App\Http\Controllers\me\SikayetController;
 use App\Http\Controllers\me\CustomerController;
 use App\Http\Controllers\me\ArabaController;
+use Illuminate\Support\Facades\Artisan;
+
+Route::get('/clearex', function() {
+//    return 'ss';
+    Artisan::call('cache:clear');
+    Artisan::call('route:cache');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    return 'Application cache has been cleared , <br> Routes cache has been cleared
+    , <br> Config cache has been cleared , <br> View cache has been cleared';
+});
+
 
 Route::get('/ilhan', [adminController::class, 'test1']);
 
@@ -131,4 +143,24 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 });
 
+
+// Clear application cache:
+
+////Clear route cache:
+//Route::get('/route-cache', function() {
+//    Artisan::call('route:cache');
+//    return 'Routes cache has been cleared';
+//});
+//
+////Clear config cache:
+//Route::get('/config-cache', function() {
+//    Artisan::call('config:cache');
+//    return 'Config cache has been cleared';
+//});
+//
+//// Clear view cache:
+//Route::get('/view-clear', function() {
+//    Artisan::call('view:clear');
+//    return 'View cache has been cleared';
+//});
 

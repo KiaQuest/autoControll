@@ -1,3 +1,75 @@
+
+
+
+<style>
+
+
+    .mobile2 , .mobile3{
+        display: none;
+    }
+    /*.desktop1{*/
+    /*    display: block ruby;*/
+    /*}*/
+
+    i{
+        font-size: large !important;
+        padding: 0.1rem !important;
+    }
+
+    @media only screen and (max-width: 600px) {
+        tr{
+            /*display: table;*/
+            display: flex;
+            flex-direction: column;
+            border-bottom: 5px brown groove;
+        }
+        td{
+            border-bottom: 1px grey dotted;
+            /*display: flex;*/
+            /*justify-content: space-evenly;*/
+        }
+        button , i{
+            font-size: large !important;
+        }
+        i{
+            padding: 0 2rem;
+        }
+        /*button{*/
+        /*    margin: 0 0 0 1em !important;*/
+        /*}*/
+        .mobile1{
+            display: none;
+        }
+        .mobile2{
+            display: block;
+        }
+        .mobile3{
+            display: inline;
+        }
+        .mobile4{
+            display: block;
+        }
+        /*detay*/
+        .modal-content{
+            width: 80% !important;
+        }
+        span{
+            font-size: 1.04rem !important;;
+            /*font-size: 1.4rem !important;;*/
+        }
+        /*.firmadume{*/
+        /*    display: inline-flex;*/
+        /*    justify-content: center;*/
+        /*}*/
+        /*.solp{*/
+        /*    margin: 0 0 0 1em !important;*/
+        /*}*/
+    }
+
+
+
+</style>
+
 <!-- Navbar -->
 <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl
         {{ str_contains(Request::url(), 'virtual-reality') == true ? ' mt-3 mx-3 bg-primary' : '' }}" id="navbarBlur"
@@ -5,7 +77,8 @@
     <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Sayfa</a></li>
+{{--                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Pages</a></li>--}}
                 <li class="breadcrumb-item text-sm text-white active" aria-current="page">{{ $title }}</li>
             </ol>
             <h6 class="font-weight-bolder text-white mb-0">{{ $title }}</h6>
@@ -39,12 +112,12 @@
                         </div>
                     </a>
                 </li>
-                <li class="nav-item px-3 d-flex align-items-center">
-                    <a href="javascript:;" class="nav-link text-white p-0">
-                        <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>
-                    </a>
-                </li>
-                <li class="nav-item dropdown pe-2 d-flex align-items-center">
+{{--                <li class="nav-item px-3 d-flex align-items-center">--}}
+{{--                    <a href="javascript:;" class="nav-link text-white p-0">--}}
+{{--                        <i class="fa fa-cog fixed-plugin-button-nav cursor-pointer"></i>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+                <li class="nav-item dropdown pe-2 d-flex align-items-center px-3">
                     <a href="javascript:;" class="nav-link text-white p-0" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-bell cursor-pointer"></i>

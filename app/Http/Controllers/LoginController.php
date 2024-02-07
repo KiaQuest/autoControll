@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Password;
-//use Artisan;
+use Artisan;
 
 class LoginController extends Controller
 {
@@ -18,6 +18,12 @@ class LoginController extends Controller
     public function show()
     {
 //        Artisan::call('migrate');
+//        Artisan::call('cache:clear');
+
+//        Artisan::call('cache:clear');
+//        Artisan::call('route:cache');
+//        Artisan::call('config:cache');
+//        Artisan::call('view:clear');
         return view('auth.login');
     }
 

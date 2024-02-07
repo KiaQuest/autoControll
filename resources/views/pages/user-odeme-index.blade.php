@@ -1,13 +1,16 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Ödeme Listesi'])
+
+
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Odeme table (max = 20)</h6>
+                        <h6>Odemeler Listesı</h6>
+{{--                        <h6>Odeme table (max = 20)</h6>--}}
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -18,19 +21,22 @@
 {{--                                            #</th>--}}
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             açıklama</th>
-                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ">
                                             yapan</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Parsel sayi</th>--}}
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Alacak</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Verecek</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile2">
+                                            Miktar</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             kalan</th>
 {{--                                        <th--}}
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
@@ -45,7 +51,7 @@
 {{--                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">--}}
 {{--                                            Yetkili</th>--}}
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Tarih</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -165,16 +171,16 @@
                                         @if($z->OdemeTipi == 'alacak')
 
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }} ₺</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }} <span class="mobile1">₺</span></span>
                                             </td>
-                                            <td class="align-middle text-center">
+                                            <td class="align-middle text-center mobile1">
                                             </td>
                                         @else()
 
-                                            <td class="align-middle text-center">
+                                            <td class="align-middle text-center mobile1">
                                             </td>
                                             <td class="align-middle text-center">
-                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }} ₺</span>
+                                                <span class="text-secondary text-xs font-weight-bold">{{ number_format($z->kapora) }} <span class="mobile1">₺</span></span>
                                             </td>
                                             @endif
 {{--                                        <td class="align-middle text-center">--}}
@@ -193,17 +199,18 @@
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->parselfiyati }}</span>--}}
 {{--                                        </td>--}}
-                                        <td class="align-middle">
+                                        <td class="align-middle mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ number_format($son) }}</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at }}</span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle desktop1">
 {{--                                            @if($z->delete == 0)--}}
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Onaylanmiş</span>--}}
+
                                                 <a href="{{ route('onay.durumu.change' , ['id' => $z->id]) }}"><button type="button" class="btn btn-danger btn-sm btnkia"><i class="fa fa-trash"> iptal</i></button></a>
-                                            <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}"
+                       <button type="button" class="btn btn-info btn-sm btnkia" id="b{{ $loop->iteration }}" style="margin: 0 0 0 1em !important;"
                                                     onclick="odemeDetay({{ $z->id}})"><i class="fa fa-eye"></i></button>
 {{--                                            @else--}}
 {{--                                                <span class="text-secondary text-xs font-weight-bold ">Silinip</span>--}}
@@ -211,6 +218,8 @@
 {{--                                            <span class="text-secondary text-xs font-weight-bold">{{ $z->onay }}</span>--}}
                                         </td>
                                     </tr>
+
+
 
                                     @php
 
@@ -228,21 +237,24 @@
         <td> </td>
         <td>
 {{--            {{ $toplam }} ₺--}}
-            {{ number_format($toplamHep) }}   ₺
+            <span class="mobile3" >Toplam</span>   {{ number_format($toplamHep) }}   ₺
         </td>
     @else
 
 
         <td>
 {{--            {{ $toplam }} ₺--}}
-        {{ number_format($toplamHep) }}   ₺
+            <span class="mobile3">Toplam</span>   {{ number_format($toplamHep) }}   ₺
         </td>
         <td> </td>
     @endif
-    <td> {{ number_format($r) }}</td>
+    <td> @if(isset($r))
+            {{ number_format($r) }}
+    @endif</td>
     <td></td>
 
 </tr>
+
 {{--                        VADEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE               --}}
 {{--        <tr>--}}
 {{--            <td>--}}
@@ -546,7 +558,7 @@
                     {{--                                            </a>--}}
 
 
-                    <div class="row">
+                    <div class="row mobile4">
                         <div class="col-md-6"><label for="">About: </label><div id="d1" class="in"> </div></div>
                         <div class="col-md-6"><label for="">OdemeAciklama: </label><div id="d2" class="in"></div></div>
                         <div class="col-md-6"><label for="">Odeme Sekli:</label><div  id="d3" class="in"></div></div>
@@ -703,60 +715,60 @@
 
                         // console.log(data);
                         let man = document.createElement("span");
-                        man.setAttribute("class", 'text-xxs');
+                        // man.setAttribute("class", 'text-xxs');
                         man.innerHTML = data.About ;
                         document.getElementById('d1').appendChild(man);
 
                         // console.log(data);
                         let man2 = document.createElement("span");
-                        man2.setAttribute("class", 'text-xxs');
+                        // man2.setAttribute("class", 'text-xxs');
                         man2.innerHTML = data.OdemeAciklama ;
                         document.getElementById('d2').appendChild(man2);
 
                         let man3 = document.createElement("span");
-                        man3.setAttribute("class", 'text-xxs');
+                        // man3.setAttribute("class", 'text-xxs');
                         man3.innerHTML = data.OdemeSekli ;
                         // man3.innerHTML = data.ParselSayisi + ' / ' + data.SatisDurumu  ;
                         document.getElementById('d3').appendChild(man3);
 
                         let man4 = document.createElement("span");
-                        man4.setAttribute("class", 'text-xxs');
+                        // man4.setAttribute("class", 'text-xxs');
                         man4.innerHTML = data.OdeyenAd + ' / ' + data.OdeyenSoyad  ;
                         document.getElementById('d4').appendChild(man4);
 
                         let man5 = document.createElement("span");
-                        man5.setAttribute("class", 'text-xxs');
+                        // man5.setAttribute("class", 'text-xxs');
                         man5.innerHTML = data.OdeyenTc ;
                         document.getElementById('d5').appendChild(man5);
 
                         let man6 = document.createElement("span");
-                        man6.setAttribute("class", 'text-xxs');
+                        // man6.setAttribute("class", 'text-xxs');
                         man6.innerHTML = data.OdeyenTel  ;
                         document.getElementById('d6').appendChild(man6);
 
                         let man7 = document.createElement("span");
-                        man7.setAttribute("class", 'text-xxs');
+                        // man7.setAttribute("class", 'text-xxs');
                         man7.innerHTML = data.OdemeTipi;
                         document.getElementById('d7').appendChild(man7);
 
                         let man8 = document.createElement("span");
-                        man8.setAttribute("class", 'text-xxs');
+                        // man8.setAttribute("class", 'text-xxs');
                         man8.innerHTML = data.VadeTarihi  ;
                         document.getElementById('d8').appendChild(man8);
 
                         let man9 = document.createElement("span");
-                        man9.setAttribute("class", 'text-xxs');
+                        // man9.setAttribute("class", 'text-xxs');
                         man9.innerHTML = data.Yetkili  ;
                         document.getElementById('d9').appendChild(man9);
 
                         let man10 = document.createElement("span");
-                        man10.setAttribute("class", 'text-xxs');
+                        // man10.setAttribute("class", 'text-xxs');
                         man10.innerHTML = data.created_at  ;
                         document.getElementById('d10').appendChild(man10);
 
 
                         let man11 = document.createElement("span");
-                        man11.setAttribute("class", 'text-xxs');
+                        // man11.setAttribute("class", 'text-xxs');
                         man11.innerHTML = data.kalan  ;
                         document.getElementById('d11').appendChild(man11);
 
@@ -764,29 +776,29 @@
 
 
                         let man12 = document.createElement("span");
-                        man12.setAttribute("class", 'text-xxs');
+                        // man12.setAttribute("class", 'text-xxs');
                         man12.innerHTML = data.kapora  ;
                         document.getElementById('d12').appendChild(man12);
 
 
                         let man13 = document.createElement("span");
-                        man13.setAttribute("class", 'text-xxs');
+                        // man13.setAttribute("class", 'text-xxs');
                         man13.innerHTML = data.parselfiyati  ;
                         document.getElementById('d13').appendChild(man13);
 
 
                         let man14 = document.createElement("span");
-                        man14.setAttribute("class", 'text-xxs');
+                        // man14.setAttribute("class", 'text-xxs');
                         man14.innerHTML = data.parselsayisi  ;
                         document.getElementById('d14').appendChild(man14);
 
                         let man15 = document.createElement("span");
-                        man15.setAttribute("class", 'text-xxs');
+                        // man15.setAttribute("class", 'text-xxs');
                         man15.innerHTML = data.yapan  ;
                         document.getElementById('d15').appendChild(man15);
 
                         let man16 = document.createElement("span");
-                        man16.setAttribute("class", 'text-xxs');
+                        // man16.setAttribute("class", 'text-xxs');
                         man16.innerHTML = data.id  ;
                         document.getElementById('d16').appendChild(man16);
 

@@ -1,13 +1,13 @@
 @extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'Tables'])
+    @include('layouts.navbars.auth.topnav', ['title' => 'Ihtiaclar sayfasi'])
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="card-header pb-0">
-                        <h6>Authors table</h6>
+                        <h6>Ihtiac tablosu</h6>
                     </div>
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
@@ -20,18 +20,20 @@
                                             aÇıklama</th>
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             yapan</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Fırma</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             odeme tipi</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             mebleğ</th>
-                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             kalan</th>
+                                        <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile2">
+                                            Ödeme</th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 mobile1">
                                             Tarih</th>
-                                        <th class="text-secondary opacity-7">işlem</th>
+                                        <th class="text-secondary opacity-7 mobile1">işlem</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,20 +94,23 @@
                                         <td>
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->yapan }}</p>
                                         </td>
-                                        <td>
+                                        <td class=" mobile1">
 {{--                                            <p class="text-xs font-weight-bold mb-0">Manager</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">Organization</p>--}}
 
-                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->firma }}</p>
+                                            <p class="text-xs font-weight-bold mb-0">{{ $z->firma }}</p>
 
                                         </td>
-                                        <td>
+                                        <td class=" mobile2">
+                                            <p class="text-xs font-weight-bold mb-0 ">{{ $z->OdemeTipi }} , {{ $z->kapora + $z->kalan }} </p>
+                                        </td>
+                                        <td class=" mobile1">
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->OdemeTipi }}</p>
                                         </td>
-                                        <td>
+                                        <td class=" mobile1">
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->kapora }}</p>
                                         </td>
-                                        <td>
+                                        <td class=" mobile1">
                                             <p class="text-xs font-weight-bold mb-0 ">{{ $z->kalan }}</p>
                                         </td>
 {{--                                        <td class="align-middle text-center text-sm">--}}
@@ -129,7 +134,7 @@
 {{--                                            <p class="text-xs font-weight-bold mb-0">{{ $z->SahipAd }}</p>--}}
 {{--                                            <p class="text-xs text-secondary mb-0">{{ $z->SahipSoyad }}</p>--}}
 {{--                                        </td>--}}
-                                        <td class="align-middle">
+                                        <td class="align-middle  mobile1">
                                             <span class="text-secondary text-xs font-weight-bold">{{ $z->created_at }}</span>
                                         </td>
 
